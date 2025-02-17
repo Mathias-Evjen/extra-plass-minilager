@@ -10,10 +10,10 @@ function testboder(){
 }
 
 function printBoder(boder) {
-    for(bod in boder){
+    for(let i = 0; i < boder.length; i++){
         nybod = document.createElement("tr");
         nybod.classList.add();
-        nybod.innerHTML = `<th>${bod.katNr}</th><th>${bod.areal}</th><th>${bod.volum}</th><th>${bod.antallLedig}</th>`;
+        nybod.innerHTML = `<th>${boder[i].katNr}</th><th>${boder[i].areal}</th><th>${boder[i].volum}</th><th>${boder[i].antallLedig}</th>`;
         document.getElementById("bodtabell").appendChild(nybod);
     }
 
