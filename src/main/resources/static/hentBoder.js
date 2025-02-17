@@ -13,7 +13,7 @@ function printBoder(boder) {
     for(let i = 0; i < boder.length; i++){
         nybod = document.createElement("tr");
         nybod.classList.add();
-        nybod.innerHTML = `<th>${boder[i].katNr}</th><th>${boder[i].areal}</th><th>${boder[i].volum}</th><th>${boder[i].antallLedig}</th><th>${boder[i].pris}kr`;
+        nybod.innerHTML = `<td>${boder[i].katNr}</td><td>${boder[i].areal}</td><td>${boder[i].volum}</td><td>${boder[i].antallLedig}</td>`;
         document.getElementById("bodtabell").appendChild(nybod);
     }
     
