@@ -1,0 +1,1 @@
+CREATE TABLE Bod AS SELECT * FROM CSVREAD("bod.csv", NULL, 'charset=UTF-8 fieldSeparator=;');
