@@ -1,0 +1,38 @@
+.wrapper{
+    min-width: 1030px;
+    max-width: 1030px;
+    margin: auto;
+    text-align: center;
+    font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+    font-weight: lighter;
+}
+
+.priser-info-wrapper{
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+
+.priser-info-header{
+    color: black;
+    font-size: larger;
+    font-weight: 550;
+    
+}
+
+table {
+    min-width: 1030px;
+    max-width: 1030px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
