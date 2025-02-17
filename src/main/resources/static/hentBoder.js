@@ -10,7 +10,9 @@ function testboder(){
 }
 
 function printBoder(boder) {
+    console.log(boder)
     for(bod in boder){
+        console.log(bod)
         nybod = document.createElement("tr");
         nybod.classList.add();
         nybod.innerHTML = `<th>${bod.katNr}</th><th>${bod.areal}</th><th>${bod.volum}</th><th>${bod.antallLedig}</th>`;
