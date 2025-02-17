@@ -8,18 +8,24 @@
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <h1>Tilgjengelige boder</h1>
-    <table id="bodtabell">
-        <tr>
-            <th>Kategori</th>
-            <th>Areal</th>
-            <th>Volum</th>
-            <th>Antall ledige</th>
-            <th>Pris</th>
-        </tr>
-    </table>
-    <button onclick="testboder()">Test</button>
+    <div class="wrapper">
+        <div class="priser-info-wrapper">
+            <p class="priser-info-header">PRISER</p>
+            <p>Her er et utvalg av priser/ størrelser på boder du kan leie hos oss.</p>
+            <p>NB! Vi har flere ulike størrelser til leie hos oss, så ta kontakt i dag på 64 87 29 99 for en hyggelig prat.</p>
+        </div>
+        <h1>Tilgjengelige boder</h1>
+        <table id="bodtabell">
+            <tr>
+                <th>Kategori</th>
+                <th>Areal</th>
+                <th>Volum</th>
+                <th>Antall ledige</th>
+                <th>Pris</th>
+            </tr>
+        </table>
+        <button onclick="testboder()">Test</button>
+    </div>
     <script src="hentBoder.js"></script>
-    <link rel="stylesheet" href="style.css">
 </body>
 </html>
