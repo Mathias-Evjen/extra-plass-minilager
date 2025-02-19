@@ -53,7 +53,7 @@ public class BodKategoriRepository {
             bodKategorier.putIfAbsent(bodKat.getKatNr(), new ArrayList<>());
             bodKategorier.get(bodKat.getKatNr()).add(bodKat.getBodNr());
         }
-        System.out.println(bodKategorier);
+        //System.out.println(bodKategorier);
         return bodKategorier;
     }
 }
