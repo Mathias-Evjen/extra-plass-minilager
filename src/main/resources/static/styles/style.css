@@ -12,6 +12,8 @@
     border: 1px solid red;
     padding: 10px;
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .priser-info-header{
@@ -35,4 +37,23 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+
+.ring-oss-info-wrapper{
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.ring-oss-info-medium{
+    color: black;
+    font-size: larger;
+    font-weight: 550;
+}
+.ring-oss-info-large{
+    color: black;
+    font-size: x-large;
+    font-weight: 550;
 }

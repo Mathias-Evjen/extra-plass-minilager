@@ -51,6 +51,7 @@ public class KategoriRepository {
 
     // Går gjenom hver kategori og populerer med bodene som tilhører den kategorien
     public void populerKategorier(Map<Integer, Integer> bodKategorier, List<Integer> opptatt) {
+        getKategorier();
         for (Kategori kategori : kategorier) {
             bodKategorier.forEach( (bodNr, katNr) -> {
                 if (katNr == kategori.getNr()) {
