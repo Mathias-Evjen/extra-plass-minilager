@@ -1,21 +1,25 @@
+// ==================
+//  Klasse for boder
+// ==================
+
+
 package com.example.extraplassminilager;
 
 public class Bod {
     private int nr, katNr;
-    private String prisgruppe;
-    private boolean erOpptatt = false;
+    private boolean erOpptatt;
 
     public Bod() {}
 
-    public Bod(int nr, String prisgruppe) {
+    public Bod(int nr) {
         this.nr = nr;
-        this.prisgruppe = prisgruppe;
+        this.erOpptatt = false;
     }
 
-    public Bod(int nr, String prisgruppe, int katNr) {
+    public Bod(int nr, int katNr) {
         this.nr = nr;
-        this.prisgruppe = prisgruppe;
         this.katNr = katNr;
+        this.erOpptatt = false;
     }
 
     public int getNr() {
@@ -26,14 +30,6 @@ public class Bod {
         this.nr = nr;
     }
 
-    public String getPrisgruppe() {
-        return prisgruppe;
-    }
-
-    public void setPrisgruppe(String prisgruppe) {
-        this.prisgruppe = prisgruppe;
-    }
-
     public int getKatNr() {
         return katNr;
     }
@@ -42,10 +38,11 @@ public class Bod {
         this.katNr = katNr;
     }
 
-    public boolean sjekkLedig() {
-        if (prisgruppe.equals("FLYTTET")) {
-            return true;
-        }
-        return false;
+    public void settLedig() {
+        this.erOpptatt = false;
+    }
+
+    public void settOpptatt() {
+        this.erOpptatt = true;
     }
 }

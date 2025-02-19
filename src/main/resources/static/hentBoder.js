@@ -18,3 +18,15 @@ function printBoder(boder) {
     }
     
 }
+
+function hentOpptatt() {
+    $.get("http://localhost:8080/hentOpptatt", function(opptatt) {
+        console.log(opptatt);
+    })
+}
+
+function test() {
+    $.get("http://localhost:8080/test", function(opptatt) {
+
+    })
+}
