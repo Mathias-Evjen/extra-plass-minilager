@@ -29,7 +29,7 @@
     align-items: center;
     padding: 10px 20px;
     background-color: #ffffff;
-    border-bottom: 1px solid gray;
+   
 }
 
 .logo {
@@ -49,6 +49,11 @@
     border: none;
 }
 
+hr{
+    width: 99.9vw;
+    position: absolute;
+    left: 0px;
+}
 
 table {
     min-width: 1030px;
