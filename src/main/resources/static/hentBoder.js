@@ -40,8 +40,8 @@ function visBodIKat(katNummer, boderIKat){
     katID = "kategori"+katNummer;
     printUt = `<td>`;
     for(let i = 0; i < boder.length; i++){
-        if(boder[i].katNr = katNummer){
-            printUt += `${boder[i].nr} <br>`;
+        if(!boder[i].opptatt){
+            printUt += ` ${boder[i].nr} | `;
         }
     }
     printUt += `</td>`
