@@ -17,7 +17,13 @@ public class Controller {
 
     @GetMapping("/hentKategorier")
     public List<Kategori> hentKategorier() {
-        List<Kategori> kategorier = katRepo.sendKategorier(bodKatRepo.bodKategoriMap(), dataRepo.getOpptatt());
+        List<Kategori> kategorier = katRepo.getKategorier(bodKatRepo.bodKategoriMap(), dataRepo.getOpptatt());
         return kategorier;
+    }
+
+    @GetMapping("/hentBoder")
+    public List<Bod> hentBoder() {
+        List<Bod> boder = dataRepo.getBoder(bodKatRepo.hentBodKategorier());
+        return boder;
     }
 }

@@ -47,19 +47,11 @@ public class BodKategoriRepository {
         }
     }
 
-    /*public Map<Integer, List<Integer>> bodKategoriMap() {
+    public Map<Integer, List<Integer>> bodKategoriMap() {
         Map<Integer, List<Integer>> bodKategorier = new HashMap<>();
         for (BodKategori bodKat : hentBodKategorier()) {
-            bodKategorier.put(bodKat.getKatNr(), new ArrayList<>());
-        }
-        System.out.println(bodKategorier);
-        return bodKategorier;
-    }*/
-
-    public Map<Integer, Integer> bodKategoriMap() {
-        Map<Integer, Integer> bodKategorier = new HashMap<>();
-        for (BodKategori bodKat : hentBodKategorier()) {
-            bodKategorier.put(bodKat.getBodNr(), bodKat.getKatNr());
+            bodKategorier.putIfAbsent(bodKat.getKatNr(), new ArrayList<>());
+            bodKategorier.get(bodKat.getKatNr()).add(bodKat.getBodNr());
         }
         System.out.println(bodKategorier);
         return bodKategorier;

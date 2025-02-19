@@ -39,11 +39,7 @@ public class DataRepository {
         }
     }
 
-    public List<Integer> getBodNr() {
-        splitBoder(hentData());
-        return bodNr;
-    }
-
+    // Returnerer liste med alle bodnummere som er opptatt
     public List<Integer> getOpptatt() {
         if (!splittet) splitBoder(hentData());
         List<Integer> erOpptatt = new ArrayList<>();
@@ -80,7 +76,8 @@ public class DataRepository {
 
     }
 
-    // Henter ut alle linjer fra database
+    // Henter ut alle linjer fra database og legger i data-objekter
+    // Returnerer liste med data-objekter
     public List<Data> hentData() {
         try {
             List<Data> data = db.query("SELECT * FROM Bod", new DataRowMapper());
@@ -92,7 +89,45 @@ public class DataRepository {
         }
     }
 
-    public List<String> getPrisgruppe() {
-        return prisgruppe;
+    // Oppretter´bod-objekter og oppdaterer om de er ledige eller ikke
+    // Returnerer liste med bod-objektene
+    public List<Bod> getBoder(List<BodKategori> bodKategori) {
+        List<Bod> boder = new ArrayList<>();
+
+        for (BodKategori bodKat : bodKategori) {
+            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr()));
+        }
+
+        for (Bod bod : boder) {
+            for (int tatt : getOpptatt()) {
+                if (bod.getNr() == tatt) {
+                    bod.settOpptatt();
+                }
+            }
+        }
+
+        return boder;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
