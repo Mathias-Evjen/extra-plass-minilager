@@ -1,3 +1,7 @@
+// ==============================================
+//  Repository for å hente ut boder fra databasen
+// ==============================================
+
 package com.example.extraplassminilager;
 
 import org.slf4j.Logger;
@@ -9,8 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class DataRepository {
@@ -19,6 +22,8 @@ public class DataRepository {
 
     private List<Integer> bodNr = new ArrayList<>();
     private List<String> prisgruppe = new ArrayList<>();
+
+    private Map<Integer, String> bodTilgjengelighet = new HashMap<>();
 
     private boolean splittet = false;
 
@@ -43,35 +48,48 @@ public class DataRepository {
         if (!splittet) splitBoder(hentData());
         List<Integer> erOpptatt = new ArrayList<>();
 
-        for (int i = 0; i < bodNr.size(); i++) {
-            //System.out.println(prisgruppe.get(i));
-            if (prisgruppe.get(i).equals("MND") || prisgruppe.get(i).equals("ÅR") || prisgruppe.get(i).equals("HALVÅR") || prisgruppe.get(i).equals("KVARTAL")) {
-                erOpptatt.add(bodNr.get(i));
+        bodTilgjengelighet.forEach( (bodNr, tilgjengelighet) -> {
+            if (tilgjengelighet.equals("MND") || tilgjengelighet.equals("KVARTAL") || tilgjengelighet.equals("HALVÅR") || tilgjengelighet.equals("ÅR")) {
+                erOpptatt.add(bodNr);
             }
-        }
+        });
+
+        Collections.sort(erOpptatt);
+        //System.out.println(erOpptatt);
         return erOpptatt;
     }
 
     // Splitter linjer som har flere boder og lagrer i bodNr- og prisgruppe-array
     public void splitBoder(List<Data> data) {
-        for (Data linje : data) {
-            String lNr = linje.getBodNr().replaceAll("\\s", "");
+        try {
+            for (Data linje : data) {
+                String lNr = linje.getBodNr().replaceAll("\\s", "");
 
-            String[] nrs = lNr.split("[-/]+");
+                String[] nrs = lNr.split("[-/]+");
 
-            for (String nr : nrs) {
-                bodNr.add(Integer.parseInt(nr));
-                prisgruppe.add(linje.getPrisgruppe());
+                for (String nr : nrs) {
+                    bodTilgjengelighet.put(Integer.parseInt(nr), linje.getPrisgruppe());
+                }
             }
+            logger.info("Splittet linjer med flere boder");
+            //System.out.println(bodTilgjengelighet);
+            splittet = true;
+        } catch (Exception e) {
+            logger.error("Formateringsfeil: Kunne ikke splitte boder: " + e);
         }
-        splittet = true;
+
     }
 
     // Henter ut alle linjer fra database
     public List<Data> hentData() {
-        List<Data> data = db.query("SELECT * FROM Bod", new DataRowMapper());
-        //System.out.println(data);
-        return data;
+        try {
+            List<Data> data = db.query("SELECT * FROM Bod", new DataRowMapper());
+            logger.info("Hentet boder fra database");
+            return data;
+        } catch (Exception e) {
+            logger.error("Error: Kunne ikke hente boder fra databasen: " + e);
+            return null;
+        }
     }
 
     public List<String> getPrisgruppe() {

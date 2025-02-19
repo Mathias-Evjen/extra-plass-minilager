@@ -17,3 +17,12 @@ CREATE TABLE IF NOT EXISTS Kategori (
 
 INSERT INTO Kategori (katNr, areal, volum, pris)
 SELECT * FROM CSVREAD('file:src/main/resources/kategori.csv');
+
+CREATE TABLE IF NOT EXISTS BodKategori (
+      bodNr INT,
+      katNr INT,
+      primary key (bodNr, katNr)
+);
+
+INSERT INTO BodKategori (bodNr, katNr)
+SELECT * FROM CSVREAD('file:src/main/resources/bod-kategori.csv', NULL, 'charset=UTF-8 fieldSeparator=;');
