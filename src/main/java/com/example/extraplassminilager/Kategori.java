@@ -85,10 +85,6 @@ public class Kategori {
         this.boder.add(bod);
     }
 
-    public int antallLedig() {
-        return antallBoder - antallOpptatt;
-    }
-
     public void settOpptatt(List<Integer> opptatt) {
         for (int tatt : opptatt) {
             for (Bod bod : getBoder()) {

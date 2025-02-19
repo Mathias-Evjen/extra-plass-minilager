@@ -25,7 +25,6 @@ public class KategoriRepository {
 
     Logger logger = LoggerFactory.getLogger(KategoriRepository.class);
 
-    private List<Kategori> kategorier;
 
     class KategoriRowMapper implements RowMapper<Kategori> {
         @Override
@@ -39,31 +38,37 @@ public class KategoriRepository {
         }
     }
 
-    public void getKategorier() {
+    // Henter kategori-info fra database og legger i kategori-objekt-liste
+    // Returnerer liste med kategori-objekter
+    public List<Kategori> getKategorierFromDatabase() {
         try {
             List<Kategori> kategorier = db.query("SELECT * FROM Kategori", new KategoriRowMapper());
             logger.info("Hentet kategorier fra database");
-            this.kategorier = kategorier;
+            return kategorier;
         } catch (Exception e) {
             logger.error("Error: Kunne ikke hente kategorier fra databasen: " + e);
+            return null;
         }
     }
 
-    // Går gjenom hver kategori og populerer med bodene som tilhører den kategorien
-    public void populerKategorier(Map<Integer, Integer> bodKategorier, List<Integer> opptatt) {
+    // Går gjennom hver kategori og populerer med bod-objekter som tilhører den kategorien
+    // Returnerer liste med alle kategori-objekter
+    public List<Kategori> populerKategorier(Map<Integer, List<Integer>> bodKategorier, List<Integer> opptatt) {
+        List<Kategori> kategorier = getKategorierFromDatabase();
         for (Kategori kategori : kategorier) {
-            bodKategorier.forEach( (bodNr, katNr) -> {
-                if (katNr == kategori.getNr()) {
-                    kategori.addBoder(new Bod(bodNr, katNr));
-                    kategori.incAntallBoder();
-                }
-            });
+            for (int bodNr : bodKategorier.get(kategori.getNr())) {
+                kategori.addBoder(new Bod(bodNr, kategori.getNr()));
+                kategori.incAntallBoder();
+            }
+
             kategori.settOpptatt(opptatt);
         }
+        return kategorier;
     }
 
-    public List<Kategori> sendKategorier(Map<Integer, Integer> bodKategorier, List<Integer> opptatt) {
-        populerKategorier(bodKategorier, opptatt);
+    // Sender lise med kategori-objekter
+    public List<Kategori> getKategorier(Map<Integer, List<Integer>> bodKategorier, List<Integer> opptatt) {
+        List<Kategori> kategorier = populerKategorier(bodKategorier, opptatt);
         return kategorier;
     }
 }
