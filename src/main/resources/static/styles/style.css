@@ -12,6 +12,8 @@
     border: 1px solid red;
     padding: 10px;
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .priser-info-header{
@@ -20,6 +22,33 @@
     font-weight: 550;
     
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid gray;
+}
+
+.logo {
+    width: 50px;
+}
+
+.linker {
+    display: flex;
+    gap: 20px;
+}
+
+.linker a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    background-color: white;
+    border: none;
+}
+
 
 table {
     min-width: 1030px;
@@ -35,4 +64,23 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+
+.ring-oss-info-wrapper{
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.ring-oss-info-medium{
+    color: black;
+    font-size: larger;
+    font-weight: 550;
+}
+.ring-oss-info-large{
+    color: black;
+    font-size: x-large;
+    font-weight: 550;
 }

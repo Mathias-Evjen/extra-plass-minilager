@@ -51,10 +51,15 @@ public class KategoriRepository {
         }
     }
 
+
     // Går gjennom hver kategori og populerer med bod-objekter som tilhører den kategorien
     // Returnerer liste med alle kategori-objekter
-    public List<Kategori> populerKategorier(Map<Integer, List<Integer>> bodKategorier, List<Integer> opptatt) {
+    public List<Kategori> populerKategorierFromDatabase(Map<Integer, List<Integer>> bodKategorier, List<Integer> opptatt) {
         List<Kategori> kategorier = getKategorierFromDatabase();
+
+    // Går gjenom hver kategori og populerer med bodene som tilhører den kategorien
+    public void populerKategorier(Map<Integer, Integer> bodKategorier, List<Integer> opptatt) {
+        getKategorierFromDatabase();
         for (Kategori kategori : kategorier) {
             for (int bodNr : bodKategorier.get(kategori.getNr())) {
                 kategori.addBoder(new Bod(bodNr, kategori.getNr()));
