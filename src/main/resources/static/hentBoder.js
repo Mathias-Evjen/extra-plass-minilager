@@ -12,13 +12,27 @@ function testKategorier(){
 
 function printKategorier(kategorier) {
     let antallLedigeBoder;
+    let utvid = ``;
     for(let i = 0; i < kategorier.length; i++){
+        utvid = ``;
         antallLedigeBoder = kategorier[i].antallBoder - kategorier[i].antallOpptatt;
         nybod = document.createElement("tr");
+        bodIKat = document.createElement("tr");
         nybod.classList.add();
-        nybod.innerHTML = `<td>${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
+        bodIKat.classList.add();
+        bodIKat.id = "kategori" + kategorier[i].nr;
+        if (antallLedigeBoder > 0){utvid = `<button onclick="visBodIKat(${kategorier[i].nr}, ${kategorier[i].boder})">></button>`;}
+        nybod.innerHTML = `<td>${utvid} ${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
         document.getElementById("bodtabell").appendChild(nybod);
+        document.getElementById("bodtabell").appendChild(bodIKat);
     }
+    
+}
+
+function visBodIKat(katNr, boder){
+    console.log(boder);
+    katID = "kategori"+katNr;
+    document.getElementById(katID).innerHTML = `<td>test</td>`
     
 }
 
