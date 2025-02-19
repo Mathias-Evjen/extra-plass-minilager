@@ -9,8 +9,3 @@ function hentBoder() {
         })
 }
 
-function hentOpptatt() {
-    $.get("http://localhost:8080/hentOpptatt", function(opptatt) {
-        console.log(opptatt);
-    })
-}

@@ -1,3 +1,7 @@
+// =======================
+//  Klasse for kategorier
+// =======================
+
 package com.example.extraplassminilager;
 
 import java.util.ArrayList;
@@ -7,17 +11,14 @@ public class Kategori {
     private int nr, antallBoder, antallOpptatt, pris;
     private float areal, volum;
     private List<Bod> boder = new ArrayList<>();
-    private int[] boderIKLasse;
 
     public Kategori() {}
 
-    public Kategori(int nr, float areal, float volum, int pris, int[] boderIKLasse) {
+    public Kategori(int nr, float areal, float volum, int pris) {
         this.nr = nr;
         this.areal = areal;
         this.volum = volum;
-        this.antallBoder = boderIKLasse.length;
         this.pris = pris;
-        this.boderIKLasse = boderIKLasse;
     }
 
     public int getNr() {
@@ -36,12 +37,20 @@ public class Kategori {
         this.antallBoder = antallBoder;
     }
 
+    public void incAntallBoder() {
+        this.antallBoder++;
+    }
+
     public int getAntallOpptatt() {
         return antallOpptatt;
     }
 
     public void setAntallOpptatt(int antallOpptatt) {
         this.antallOpptatt = antallOpptatt;
+    }
+
+    public void incAntallOpptatt() {
+        this.antallOpptatt++;
     }
 
     public float getAreal() {
@@ -64,15 +73,46 @@ public class Kategori {
         return pris;
     }
 
-    public int[] getBoderIKLasse() {
-        return boderIKLasse;
+    public void setPris(int pris) {
+        this.pris = pris;
     }
 
     public List<Bod> getBoder() {
         return boder;
     }
 
+    public void addBoder(Bod bod) {
+        this.boder.add(bod);
+    }
+
     public int antallLedig() {
         return antallBoder - antallOpptatt;
     }
+
+    public void settOpptatt(List<Integer> opptatt) {
+        for (int tatt : opptatt) {
+            for (Bod bod : getBoder()) {
+                if (bod.getNr() == tatt) {
+                    bod.settOpptatt();
+                    incAntallOpptatt();
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
