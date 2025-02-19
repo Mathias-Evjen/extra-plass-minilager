@@ -78,7 +78,7 @@ public class Kategori {
     }
 
     public List<Bod> getBoder() {
-        return boder;
+        return this.boder;
     }
 
     public void addBoder(Bod bod) {

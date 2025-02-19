@@ -50,7 +50,6 @@ public class DataRepository {
             }
         });
 
-        Collections.sort(erOpptatt);
         //System.out.println(erOpptatt);
         return erOpptatt;
     }

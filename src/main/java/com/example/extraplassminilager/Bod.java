@@ -7,19 +7,17 @@ package com.example.extraplassminilager;
 
 public class Bod {
     private int nr, katNr;
-    private boolean erOpptatt;
+    private boolean erOpptatt = false;
 
     public Bod() {}
 
     public Bod(int nr) {
         this.nr = nr;
-        this.erOpptatt = false;
     }
 
     public Bod(int nr, int katNr) {
         this.nr = nr;
         this.katNr = katNr;
-        this.erOpptatt = false;
     }
 
     public int getNr() {
@@ -44,5 +42,10 @@ public class Bod {
 
     public void settOpptatt() {
         this.erOpptatt = true;
+    }
+
+    public boolean getOpptatt() {
+        if (erOpptatt) return true;
+        return false;
     }
 }
