@@ -1,10 +1,10 @@
 function hentBoder() {
-    $.get("/hentAlleBoder", function(data){
+    $.get("/hentKategorier", function(data){
       printBoder(data);  
     })
 }
 
-function testboder(){
+window.onload = function(){
     let testboder = [{katNr: 1, areal: 10, volum: 9, antallLedig: 8, pris: 790}, {katNr: 2, areal: 8, volum: 6, antallLedig: 6, pris: 690}, {katNr: 3, areal: 11, volum: 12, antallLedig: 12, pris: 890}];
     printBoder(testboder);
 }
