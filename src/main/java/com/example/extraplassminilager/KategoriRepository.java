@@ -43,10 +43,10 @@ public class KategoriRepository {
     public List<Kategori> getKategorierFromDatabase() {
         try {
             List<Kategori> kategorier = db.query("SELECT * FROM Kategori", new KategoriRowMapper());
-            logger.info("Hentet kategorier fra database");
+            logger.info("(Kategori Repository) Hentet kategorier fra database");
             return kategorier;
         } catch (Exception e) {
-            logger.error("Error: Kunne ikke hente kategorier fra databasen: " + e);
+            logger.error("Error: (Kategori Repository) Kunne ikke hente kategorier fra databasen: " + e);
             return null;
         }
     }
@@ -55,7 +55,7 @@ public class KategoriRepository {
     public List<Kategori> populerKategorier(Map<Integer, List<Integer>> bodKategorier, List<Integer> opptatt) {
         List<Kategori> kategorier = getKategorierFromDatabase();
         for (Kategori kategori : kategorier) {
-            for (int bodNr : bodKategorier.get(kategori.getNr())) {System.out.println(kategori.getNr());
+            for (int bodNr : bodKategorier.get(kategori.getNr())) {
                 kategori.addBoder(new Bod(bodNr, kategori.getNr()));
                 kategori.incAntallBoder();
             }

@@ -67,11 +67,11 @@ public class DataRepository {
                     bodTilgjengelighet.put(Integer.parseInt(nr), linje.getPrisgruppe());
                 }
             }
-            logger.info("Splittet linjer med flere boder");
+            logger.info("(Data Repository) Splittet linjer med flere boder");
             //System.out.println(bodTilgjengelighet);
             splittet = true;
         } catch (Exception e) {
-            logger.error("Formateringsfeil: Kunne ikke splitte boder: " + e);
+            logger.error("(Data Repository) Formateringsfeil: Kunne ikke splitte boder: " + e);
         }
 
     }
@@ -81,10 +81,10 @@ public class DataRepository {
     public List<Data> hentData() {
         try {
             List<Data> data = db.query("SELECT * FROM Bod", new DataRowMapper());
-            logger.info("Hentet boder fra database");
+            logger.info("(Data Repository) Hentet boder fra database");
             return data;
         } catch (Exception e) {
-            logger.error("Error: Kunne ikke hente boder fra databasen: " + e);
+            logger.error("Error: (Data Repository) Kunne ikke hente boder fra databasen: " + e);
             return null;
         }
     }

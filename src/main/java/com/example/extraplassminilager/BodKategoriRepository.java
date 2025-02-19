@@ -39,10 +39,10 @@ public class BodKategoriRepository {
     public List<BodKategori> hentBodKategorier() {
         try {
             List<BodKategori> bodKategorier = db.query("SELECT * FROM BodKategori", new BodKategoriRowMapper());
-            logger.info("Hentet bodkategoerier fra database");
+            logger.info("(BodKategori Repository) Hentet bodkategoerier fra database");
             return bodKategorier;
         } catch (Exception e) {
-            logger.error("Error: Kunne ikke hente bodkategorier fra database: " + e);
+            logger.error("Error:(BodKategori Repository) Kunne ikke hente bodkategorier fra database: " + e);
             return null;
         }
     }
