@@ -36,11 +36,11 @@ function printKategorier(kategorier) {
 function visBodIKat(katNummer, boderIKat){
     let katID = "kategori"+katNummer;
     let rad = document.getElementById(katID);
-    if(rad.innerHTML.trim() !== ""){
+    if(rad.innerHTML.trim() !== ""){         //Sjekker om utvid-knappen har blir trykket på
         rad.innerHTML = "";
         boderIKat.textContent = ">";
     }
-    else{
+    else{                                                                   //Om knappen ikke har har blitt trykket på viser den de ledige bodene
         let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
         printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
         for(let i = 0; i < boder.length; i++){
