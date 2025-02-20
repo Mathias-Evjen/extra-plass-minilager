@@ -20,9 +20,6 @@ public class DataRepository {
     @Autowired
     private JdbcTemplate db;
 
-    private List<Integer> bodNr = new ArrayList<>();
-    private List<String> prisgruppe = new ArrayList<>();
-
     private Map<Integer, String> bodTilgjengelighet = new HashMap<>();
 
     private boolean splittet = false;
@@ -94,7 +91,9 @@ public class DataRepository {
         List<Bod> boder = new ArrayList<>();
 
         for (BodKategori bodKat : bodKategori) {
-            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr()));
+            int etasje = 1;
+            if (bodKat.getBodNr() >= 400) etasje = -1;
+            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr(), etasje));
         }
 
         for (Bod bod : boder) {

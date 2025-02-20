@@ -8,6 +8,7 @@ package com.example.extraplassminilager;
 public class Bod {
     private int nr, katNr;
     private boolean erOpptatt = false;
+    private int etasje;
 
     public Bod() {}
 
@@ -15,9 +16,10 @@ public class Bod {
         this.nr = nr;
     }
 
-    public Bod(int nr, int katNr) {
+    public Bod(int nr, int katNr, int etasje) {
         this.nr = nr;
         this.katNr = katNr;
+        this.etasje = etasje;
     }
 
     public int getNr() {
@@ -47,5 +49,13 @@ public class Bod {
     public boolean getOpptatt() {
         if (erOpptatt) return true;
         return false;
+    }
+
+    public void setEtasje(int etasje) {
+        this.etasje = etasje;
+    }
+
+    public int getEtasje() {
+        return this.etasje;
     }
 }

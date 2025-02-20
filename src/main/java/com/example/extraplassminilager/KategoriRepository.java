@@ -56,7 +56,9 @@ public class KategoriRepository {
         List<Kategori> kategorier = getKategorierFromDatabase();
         for (Kategori kategori : kategorier) {
             for (int bodNr : bodKategorier.get(kategori.getNr())) {
-                kategori.addBoder(new Bod(bodNr, kategori.getNr()));
+                int etasje = 1;
+                if (bodNr >= 400) etasje = -1;
+                kategori.addBoder(new Bod(bodNr, kategori.getNr(), etasje));
                 kategori.incAntallBoder();
             }
 
