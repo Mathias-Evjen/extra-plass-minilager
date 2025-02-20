@@ -9,3 +9,5 @@ function hentBoder() {
         })
 }
 
+let width = [1.4,4,0,3,8, 5,4,6,2, 6, 2, 6, 3, 3]
+let height = [1.25, ];
