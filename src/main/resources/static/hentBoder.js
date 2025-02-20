@@ -24,7 +24,6 @@ function printKategorier(kategorier) {
         bodIKat.id = "kategori" + kategorier[i].nr;
         if (antallLedigeBoder > 0){
             let boder = JSON.stringify(kategorier[i].boder)
-            console.log(boder)
             utvid = `<button data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this)">></button>`;
         }
         nybod.innerHTML = `<td>${utvid} ${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
@@ -35,16 +34,29 @@ function printKategorier(kategorier) {
 }
 
 function visBodIKat(katNummer, boderIKat){
-    var boder = JSON.parse(boderIKat.getAttribute('data-boder'));
-    console.log(boder);
-    katID = "kategori"+katNummer;
-    printUt = `<td>`;
-    for(let i = 0; i < boder.length; i++){
-        if(!boder[i].opptatt){
-            printUt += ` ${boder[i].nr} | `;
-        }
+    let katID = "kategori"+katNummer;
+    let rad = document.getElementById(katID);
+    if(rad.innerHTML.trim() !== ""){
+        rad.innerHTML = "";
+        boderIKat.textContent = ">";
     }
-    printUt += `</td>`
-    document.getElementById(katID).innerHTML = printUt;
+    else{
+        let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
+        printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
+        for(let i = 0; i < boder.length; i++){
+            if(!boder[i].opptatt){
+                printUt += `
+                <div class="bod-i-kat-item">
+                <div>Bod nummer:${boder[i].nr}</div>
+                <div>1.etasje</div>
+                <button>Vis i kart</button>
+                </div>`;
+            }
+        }
+        printUt += `</div></td>`
+        rad.innerHTML = printUt;
+        boderIKat.textContent = "v";
+    }
+
     
 }

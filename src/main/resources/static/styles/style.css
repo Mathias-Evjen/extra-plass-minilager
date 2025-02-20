@@ -71,6 +71,22 @@ th {
     background-color: #f2f2f2;
 }
 
+.bod-i-kat-rad{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.bod-i-kat-item{
+    margin: 0px;
+    padding: 5px;
+    border: 1px solid red;
+    min-width: 120px;
+    max-width: 120px;
+}
+
 .ring-oss-info-wrapper{
     border: 1px solid red;
     padding: 10px;
