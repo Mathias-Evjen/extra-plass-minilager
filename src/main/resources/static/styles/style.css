@@ -116,3 +116,23 @@ th {
     font-size: x-large;
     font-weight: 550;
 }
+
+#rad {
+    max-width: 12em;
+    max-height: 12em;
+    border: 2px solid black;
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.klasse19 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+.klasse14 {
+    width: 100%;
+    height: 100%;
+}
