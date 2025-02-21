@@ -22,10 +22,8 @@ function printKategorier(kategorier) {
         nybod.classList.add();
         bodIKat.classList.add();
         bodIKat.id = "kategori" + kategorier[i].nr;
-        if (antallLedigeBoder > 0){
-            let boder = JSON.stringify(kategorier[i].boder)
-            utvid = `<button data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this)">></button>`;
-        }
+        let boder = JSON.stringify(kategorier[i].boder)
+        utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this, ${antallLedigeBoder})">></button>`;
         nybod.innerHTML = `<td>${utvid} ${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
         document.getElementById("bodtabell").appendChild(nybod);
         document.getElementById("bodtabell").appendChild(bodIKat);
@@ -33,27 +31,32 @@ function printKategorier(kategorier) {
     
 }
 
-function visBodIKat(katNummer, boderIKat){
+function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
     let katID = "kategori"+katNummer;
     let rad = document.getElementById(katID);
     if(rad.innerHTML.trim() !== ""){         //Sjekker om utvid-knappen har blir trykket på
         rad.innerHTML = "";
         boderIKat.textContent = ">";
     }
-    else{                                                                   //Om knappen ikke har har blitt trykket på viser den de ledige bodene
-        let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
-        printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
-        for(let i = 0; i < boder.length; i++){
-            if(!boder[i].opptatt){
-                printUt += `
-                <div class="bod-i-kat-item">
-                <div>Bod nummer:${boder[i].nr}</div>
-                <div>1.etasje</div>
-                <button>Vis i kart</button>
-                </div>`;
+    else{
+        if(antallLedigeBoder > 0){
+            let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
+            printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
+            for(let i = 0; i < boder.length; i++){
+                if(!boder[i].opptatt){
+                    printUt += `
+                    <div class="bod-i-kat-item">
+                    <div>Bod nummer: ${boder[i].nr}</div>
+                    <div>Etasje: ${boder[i].etasje === 1 ? "Oppe" : "Nede"}</div>
+                    <button>Vis i kart</button>
+                    </div>`;
+                }
             }
+            printUt += `</div></td>`
         }
-        printUt += `</div></td>`
+        else{
+            printUt = `<td colspan="5"><p class="ingen-ledige-boder-info">Det er ingen ledige boder for dette kategorien!</p></td>`
+        }
         rad.innerHTML = printUt;
         boderIKat.textContent = "v";
     }

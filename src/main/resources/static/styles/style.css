@@ -71,12 +71,19 @@ th {
     background-color: #f2f2f2;
 }
 
+.utvid-knapp{
+    border: none;
+    cursor: pointer;
+    color: #444;
+}
+
 .bod-i-kat-rad{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
+    gap: 20px;
 }
 
 .bod-i-kat-item{
@@ -85,6 +92,10 @@ th {
     border: 1px solid red;
     min-width: 120px;
     max-width: 120px;
+}
+
+.ingen-ledige-boder-info{
+    text-align: center;
 }
 
 .ring-oss-info-wrapper{
