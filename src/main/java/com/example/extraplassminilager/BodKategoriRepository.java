@@ -27,6 +27,8 @@ public class BodKategoriRepository {
     Logger logger = LoggerFactory.getLogger(BodKategoriRepository.class);
 
     class BodKategoriRowMapper implements RowMapper<BodKategori> {
+
+        // Mapper rader fra datasett til
         @Override
         public BodKategori mapRow(ResultSet rs, int rowNum) throws SQLException {
             BodKategori bodkat = new BodKategori();
@@ -49,6 +51,7 @@ public class BodKategoriRepository {
 
     public Map<Integer, List<Integer>> bodKategoriMap() {
         Map<Integer, List<Integer>> bodKategorier = new HashMap<>();
+
         for (BodKategori bodKat : hentBodKategorier()) {
             bodKategorier.putIfAbsent(bodKat.getKatNr(), new ArrayList<>());
             bodKategorier.get(bodKat.getKatNr()).add(bodKat.getBodNr());
