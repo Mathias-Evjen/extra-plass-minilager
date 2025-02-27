@@ -7,6 +7,11 @@ public class Data {
     public Data() {
     }
 
+    public Data(String bodNr, String prisgruppe) {
+        this.bodNr = bodNr;
+        this.prisgruppe = prisgruppe;
+    }
+
     public String getBodNr() {
         return bodNr;
     }

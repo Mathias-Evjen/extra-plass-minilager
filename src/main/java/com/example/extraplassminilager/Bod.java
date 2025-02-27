@@ -5,6 +5,8 @@
 
 package com.example.extraplassminilager;
 
+import java.util.Objects;
+
 public class Bod {
     private int nr, katNr;
     private boolean erOpptatt = false;
@@ -57,5 +59,20 @@ public class Bod {
 
     public int getEtasje() {
         return this.etasje;
+    }
+
+    @Override
+    public String toString() {
+        return "BodNr: " + nr + ", KatNr: " + katNr + ", Etasje: " + etasje;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return this.toString().equals(other.toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nr, katNr, etasje);
     }
 }

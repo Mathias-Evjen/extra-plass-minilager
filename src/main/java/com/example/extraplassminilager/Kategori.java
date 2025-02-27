@@ -95,6 +95,16 @@ public class Kategori {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "KatNr: " + nr + ", Areal: " + areal + ", Volum: " + volum + ", Pris: " + pris;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return this.toString().equals(other.toString());
+    }
 }
 
 

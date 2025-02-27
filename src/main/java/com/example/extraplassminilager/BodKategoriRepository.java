@@ -28,7 +28,8 @@ public class BodKategoriRepository {
 
     class BodKategoriRowMapper implements RowMapper<BodKategori> {
 
-        // Mapper rader fra datasett til
+        // Mapper rader fra datasett til BodKategori-objekter
+        // Returnerer BodKategori-objekt
         @Override
         public BodKategori mapRow(ResultSet rs, int rowNum) throws SQLException {
             BodKategori bodkat = new BodKategori();
@@ -38,25 +39,37 @@ public class BodKategoriRepository {
         }
     }
 
-    public List<BodKategori> hentBodKategorier() {
+    // Henter ut alle linjer fra BodKategori og legger i BodKategori-objekter
+    // Returnerer en liste med BodKategori-objekter
+    public List<BodKategori> hentBodKategorierFraDatabase() {
+        // Forsøker å hente ut data fra database og legge i BodKategori-objekter
         try {
             List<BodKategori> bodKategorier = db.query("SELECT * FROM BodKategori", new BodKategoriRowMapper());
             logger.info("(BodKategori Repository) Hentet bodkategoerier fra database");
             return bodKategorier;
+        // Om den ikke klarer å hente data fra database skriver ut error og returnerer null
         } catch (Exception e) {
             logger.error("Error:(BodKategori Repository) Kunne ikke hente bodkategorier fra database: " + e);
             return null;
         }
     }
 
+    // Mapper BodKategorier til et HashMap
+    //
+    // Key: kategori
+    // Value: Liste med boder tilhørende kategorien
+    //
+    // Returnerer mapet
     public Map<Integer, List<Integer>> bodKategoriMap() {
         Map<Integer, List<Integer>> bodKategorier = new HashMap<>();
 
-        for (BodKategori bodKat : hentBodKategorier()) {
-            bodKategorier.putIfAbsent(bodKat.getKatNr(), new ArrayList<>());
-            bodKategorier.get(bodKat.getKatNr()).add(bodKat.getBodNr());
+        // Går gjennom liste med BodKategori-objekter og legger i et map
+        // med katNr som nøkkel og liste med tilhørende bodNr som verdi
+        for (BodKategori bodKat : hentBodKategorierFraDatabase()) {
+            bodKategorier.putIfAbsent(bodKat.getKatNr(), new ArrayList<>());    // Oppretter ny liste om kategorien ikke allerede har en
+            bodKategorier.get(bodKat.getKatNr()).add(bodKat.getBodNr());        // Legger til bodnr i lista tilhørende nøkkel
         }
-        //System.out.println(bodKategorier);
+
         return bodKategorier;
     }
 }

@@ -55,7 +55,9 @@ public class DataRepository {
     }
 
     // Splitter linjer som har flere boder og lagrer i bodNr- og prisgruppe-array
-    public void splitBoder(List<Data> data) {
+    // Returnerer true dersom den klarte å splitte, ellers returnerer false
+    public boolean splitBoder(List<Data> data) {
+        // Forsøker å splitte boder
         try {
             for (Data linje : data) {
                 String lNr = linje.getBodNr().replaceAll("\\s", "");    // Fjerner whitespace
@@ -69,19 +71,24 @@ public class DataRepository {
             logger.info("(Data Repository) Splittet linjer med flere boder");
             //System.out.println(bodTilgjengelighet);
             splittet = true;
+            return true;
+        // Om den ikke kan splitte bodene skriver ut error og returnerer false
         } catch (Exception e) {
             logger.error("(Data Repository) Formateringsfeil: Kunne ikke splitte boder: " + e);
+            return false;
         }
 
     }
 
-    // Henter ut alle linjer fra database og legger i data-objekter
+    // Henter ut alle linjer fra database Bod og legger i data-objekter
     // Returnerer liste med data-objekter
     public List<Data> hentData() {
+        // Forsøker å hente data fra database og legge i Data-objekter
         try {
             List<Data> data = db.query("SELECT * FROM Bod", new DataRowMapper());
             logger.info("(Data Repository) Hentet boder fra database");
             return data;
+        // Om den ikke klarer å hente data fra database skriver ut error og returnerer null
         } catch (Exception e) {
             logger.error("Error: (Data Repository) Kunne ikke hente boder fra databasen: " + e);
             return null;
@@ -91,18 +98,22 @@ public class DataRepository {
     // Oppretter bod-objekter og oppdaterer om de er ledige eller ikke
     // Returnerer liste med bod-objektene
     public List<Bod> getBoder(List<BodKategori> bodKategori) {
+        Objects.requireNonNull(bodKategori, "Lista kan ikke være null");    // Kaster NullPointerException dersom lista med BodKategori-objekter er null
         List<Bod> boder = new ArrayList<>();
 
         // Går gjennom bodKategori og oppretter Bod-objekter for alle bodene
         for (BodKategori bodKat : bodKategori) {
+            // Setter bodens etasje som oppe dersom bodNr er under 400 og nede dersom bodNr er 400 eller over
             int etasje = 1;
             if (bodKat.getBodNr() >= 400) etasje = -1;
-            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr(), etasje));
+            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr(), etasje));   // Legger til Bod-objekt i boder-lista
         }
 
         // Går gjennom alle bodene og oppdaterer dere status som opptatt eller ledig
         for (Bod bod : boder) {
+            // Går gjennom bodene i liste over bodNr som er opptatt
             for (int tatt : getOpptatt()) {
+                // Dersom bodens bodNr finnes i opptatt settes boden som opptatt
                 if (bod.getNr() == tatt) {
                     bod.settOpptatt();
                 }

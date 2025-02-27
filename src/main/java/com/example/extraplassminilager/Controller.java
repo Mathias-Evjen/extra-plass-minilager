@@ -23,7 +23,7 @@ public class Controller {
 
     @GetMapping("/hentBoder")
     public List<Bod> hentBoder() {
-        List<Bod> boder = dataRepo.getBoder(bodKatRepo.hentBodKategorier());
+        List<Bod> boder = dataRepo.getBoder(bodKatRepo.hentBodKategorierFraDatabase());
         return boder;
     }
 }
