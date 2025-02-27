@@ -34,12 +34,12 @@ function printKategorier(kategorier) {
 function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
     let katID = "kategori"+katNummer;
     let rad = document.getElementById(katID);
-    if(rad.innerHTML.trim() !== ""){         //Sjekker om utvid-knappen har blir trykket på
-        rad.innerHTML = "";
+    if(rad.innerHTML.trim() !== ""){                            // Sjekker om utvid-knappen har blir trykket på
+        rad.innerHTML = "";                                     // Lukker og tømmer dataen om den var trykket på
         boderIKat.textContent = ">";
     }
     else{
-        if(antallLedigeBoder > 0){
+        if(antallLedigeBoder > 0){                              // Hvis knappen ikke var trykket på viser den dataen om det er noen ledige boder    
             let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
             printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
             for(let i = 0; i < boder.length; i++){
@@ -54,11 +54,11 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
             }
             printUt += `</div></td>`
         }
-        else{
+        else{                                                   // Hvis knappen ikke var trykket på viser den dataen om det ikke var ledige boder 
             printUt = `<td colspan="5"><p class="ingen-ledige-boder-info">Det er ingen ledige boder for dette kategorien!</p></td>`
         }
         rad.innerHTML = printUt;
-        boderIKat.textContent = "v";
+        boderIKat.textContent = "v";  // Endre knappens ikon for å indikere at den er åpen
     }
 
     
