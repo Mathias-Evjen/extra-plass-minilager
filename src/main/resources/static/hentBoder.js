@@ -23,8 +23,9 @@ function printKategorier(kategorier) {
         bodIKat.classList.add();
         bodIKat.id = "kategori" + kategorier[i].nr;
         let boder = JSON.stringify(kategorier[i].boder)
-        utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this, ${antallLedigeBoder})">></button>`;
-        nybod.innerHTML = `<td>${utvid} ${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
+        //utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this, ${antallLedigeBoder})">></button>`;
+        nybod.innerHTML = `<td>${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
+        nybod.onclick = function() {visBodIKat(kategorier[i].nr, boder, (kategorier[i].antallBoder - kategorier[i].antallOpptatt))}
         document.getElementById("bodtabell").appendChild(nybod);
         document.getElementById("bodtabell").appendChild(bodIKat);
     }
@@ -40,7 +41,7 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
     }
     else{
         if(antallLedigeBoder > 0){                              // Hvis knappen ikke var trykket på viser den dataen om det er noen ledige boder    
-            let boder = JSON.parse(boderIKat.getAttribute('data-boder'));
+            let boder = JSON.parse(boderIKat);
             printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
             for(let i = 0; i < boder.length; i++){
                 if(!boder[i].opptatt){
