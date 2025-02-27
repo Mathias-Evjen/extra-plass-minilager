@@ -26,6 +26,10 @@ function printKategorier(kategorier) {
         //utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this, ${antallLedigeBoder})">></button>`;
         nybod.innerHTML = `<td>${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
         nybod.onclick = function() {visBodIKat(kategorier[i].nr, boder, (kategorier[i].antallBoder - kategorier[i].antallOpptatt))}
+        
+        nybod.onmouseover = function() {this.style.backgroundColor = "lightgray";}; //Highlight rad når musen treffer
+        nybod.onmouseout = function() {this.style.backgroundColor = "";}; //Fjerner highlight når musen ikke treffer raden
+        
         document.getElementById("bodtabell").appendChild(nybod);
         document.getElementById("bodtabell").appendChild(bodIKat);
     }
