@@ -1,11 +1,102 @@
-.wrapper{
-    min-width: 1030px;
-    max-width: 1030px;
-    margin: auto;
-    text-align: center;
-    font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444;
-    font-weight: lighter;
+/*Mobile view*/
+@media (max-width: 1086px) {
+    body{
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+    
+    .wrapper{
+        min-width: 100%;
+        max-width: 100%;
+        margin: auto;
+        
+        text-align: center;
+        font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #444;
+        font-weight: lighter;
+    }
+
+    th, td {
+        border: 1px solid red;
+        padding: 10px;
+        text-align: left;
+    }
+}
+/*Desktop view*/
+@media (min-width: 1087px){
+    .wrapper{
+        min-width: 1030px;
+        max-width: 1030px;
+        margin: auto;
+        text-align: center;
+        font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #444;
+        font-weight: lighter;
+    }
+
+    th, td {
+        border: 1px solid red;
+        padding: 10px;
+        text-align: left;
+    }
+}
+
+
+/*For å endre på header når skjerm bredden er under 700px*/
+@media (max-width: 700px){
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #ffffff;
+       
+    }
+    .logo img {
+        width: 100%;
+        float: left;
+    }    
+    .linker a {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+    }
+    .linker img {
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+        float: right;
+    }
+}
+/*For å endre på header når skjerm bredden er over 700px*/
+@media (min-width: 701px){
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #ffffff;
+       
+    }
+    .logo {
+        width: 50px;
+    }
+    .linker {
+        display: flex;
+        gap: 20px;
+    }
+    .linker a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        background-color: white;
+        border: none;
+    }
+    .linker img {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+    }
 }
 
 .priser-info-wrapper{
@@ -23,32 +114,6 @@
     
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-   
-}
-
-.logo {
-    width: 50px;
-}
-
-.linker {
-    display: flex;
-    gap: 20px;
-}
-
-.linker a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    background-color: white;
-    border: none;
-}
-
 hr{
     width: 99.9vw;
     position: absolute;
@@ -56,16 +121,12 @@ hr{
 }
 
 table {
-    min-width: 1030px;
-    max-width: 1030px;
+    min-width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
-    border: 1px solid red;
-    padding: 10px;
-    text-align: left;
-}
+
 
 th {
     background-color: #f2f2f2;
@@ -84,6 +145,8 @@ th {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 .bod-i-kat-item{
