@@ -33,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let viewBox = {x: 0, y: 0, width: 1920, height: 1080};
     let isPanning = false, startX, startY;
 
+    // Minimum og maksimum zoom nivå
+    const MAX_WIDTH = 1920;
+    const MAX_HEIGHT = 1080;
+    const MIN_WIDTH = 480;
+    const MIN_HEIGHT = 270;
+
+    //
     svg.addEventListener("mousedown", (e) => {
         isPanning = true;
         startX = e.clientX;
@@ -56,11 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         let zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;
 
+        let newWidth = viewBox.width * zoomFactor;
+        let newHeight = viewBox.height * zoomFactor;
+
+        // Sjekk om vi er innenfor maks/min zoom-grenser
+        if (newWidth > MAX_WIDTH || newWidth < MIN_WIDTH) return;
+        if (newHeight > MAX_HEIGHT || newHeight < MIN_HEIGHT) return;
+
         let mouseX = e.clientX / window.innerWidth * viewBox.width + viewBox.x;
         let mouseY = e.clientY / window.innerHeight * viewBox.height + viewBox.y;
 
-        viewBox.width *= zoomFactor;
-        viewBox.height *= zoomFactor;
+        viewBox.width = newWidth;
+        viewBox.height = newHeight;
 
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;

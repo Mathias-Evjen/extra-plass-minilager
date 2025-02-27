@@ -2,79 +2,18 @@ body {
     margin: 0; overflow: hidden;
 }
 
-/*#svg-container { width: 100vw; height: 100vh; }*/
-
 .container {
     width: 90vw;
     height: 75vh;
     border: 4px solid black;
     background-color: lightgray;
-    /*display: grid;*/
-    /*grid-template-columns: 13rem repeat(15, 6rem) 3rem;*/
-    /*grid-template-rows:  50% 50%;*/
 }
 
-#rad3 {
-    /*background-color: lightgray;*/
-    /*display: grid;*/
-    /*grid-template-columns: 13rem repeat(15, 6rem) 3rem;*/
-    /*grid-template-rows:  50% 50%;*/
+text {
+    user-select: none;
+    pointer-events: none;
 }
 
-.klasse3-rad3 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    grid-row: 1 / 3;
+svg:hover {
+    cursor: pointer;
 }
-
-.klasse9-rad3-over {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    grid-row: 1 / 2;
-}
-
-.klasse9-rad3-under {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    grid-row: 2 / 3;
-}
-
-.klasse14-rad3-over {
-    width: 100%;
-    height: 100%;
-    grid-row: 1 / 2;
-}
-
-.klasse14-rad3-under {
-    width: 100%;
-    height: 100%;
-    grid-row: 2 / 3;
-}
-
-.klasse18-rad3-over {
-    width: 100%;
-    height: 100%;
-    grid-row: 1 / 2;
-}
-
-.klasse18-rad3-under {
-    width: 100%;
-    height: 100%;
-    grid-row: 2 / 3;
-}
-
-.klasse19-rad3 {
-    height: 100%;
-    width: 100%;
-    grid-row: 1 / 3;
-}
-
-
-
-
