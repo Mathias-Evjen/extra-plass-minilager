@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let isPanning = false, startX, startY;
 
     // Minimum og maksimum zoom nivå
-    const MAX_WIDTH = 1920;
-    const MAX_HEIGHT = 1080;
+    const MAX_WIDTH = 4096;
+    const MAX_HEIGHT = 2160;
     const MIN_WIDTH = 480;
     const MIN_HEIGHT = 270;
 
