@@ -19,7 +19,7 @@ function printKategorier(kategorier) {
         antallLedigeBoder = kategorier[i].antallBoder - kategorier[i].antallOpptatt;
         nybod = document.createElement("tr");
         bodIKat = document.createElement("tr");
-        nybod.classList.add();
+        nybod.classList.add("kategori-rad");
         bodIKat.classList.add();
         bodIKat.id = "kategori" + kategorier[i].nr;
         let boder = JSON.stringify(kategorier[i].boder)
@@ -60,7 +60,7 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
             printUt += `</div></td>`
         }
         else{                                                   // Hvis knappen ikke var trykket på viser den dataen om det ikke var ledige boder 
-            printUt = `<td colspan="5"><p class="ingen-ledige-boder-info">Det er ingen ledige boder for dette kategorien!</p></td>`
+            printUt = `<td colspan="5"><p class="ingen-ledige-boder-info">Det er ingen ledige boder for denne kategorien!</p></td>`
         }
         rad.innerHTML = printUt;
         boderIKat.textContent = "v";  // Endre knappens ikon for å indikere at den er åpen
