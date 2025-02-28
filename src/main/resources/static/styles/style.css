@@ -132,6 +132,10 @@ th {
     background-color: #f2f2f2;
 }
 
+.kategori-rad :hover{
+    cursor: pointer;
+}
+
 .utvid-knapp{
     border: none;
     cursor: pointer;
