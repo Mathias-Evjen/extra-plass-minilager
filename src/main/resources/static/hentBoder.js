@@ -5,6 +5,8 @@ window.onload = function hentKategorier() {
     })
 }
 
+
+
 function testKategorier(){
     let testboder = [{katNr: 1, areal: 10, volum: 9, antallLedig: 8, pris: 790}, {katNr: 2, areal: 8, volum: 6, antallLedig: 6, pris: 690}, {katNr: 3, areal: 11, volum: 12, antallLedig: 12, pris: 890}];
     printKategorier(testboder);
@@ -37,7 +39,7 @@ function printKategorier(kategorier) {
 }
 
 function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
-    let katID = "kategori"+katNummer;
+    let katID = "kategori" + katNummer;
     let rad = document.getElementById(katID);
     if(rad.innerHTML.trim() !== ""){                            // Sjekker om utvid-knappen har blir trykket på
         rad.innerHTML = "";                                     // Lukker og tømmer dataen om den var trykket på
@@ -65,6 +67,5 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
         rad.innerHTML = printUt;
         boderIKat.textContent = "v";  // Endre knappens ikon for å indikere at den er åpen
     }
-
-    
 }
+

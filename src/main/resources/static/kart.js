@@ -2,11 +2,10 @@ window.onload = function hentBoder() {
     $.get("http://localhost:8080/hentBoder", function(boder) {
         console.log(boder);
         for (const bod of boder) {
+            if (bod.nr === 9 || bod.nr === 305) continue;
             let kartBod = document.getElementById(bod.nr);
             if (kartBod != null) {
-                let background = kartBod.querySelector("rect");
-                background.setAttribute("fill", bod.opptatt ? "red" : "green");
-                background.setAttribute("opacity", bod.opptatt ? "50%" : "35%");
+                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");
             }
         }
     })
@@ -28,47 +27,94 @@ function hentKategorier() {
     }
 }
 
+
+
+
+
+
+
+function remToPixle(rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    let svg = document.getElementById("kart");
-    let viewBox = {x: 0, y: 0, width: 1920, height: 1080};
-    let isPanning = false, startX, startY;
+    let kart = document.getElementById("kart");
+
+    let remWidth = remToPixle(126); // 2016
+    let remHeight = remToPixle(83)  // 1328
+
+    console.log(remWidth);
+    console.log(remHeight);
+
+    let viewBox = {x: 0, y: 0, width: kart.clientWidth, height: kart.clientHeight};
+    kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
+
+    let isPanning = false;
+    let startX, startY;
+
+    const MAP_WIDTH = remWidth;
+    const MAP_HEIGHT = remHeight;
 
     // Minimum og maksimum zoom nivå
-    const MAX_WIDTH = 4096;
-    const MAX_HEIGHT = 2160;
+    const MAX_WIDTH = remWidth;
+    const MAX_HEIGHT = remHeight;
     const MIN_WIDTH = 480;
     const MIN_HEIGHT = 270;
 
-    //
-    svg.addEventListener("mousedown", (e) => {
+    // Mouslistener som sjekker om man trykker på musa og setter startkoordinater for flytting av kartet
+    kart.addEventListener("mousedown", (e) => {
         isPanning = true;
         startX = e.clientX;
         startY = e.clientY;
     });
 
+    // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
     window.addEventListener("mousemove", (e) => {
         if (!isPanning) return;
-        let dx = (startX - e.clientX) * (viewBox.width / window.innerWidth);
-        let dy = (startY - e.clientY) * (viewBox.height / window.innerHeight);
-        viewBox.x += dx;
-        viewBox.y += dy;
-        svg.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+
+        let dx = (startX - e.clientX);
+        let dy = (startY - e.clientY);
+
+        let newX = viewBox.x + dx;
+        let newY = viewBox.y + dy;
+
+        // Sjekk at vi ikke beveger oss utenfor kartets grenser
+        let maxX = MAP_WIDTH - viewBox.width;
+        let maxY = MAP_HEIGHT - viewBox.height;
+
+        viewBox.x = Math.max(0, Math.min(newX, maxX));
+        viewBox.y = Math.max(0, Math.min(newY, maxY));
+
+        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+
         startX = e.clientX;
         startY = e.clientY;
     });
 
+    // Når musa ikke lenger holdes ikke flyttes ikke lenger på kartet
     window.addEventListener("mouseup", () => isPanning = false);
 
-    svg.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        let zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;
+    const kartSize = {width: kart.clientWidth, height: kart.clientHeight};
+    let startPoint = {x: 0, y: 0};
+    let endPoint = {x: 0, y: 0};
+    let scale = 1;
+
+    // Når musehjulet rulles zoomes det inn eller ut fra musepunktet
+    // Zoom kan gjøres til maksimum eller minimum zoom nivå
+    kart.addEventListener("wheel", (e) => {
+
+        e.preventDefault(); // Hindrer siden fra å rulle nedover når man ruller
+
+        let zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
 
         // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newWidth > MAX_WIDTH || newWidth < MIN_WIDTH) return;
-        if (newHeight > MAX_HEIGHT || newHeight < MIN_HEIGHT) return;
+        if (newWidth > MAX_WIDTH || newWidth < MIN_WIDTH || newHeight > MAX_HEIGHT || newHeight < MIN_HEIGHT) {
+            kart.setAttribute("viewBox", `${0} ${0} ${MAX_WIDTH} ${MAX_HEIGHT}`);
+            return;
+        }
 
         let mouseX = e.clientX / window.innerWidth * viewBox.width + viewBox.x;
         let mouseY = e.clientY / window.innerHeight * viewBox.height + viewBox.y;
@@ -79,17 +125,33 @@ document.addEventListener("DOMContentLoaded", () => {
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
 
-        svg.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
+
+    // Holder boden som er fokusert
+    let aktivBod = null;
+
+    document.getElementById("kart").addEventListener("click", function (e) {
+        let bod = e.target.id;
+        if (document.getElementById(bod) === null) return;
+        console.log(bod);
+
+        if (bod === "kart") {
+            document.getElementById(aktivBod).setAttribute("stroke", "black")
+            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
+            return;
+        }
+
+        if (aktivBod !== null && aktivBod !== bod) {
+            document.getElementById(aktivBod).setAttribute("stroke", "black")
+            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
+        }
+
+        aktivBod = bod;
+        document.getElementById(bod).setAttribute("stroke", "#57B9FF");
+        document.getElementById(bod).setAttribute("stroke-width", "7");
+    })
 });
-
-
-
-
-
-
-
-
 
 
 
