@@ -48,7 +48,7 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
     else{
         if(antallLedigeBoder > 0){                              // Hvis knappen ikke var trykket på viser den dataen om det er noen ledige boder    
             let boder = JSON.parse(boderIKat);
-            printUt = `<td colspan="5"><div class="bod-i-kat-rad">`;
+            printUt = `<td colspan="5"><p style="text-align: center; font-weight: bold;"> Ved å trykke på knappen "Vis i kart", vil du kunne se hvor boden befinner seg på et kart over bygget.</p><div class="bod-i-kat-rad">`;
             for(let i = 0; i < boder.length; i++){
                 if(!boder[i].opptatt){
                     printUt += `
@@ -62,7 +62,7 @@ function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
             printUt += `</div></td>`
         }
         else{                                                   // Hvis knappen ikke var trykket på viser den dataen om det ikke var ledige boder 
-            printUt = `<td colspan="5"><p class="ingen-ledige-boder-info">Det er ingen ledige boder for denne kategorien!</p></td>`
+            printUt = `<td colspan="5"><p class="ingen-ledige-boder-info" style="font-weight: bold;">Det er ingen ledige boder for denne klassen!</p></td>`
         }
         rad.innerHTML = printUt;
         boderIKat.textContent = "v";  // Endre knappens ikon for å indikere at den er åpen
