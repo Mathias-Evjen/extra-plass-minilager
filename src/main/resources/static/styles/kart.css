@@ -19,7 +19,3 @@ text {
 svg:hover {
     cursor: pointer;
 }
-
-a:focus {
-    background-color: orange;
-}
