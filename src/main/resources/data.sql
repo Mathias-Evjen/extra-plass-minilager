@@ -1,28 +1,28 @@
 CREATE TABLE IF NOT EXISTS Bod (
-    kNr INT PRIMARY KEY,
+    klasseNr INT PRIMARY KEY,
     navn VARCHAR(255),
     prisgruppe VARCHAR(255),
     bodNr VARCHAR(255)
     );
 
-INSERT INTO Bod (kNr, navn, prisgruppe, bodNr)
+INSERT INTO Bod (klasseNr, navn, prisgruppe, bodNr)
 SELECT * FROM CSVREAD('file:src/main/resources/bod.csv', NULL, 'charset=UTF-8 fieldSeparator=;');
 
-CREATE TABLE IF NOT EXISTS Kategori (
-    katNr INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Klasse (
+    klasseNr INT PRIMARY KEY,
     areal FLOAT,
     volum FLOAT,
     pris INT
 );
 
-INSERT INTO Kategori (katNr, areal, volum, pris)
-SELECT * FROM CSVREAD('file:src/main/resources/kategori.csv');
+INSERT INTO Klasse (klasseNr, areal, volum, pris)
+SELECT * FROM CSVREAD('file:src/main/resources/klasse.csv');
 
-CREATE TABLE IF NOT EXISTS BodKategori (
+CREATE TABLE IF NOT EXISTS BodKlasse (
       bodNr INT,
-      katNr INT,
-      primary key (bodNr, katNr)
+      klasseNr INT,
+      primary key (bodNr, klasseNr)
 );
 
-INSERT INTO BodKategori (bodNr, katNr)
-SELECT * FROM CSVREAD('file:src/main/resources/bod-kategori.csv', NULL, 'charset=UTF-8 fieldSeparator=;');
+INSERT INTO BodKlasse (bodNr, klasseNr)
+SELECT * FROM CSVREAD('file:src/main/resources/bod-klasse.csv', NULL, 'charset=UTF-8 fieldSeparator=;');

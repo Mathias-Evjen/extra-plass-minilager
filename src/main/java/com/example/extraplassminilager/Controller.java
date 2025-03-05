@@ -9,21 +9,21 @@ import java.util.List;
 @RestController
 public class Controller {
     @Autowired
-    private KategoriRepository katRepo;
+    private KlasseRepository klasseRepo;
     @Autowired
-    private BodKategoriRepository bodKatRepo;
+    private BodKlasseRepository bodKlasseRepo;
     @Autowired
     private DataRepository dataRepo;
 
-    @GetMapping("/hentKategorier")
-    public List<Kategori> hentKategorier() {
-        List<Kategori> kategorier = katRepo.getKategorier(bodKatRepo.bodKategoriMap(), dataRepo.getOpptatt());
-        return kategorier;
+    @GetMapping("/hentKlasser")
+    public List<Klasse> hentKlasser() {
+        List<Klasse> klasser = klasseRepo.getKlasser(bodKlasseRepo.bodKlasseMap(), dataRepo.getOpptatt());
+        return klasser;
     }
 
     @GetMapping("/hentBoder")
     public List<Bod> hentBoder() {
-        List<Bod> boder = dataRepo.getBoder(bodKatRepo.hentBodKategorierFraDatabase());
+        List<Bod> boder = dataRepo.getBoder(bodKlasseRepo.hentBodKlasserFraDatabase());
         return boder;
     }
 }

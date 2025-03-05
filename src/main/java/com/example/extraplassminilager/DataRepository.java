@@ -97,16 +97,16 @@ public class DataRepository {
 
     // Oppretter bod-objekter og oppdaterer om de er ledige eller ikke
     // Returnerer liste med bod-objektene
-    public List<Bod> getBoder(List<BodKategori> bodKategori) {
-        Objects.requireNonNull(bodKategori, "Lista kan ikke være null");    // Kaster NullPointerException dersom lista med BodKategori-objekter er null
+    public List<Bod> getBoder(List<BodKlasse> bodKlasser) {
+        Objects.requireNonNull(bodKlasser, "Lista kan ikke være null");    // Kaster NullPointerException dersom lista med BodKlasse-objekter er null
         List<Bod> boder = new ArrayList<>();
 
-        // Går gjennom bodKategori og oppretter Bod-objekter for alle bodene
-        for (BodKategori bodKat : bodKategori) {
+        // Går gjennom bodKlasse og oppretter Bod-objekter for alle bodene
+        for (BodKlasse bodKlasse : bodKlasser) {
             // Setter bodens etasje som oppe dersom bodNr er under 400 og nede dersom bodNr er 400 eller over
             int etasje = 1;
-            if (bodKat.getBodNr() >= 400) etasje = -1;
-            boder.add(new Bod(bodKat.getBodNr(), bodKat.getKatNr(), etasje));   // Legger til Bod-objekt i boder-lista
+            if (bodKlasse.getBodNr() >= 400) etasje = -1;
+            boder.add(new Bod(bodKlasse.getBodNr(), bodKlasse.getKlasseNr(), etasje));   // Legger til Bod-objekt i boder-lista
         }
 
         // Går gjennom alle bodene og oppdaterer dere status som opptatt eller ledig

@@ -1,33 +1,33 @@
-window.onload = function hentKategorier() {
-    $.get("http://localhost:8080/hentKategorier", function(data){
+window.onload = function hentKlasser() {
+    $.get("http://localhost:8080/hentKlasser", function(data){
       console.log(data);
-      printKategorier(data);
+      printKlasser(data);
     })
 }
 
 
 
-function testKategorier(){
-    let testboder = [{katNr: 1, areal: 10, volum: 9, antallLedig: 8, pris: 790}, {katNr: 2, areal: 8, volum: 6, antallLedig: 6, pris: 690}, {katNr: 3, areal: 11, volum: 12, antallLedig: 12, pris: 890}];
-    printKategorier(testboder);
+function testklasser(){
+    let testboder = [{klasseNr: 1, areal: 10, volum: 9, antallLedig: 8, pris: 790}, {klasseNr: 2, areal: 8, volum: 6, antallLedig: 6, pris: 690}, {katNr: 3, areal: 11, volum: 12, antallLedig: 12, pris: 890}];
+    printKlasser(testboder);
 }
 
-function printKategorier(kategorier) {
+function printKlasser(klasser) {
     let antallLedigeBoder;
     let utvid = ``;
 
-    for(let i = 0; i < kategorier.length; i++){
+    for(let i = 0; i < klasser.length; i++){
         utvid = ``;
-        antallLedigeBoder = kategorier[i].antallBoder - kategorier[i].antallOpptatt;
+        antallLedigeBoder = klasser[i].antallBoder - klasser[i].antallOpptatt;
         nybod = document.createElement("tr");
         bodIKat = document.createElement("tr");
-        nybod.classList.add("kategori-rad");
+        nybod.classList.add("klasse-rad");
         bodIKat.classList.add();
-        bodIKat.id = "kategori" + kategorier[i].nr;
-        let boder = JSON.stringify(kategorier[i].boder)
-        //utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(kategorier[i].boder)}' onclick="visBodIKat(${kategorier[i].nr}, this, ${antallLedigeBoder})">></button>`;
-        nybod.innerHTML = `<td>${kategorier[i].nr}</td><td>${kategorier[i].areal}m²</td><td>${kategorier[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${kategorier[i].pris}kr</td>`;
-        nybod.onclick = function() {visBodIKat(kategorier[i].nr, boder, (kategorier[i].antallBoder - kategorier[i].antallOpptatt))}
+        bodIKat.id = "klasse" + klasser[i].nr;
+        let boder = JSON.stringify(klasser[i].boder)
+        //utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(klasser[i].boder)}' onclick="visBodIKat(${klasser[i].nr}, this, ${antallLedigeBoder})">></button>`;
+        nybod.innerHTML = `<td>${klasser[i].nr}</td><td>${klasser[i].areal}m²</td><td>${klasser[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${klasser[i].pris}kr</td>`;
+        nybod.onclick = function() {visBodIKat(klasser[i].nr, boder, (klasser[i].antallBoder - klasser[i].antallOpptatt))}
         
         nybod.onmouseover = function() {this.style.backgroundColor = "lightgray";}; //Highlight rad når musen treffer
         nybod.onmouseout = function() {this.style.backgroundColor = "";}; //Fjerner highlight når musen ikke treffer raden
@@ -38,8 +38,8 @@ function printKategorier(kategorier) {
     
 }
 
-function visBodIKat(katNummer, boderIKat, antallLedigeBoder){
-    let katID = "kategori" + katNummer;
+function visBodIKat(klasseNummer, boderIKat, antallLedigeBoder){
+    let katID = "klasse" + klasseNummer;
     let rad = document.getElementById(katID);
     if(rad.innerHTML.trim() !== ""){                            // Sjekker om utvid-knappen har blir trykket på
         rad.innerHTML = "";                                     // Lukker og tømmer dataen om den var trykket på
