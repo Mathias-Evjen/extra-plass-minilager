@@ -1,5 +1,5 @@
 // =======================
-//  Klasse for kategorier
+//  Klasse for klasser
 // =======================
 
 package com.example.extraplassminilager;
@@ -7,14 +7,14 @@ package com.example.extraplassminilager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kategori {
+public class Klasse {
     private int nr, antallBoder, antallOpptatt, pris;
     private float areal, volum;
     private List<Bod> boder = new ArrayList<>();
 
-    public Kategori() {}
+    public Klasse() {}
 
-    public Kategori(int nr, float areal, float volum, int pris) {
+    public Klasse(int nr, float areal, float volum, int pris) {
         this.nr = nr;
         this.areal = areal;
         this.volum = volum;
@@ -98,7 +98,7 @@ public class Kategori {
 
     @Override
     public String toString() {
-        return "KatNr: " + nr + ", Areal: " + areal + ", Volum: " + volum + ", Pris: " + pris;
+        return "KlasseNr: " + nr + ", Areal: " + areal + ", Volum: " + volum + ", Pris: " + pris;
     }
 
     @Override

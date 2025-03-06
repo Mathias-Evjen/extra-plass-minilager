@@ -46,20 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(remWidth);
     console.log(remHeight);
 
-    let viewBox = {x: 0, y: 0, width: kart.clientWidth, height: kart.clientHeight};
-    kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
 
     let isPanning = false;
     let startX, startY;
 
+    // Minimum og maksimum zoom nivå
     const MAP_WIDTH = remWidth;
     const MAP_HEIGHT = remHeight;
-
-    // Minimum og maksimum zoom nivå
-    const MAX_WIDTH = remWidth;
-    const MAX_HEIGHT = remHeight;
     const MIN_WIDTH = 480;
     const MIN_HEIGHT = 270;
+
+    let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
+    kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
+
 
     // Mouslistener som sjekker om man trykker på musa og setter startkoordinater for flytting av kartet
     kart.addEventListener("mousedown", (e) => {
@@ -111,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let newHeight = viewBox.height * zoomFactor;
 
         // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newWidth > MAX_WIDTH || newWidth < MIN_WIDTH || newHeight > MAX_HEIGHT || newHeight < MIN_HEIGHT) {
-            kart.setAttribute("viewBox", `${0} ${0} ${MAX_WIDTH} ${MAX_HEIGHT}`);
+        if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH || newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
+            kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
             return;
         }
 

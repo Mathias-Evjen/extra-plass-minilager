@@ -8,7 +8,7 @@ package com.example.extraplassminilager;
 import java.util.Objects;
 
 public class Bod {
-    private int nr, katNr;
+    private int nr, klasseNr;
     private boolean erOpptatt = false;
     private int etasje;
 
@@ -18,9 +18,9 @@ public class Bod {
         this.nr = nr;
     }
 
-    public Bod(int nr, int katNr, int etasje) {
+    public Bod(int nr, int klasseNr, int etasje) {
         this.nr = nr;
-        this.katNr = katNr;
+        this.klasseNr = klasseNr;
         this.etasje = etasje;
     }
 
@@ -32,12 +32,12 @@ public class Bod {
         this.nr = nr;
     }
 
-    public int getKatNr() {
-        return katNr;
+    public int getKlasseNr() {
+        return klasseNr;
     }
 
-    public void setKatNr(int katNr) {
-        this.katNr = katNr;
+    public void setKlasseNr(int klasseNr) {
+        this.klasseNr = klasseNr;
     }
 
     public void settLedig() {
@@ -63,7 +63,7 @@ public class Bod {
 
     @Override
     public String toString() {
-        return "BodNr: " + nr + ", KatNr: " + katNr + ", Etasje: " + etasje;
+        return "BodNr: " + nr + ", KlasseNr: " + klasseNr + ", Etasje: " + etasje;
     }
 
     @Override
@@ -73,6 +73,6 @@ public class Bod {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nr, katNr, etasje);
+        return Objects.hash(nr, klasseNr, etasje);
     }
 }

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ExtraPlassMinilagerApplicationTests {
 	private final DataRepository dataRepo = new DataRepository();
-	private final KategoriRepository katRepo = new KategoriRepository();
+	private final KlasseRepository klasseRepo = new KlasseRepository();
 
 	@Test
 	void contextLoads() {
@@ -44,10 +44,10 @@ class ExtraPlassMinilagerApplicationTests {
 
 	@Test
 	void getBoderTest() {
-		List<BodKategori> bodkat = new ArrayList<>();
-		bodkat.add(new BodKategori(313, 1));
-		bodkat.add(new BodKategori(600, 3));
-		List<Bod> ut = dataRepo.getBoder(bodkat);
+		List<BodKlasse> bodKlasse = new ArrayList<>();
+		bodKlasse.add(new BodKlasse(313, 1));
+		bodKlasse.add(new BodKlasse(600, 3));
+		List<Bod> ut = dataRepo.getBoder(bodKlasse);
 
 		List<Bod> boder = new ArrayList<>();
 		boder.add(new Bod(313, 1, 1));
@@ -64,37 +64,37 @@ class ExtraPlassMinilagerApplicationTests {
 	/*
 	===============================
 
-	 Tester for KategoriRepository
+	 Tester for KlasseRepository
 
 	===============================
 
 	 */
 
 	@Test
-	void populerKategorierTest() {
-		Map<Integer, List<Integer>> bodKat = new HashMap<>();
+	void populerKlasserTest() {
+		Map<Integer, List<Integer>> bodKlasse = new HashMap<>();
 		List<Integer> boder = new ArrayList<>();
 		for (int i = 0; i < 400; i++) boder.add(i);
-		bodKat.put(1, boder);
-		bodKat.put(2, boder);
-		bodKat.put(3, boder);
+		bodKlasse.put(1, boder);
+		bodKlasse.put(2, boder);
+		bodKlasse.put(3, boder);
 
 		List<Integer> opptatt = new ArrayList<>();
 		for (int i = 5; i < 15; i++) opptatt.add(i);
 
-//		assertEquals(bodKat.size(), katRepo.populerKategorier(bodKat, opptatt).size(), "");
+//		assertEquals(bodKlasse.size(), klasseRepo.populerKlasser(bodKlasse, opptatt).size(), "");
 
-		// Tester at populerKategorier håndterer null-verdier
-		assertThrows(NullPointerException.class, () -> katRepo.populerKategorier(null, null), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
-		assertThrows(NullPointerException.class, () -> katRepo.populerKategorier(null, opptatt), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
-		assertThrows(NullPointerException.class, () -> katRepo.populerKategorier(bodKat, null), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
+		// Tester at populerKlasser håndterer null-verdier
+		assertThrows(NullPointerException.class, () -> klasseRepo.populerklasser(null, null), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
+		assertThrows(NullPointerException.class, () -> klasseRepo.populerklasser(null, opptatt), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
+		assertThrows(NullPointerException.class, () -> klasseRepo.populerklasser(bodKlasse, null), "Gir ingen eller gal feilmelding dersom en eller begge listene som tas inn er null");
 	}
 
 
 	/*
 	==================================
 
-	 Tester for BodKategoriRepository
+	 Tester for BodKlasseiRepository
 
 	==================================
 
