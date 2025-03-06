@@ -21,8 +21,9 @@ window.onload = function hentBoder() {
 //         })
 // }
 
-function hentKategorier() {
-    $.get("http://localhost:8080/hentKategorier"), function(data) {
+function hentKlasser() {
+    $.get("http://localhost:8080/hentKlasser"), function(data) {
+        console.log("hei");
         return data;
     }
 }
@@ -157,15 +158,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function popup(bod){
 
-    //trenger en controller get metode for å hente data for en spesifikk bod.
-    let popupBox = `
-            <div class="popup-container">
-                <h1>test</h1>
-                <button class="close-btn" onclick="lukkPopup()">Close</button>
-            </div>
-        `
-        document.getElementById("popup-box").innerHTML = popupBox;
-        document.getElementById("popup-box").style.display = "flex";
+    //Kaller på to get api kallinger rett etter hverandre
+    $.when(
+        $.get("http://localhost:8080/hentBoder"),
+        $.get("http://localhost:8080/hentKlasser")
+    ).done(function(boder, klasser) {
+        let bodObjekt = boder[0].find(boderObjekt => boderObjekt.nr === parseInt(bod, 10)); //Finner bod objektet for boden som ble trykket på i listen med alle boder
+        let klasseObjekt = klasser[0].find(klasserObjekt => klasserObjekt.nr === parseInt(bodObjekt.klasseNr, 10)); //Finner klasse objektet for klassen boden som ble trykket på er i.
+        
+        let bodOpptatt = "";
+        if (bodObjekt.opptatt){bodOpptatt = "opptatt";}
+        else{bodOpptatt = "ledig";}
+        let etasje = "";
+        if (bodObjekt.etasje === 1){etasje = "Oppe";}
+        else{etasje = "Nede";}
+
+        //HTML koden for popup-boks
+        let popupBox = `
+                <div class="popup-container">
+                    <h1>Bod ${bod}</h1>
+                    <p>Areal: ${klasseObjekt.areal}m²</p>
+                    <p>Volum: ${klasseObjekt.volum}m³</p>
+                    <p>Pris: ${klasseObjekt.pris}kr</p>
+                    <p>Etasje: ${etasje}</p>
+                    <p>Denne boden er ${bodOpptatt}</p>
+                    <button class="close-btn" onclick="lukkPopup()">Close</button>
+                </div>
+            `
+
+            //Pusher ut html koden for popup-boks til en div som ligger i kart.html
+            document.getElementById("popup-box").innerHTML = popupBox;
+            document.getElementById("popup-box").style.display = "flex";
+    });
+
 }
 
 function lukkPopup(){
