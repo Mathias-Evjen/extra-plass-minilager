@@ -150,11 +150,28 @@ document.addEventListener("DOMContentLoaded", () => {
         aktivBod = bod;
         document.getElementById(bod).setAttribute("stroke", "#57B9FF");
         document.getElementById(bod).setAttribute("stroke-width", "7");
+
+        popup(bod);
     })
 });
 
 
+function popup(bod){
 
+    //trenger en controller get metode for å hente data for en spesifikk bod.
+    let popupBox = `
+            <div class="popup-container">
+                <h1>test</h1>
+                <button class="close-btn" onclick="lukkPopup()">Close</button>
+            </div>
+        `
+        document.getElementById("popup-box").innerHTML = popupBox;
+        document.getElementById("popup-box").style.display = "flex";
+}
+
+function lukkPopup(){
+    document.getElementById("popup-box").style.display = "none";
+}
 
 
 
