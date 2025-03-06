@@ -2,13 +2,23 @@ body {
     margin: 0; overflow: hidden;
 }
 
-.container {
+.container-oppe {
     position: relative;
     width: 63vw;
     height: 41.5vw;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
+    border: 1px solid red;
+    background-color: lightgray;
+}
+
+.container-nede {
+    position: relative;
+    width: 62.25vh;
+    height: 96.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
     background-color: lightgray;
 }
 
@@ -36,7 +46,7 @@ rect:hover{
 
 /*Test popup*/
  /* Popup bakgrunn */
- .popup-wrapper {
+.popup-wrapper {
     display: none;  /* Skjuler popupen som standard */
     position: absolute;
     top: 0;
@@ -55,6 +65,7 @@ rect:hover{
     padding: 20px;
     text-align: center;
     width: 300px;
+    border: 1px solid red;
 }
 
 /* Lukkeknapp */

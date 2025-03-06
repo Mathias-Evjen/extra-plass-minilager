@@ -27,7 +27,7 @@ function printKlasser(klasser) {
         let boder = JSON.stringify(klasser[i].boder)
         //utvid = `<button class="utvid-knapp" data-boder='${JSON.stringify(klasser[i].boder)}' onclick="visBodIKat(${klasser[i].nr}, this, ${antallLedigeBoder})">></button>`;
         nybod.innerHTML = `<td>${klasser[i].nr}</td><td>${klasser[i].areal}m²</td><td>${klasser[i].volum}m³</td><td>${antallLedigeBoder}</td><td>${klasser[i].pris}kr</td>`;
-        nybod.onclick = function() {visBodIKat(klasser[i].nr, boder, (klasser[i].antallBoder - klasser[i].antallOpptatt))}
+        nybod.onclick = function() {visBodIKlasse(klasser[i].nr, boder, (klasser[i].antallBoder - klasser[i].antallOpptatt))}
         
         nybod.onmouseover = function() {this.style.backgroundColor = "lightgray";}; //Highlight rad når musen treffer
         nybod.onmouseout = function() {this.style.backgroundColor = "";}; //Fjerner highlight når musen ikke treffer raden
@@ -38,7 +38,7 @@ function printKlasser(klasser) {
     
 }
 
-function visBodIKat(klasseNummer, boderIKat, antallLedigeBoder){
+function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     let katID = "klasse" + klasseNummer;
     let rad = document.getElementById(katID);
     if(rad.innerHTML.trim() !== ""){                            // Sjekker om utvid-knappen har blir trykket på
