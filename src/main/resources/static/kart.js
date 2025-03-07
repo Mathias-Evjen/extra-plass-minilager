@@ -1,3 +1,6 @@
+const bodArray = [];
+const klasseArray = [];
+
 window.onload = function hentBoder() {
     $.get("http://localhost:8080/hentBoder", function(boder) {
         console.log(boder);
@@ -7,6 +10,13 @@ window.onload = function hentBoder() {
             if (kartBod != null) {
                 kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");
             }
+            bodArray.push(bod);
+        }
+    })
+
+    $.get("http://localhost:8080/hentKlasser", function (klasser) {
+        for (const klasse of klasser) {
+            klasseArray.push(klasse);
         }
     })
 }
@@ -88,8 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let newHeight = viewBox.height * zoomFactor;
 
         // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH || newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
+        if (newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            return;
+        } else if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH) {
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
             return;
         }
 
@@ -252,24 +265,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function popup(bod){
+    let bodObjekt = bodArray.find(boderObjekt => boderObjekt.nr === parseInt(bod, 10)); //Finner bod objektet for boden som ble trykket på i listen med alle boder
+    let klasseObjekt = klasseArray.find(klasserObjekt => klasserObjekt.nr === parseInt(bodObjekt.klasseNr, 10)); //Finner klasse objektet for klassen boden som ble trykket på er i.
 
-    //Kaller på to get api kallinger rett etter hverandre
-    $.when(
-        $.get("http://localhost:8080/hentBoder"),
-        $.get("http://localhost:8080/hentKlasser")
-    ).done(function(boder, klasser) {
-        let bodObjekt = boder[0].find(boderObjekt => boderObjekt.nr === parseInt(bod, 10)); //Finner bod objektet for boden som ble trykket på i listen med alle boder
-        let klasseObjekt = klasser[0].find(klasserObjekt => klasserObjekt.nr === parseInt(bodObjekt.klasseNr, 10)); //Finner klasse objektet for klassen boden som ble trykket på er i.
-        
-        let bodOpptatt = "";
-        if (bodObjekt.opptatt){bodOpptatt = "opptatt";}
-        else{bodOpptatt = "ledig";}
-        let etasje = "";
-        if (bodObjekt.etasje === 1){etasje = "Oppe";}
-        else{etasje = "Nede";}
+    let bodOpptatt = "";
+    if (bodObjekt.opptatt){bodOpptatt = "opptatt";}
+    else{bodOpptatt = "ledig";}
+    let etasje = "";
+    if (bodObjekt.etasje === 1){etasje = "Oppe";}
+    else{etasje = "Nede";}
 
-        //HTML koden for popup-boks
-        let popupBox = `
+    //HTML koden for popup-boks
+    let popupBox = `
                 <div class="popup-container">
                     <h1>Bod ${bod}</h1>
                     <p>Areal: ${klasseObjekt.areal}m²</p>
@@ -281,23 +288,15 @@ function popup(bod){
                 </div>
             `
 
-            //Pusher ut html koden for popup-boks til en div som ligger i kart.html
-            document.getElementById("popup-box").innerHTML = popupBox;
-            document.getElementById("popup-box").style.display = "flex";
-    });
+    //Pusher ut html koden for popup-boks til en div som ligger i kart.html
+    document.getElementById("popup-box").innerHTML = popupBox;
+    document.getElementById("popup-box").style.display = "flex";
 
 }
 
 function lukkPopup(){
     document.getElementById("popup-box").style.display = "none";
 }
-
-
-
-
-
-
-
 
 
 
