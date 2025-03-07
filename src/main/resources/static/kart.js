@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let centerX = viewBox.x + viewBox.width / 2;
-        let centerY = viewBox.x + viewBox.height / 2;
+        let centerY = viewBox.y + viewBox.height / 2;
 
         viewBox.width = newWidth;
         viewBox.height = newHeight;
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let centerX = viewBox.x + viewBox.width / 2;
-        let centerY = viewBox.x + viewBox.height / 2;
+        let centerY = viewBox.y + viewBox.height / 2;
 
         viewBox.width = newWidth;
         viewBox.height = newHeight;
