@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (viewBox.x < 0) viewBox.x = 0;
         if (viewBox.y < 0) viewBox.y = 0;
 
-        if (viewBox.width > MAP_WIDTH) viewBox.width = MAP_WIDTH;
-        if (viewBox.height > MAP_HEIGHT) viewBox.height = MAP_HEIGHT;
+        if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
+        if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
