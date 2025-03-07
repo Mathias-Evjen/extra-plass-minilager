@@ -204,6 +204,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    let resetZoomKnapp = document.getElementById("reset-zoom-knapp");
+    resetZoomKnapp.addEventListener("click", function (e) {
+
+        // Må oppdatere viewBox-parametrene så den husker at man er zoomet helt ut
+        viewBox.x = 0;
+        viewBox.y = 0;
+        viewBox.width = MAP_WIDTH;
+        viewBox.height = MAP_HEIGHT;
+
+        gsap.to(kart, {
+            attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
+            duration: 0.3,
+            ease: "power2.out",
+        });
+    })
+
     // Holder boden som er fokusert
     let aktivBod = null;
 
