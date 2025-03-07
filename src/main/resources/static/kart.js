@@ -1,3 +1,6 @@
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+
+
 const bodArray = [];
 const klasseArray = [];
 
@@ -44,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const MIN_WIDTH = 480;
     const MIN_HEIGHT = 270;
 
+    const MID_X = remWidth / 2;
+    const MID_Y = remHeight / 2;
+
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
     kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
 
@@ -87,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault(); // Hindrer siden fra å rulle nedover når man ruller
 
-        let zoomFactor = e.deltaY > 0 ? 1.05 : 0.95;  // Bestemmer zoom-hastigheten når man ruller opp og ned
+        let zoomFactor = e.deltaY > 0 ? 1.2 : 0.8;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
@@ -118,6 +124,84 @@ document.addEventListener("DOMContentLoaded", () => {
         if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+    });
+
+    let zoomInnKnapp = document.getElementById("zoom-inn-knapp");
+    zoomInnKnapp.addEventListener("click", function (e) {
+        let zoomFactor = 0.8;
+
+        let newWidth = viewBox.width * zoomFactor;
+        let newHeight = viewBox.height * zoomFactor;
+
+        // Sjekk om vi er innenfor maks/min zoom-grenser
+        if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
+            kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            return;
+        } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
+            return;
+        }
+
+        let centerX = viewBox.x + viewBox.width / 2;
+        let centerY = viewBox.x + viewBox.height / 2;
+
+        viewBox.width = newWidth;
+        viewBox.height = newHeight;
+
+        viewBox.x = centerX - viewBox.width / 2;
+        viewBox.y = centerY - viewBox.height / 2;
+
+        // Sørger for at man ikke ser utenfor kartet når man zoomer ut
+        if (viewBox.x < 0) viewBox.x = 0;
+        if (viewBox.y < 0) viewBox.y = 0;
+
+        if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
+        if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
+
+        gsap.to(kart, {
+            attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
+            duration: 0.3,
+            ease: "power2.out",
+        });
+    });
+
+    let zoomUtKnapp = document.getElementById("zoom-ut-knapp");
+    zoomUtKnapp.addEventListener("click", function (e) {
+        let zoomFactor = 1.2;
+
+        let newWidth = viewBox.width * zoomFactor;
+        let newHeight = viewBox.height * zoomFactor;
+
+        // Sjekk om vi er innenfor maks/min zoom-grenser
+        if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
+            kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            return;
+        } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
+            return;
+        }
+
+        let centerX = viewBox.x + viewBox.width / 2;
+        let centerY = viewBox.x + viewBox.height / 2;
+
+        viewBox.width = newWidth;
+        viewBox.height = newHeight;
+
+        viewBox.x = centerX - viewBox.width / 2;
+        viewBox.y = centerY - viewBox.height / 2;
+
+        // Sørger for at man ikke ser utenfor kartet når man zoomer ut
+        if (viewBox.x < 0) viewBox.x = 0;
+        if (viewBox.y < 0) viewBox.y = 0;
+
+        if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
+        if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
+
+        gsap.to(kart, {
+            attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
+            duration: 0.3,
+            ease: "power2.out",
+        });
     });
 
     // Holder boden som er fokusert
@@ -275,6 +359,8 @@ document.addEventListener("DOMContentLoaded", () => {
         popup(bod);
     })
 });
+
+
 
 
 function popup(bod){

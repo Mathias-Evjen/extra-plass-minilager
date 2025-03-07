@@ -31,16 +31,33 @@ svg:hover {
     cursor: pointer;
 }
 
-a:focus {
-    background-color: orange;
-}
-
 rect{
     stroke-width: 2;
 }
 
 rect:hover{
     stroke-width: 7;
+}
+
+.zoom-wrapper {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.zoom-wrapper button {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    margin-bottom: 1px;
+    box-shadow: 2px 2px 2px darkgray;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 
