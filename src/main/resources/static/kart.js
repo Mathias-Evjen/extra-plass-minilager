@@ -81,27 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // Når musa ikke lenger holdes ikke flyttes ikke lenger på kartet
     window.addEventListener("mouseup", () => isPanning = false);
 
-    const kartSize = {width: kart.clientWidth, height: kart.clientHeight};
-    let startPoint = {x: 0, y: 0};
-    let endPoint = {x: 0, y: 0};
-    let scale = 1;
-
     // Når musehjulet rulles zoomes det inn eller ut fra musepunktet
     // Zoom kan gjøres til maksimum eller minimum zoom nivå
     kart.addEventListener("wheel", (e) => {
 
         e.preventDefault(); // Hindrer siden fra å rulle nedover når man ruller
 
-        let zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;  // Bestemmer zoom-hastigheten når man ruller opp og ned
+        let zoomFactor = e.deltaY > 0 ? 1.05 : 0.95;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
 
         // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
+        if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
             return;
-        } else if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH) {
+        } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
             kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
             return;
         }
@@ -115,12 +110,20 @@ document.addEventListener("DOMContentLoaded", () => {
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
 
+        // Sørger for at man ikke ser utenfor kartet når man zoomer ut
+        if (viewBox.x < 0) viewBox.x = 0;
+        if (viewBox.y < 0) viewBox.y = 0;
+
+        if (viewBox.width > MAP_WIDTH) viewBox.width = MAP_WIDTH;
+        if (viewBox.height > MAP_HEIGHT) viewBox.height = MAP_HEIGHT;
+
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
 
     // Holder boden som er fokusert
     let aktivBod = null;
 
+    // Når man trykker på en bod åpnes en popup som viser informasjon om boden
     document.getElementById("kart-oppe").addEventListener("click", function (e) {
         let bod = e.target.id;
         if (document.getElementById(bod) === null) return;
@@ -221,6 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Sjekk om vi er innenfor maks/min zoom-grenser
         if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH || newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            return;
+        } else if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH) {
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
             return;
         }
 
