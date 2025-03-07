@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Minimum og maksimum zoom nivå
     const MAP_WIDTH = remWidth;
     const MAP_HEIGHT = remHeight;
-    const MIN_WIDTH = 480;
-    const MIN_HEIGHT = 270;
+    const MIN_WIDTH = 270;
+    const MIN_HEIGHT = 480;
 
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
     kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
@@ -222,10 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let newHeight = viewBox.height * zoomFactor;
 
         // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH || newHeight > MAP_HEIGHT || newHeight < MIN_HEIGHT) {
+        if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
             return;
-        } else if (newWidth > MAP_WIDTH || newWidth < MIN_WIDTH) {
+        } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
             kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
             return;
         }
@@ -238,6 +238,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
+
+        // Sørger for at man ikke ser utenfor kartet når man zoomer ut
+        if (viewBox.x < 0) viewBox.x = 0;
+        if (viewBox.y < 0) viewBox.y = 0;
+
+        if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
+        if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
