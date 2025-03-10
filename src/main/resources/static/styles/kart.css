@@ -64,21 +64,30 @@ button:hover {
 /*Test popup*/
  /* Popup bakgrunn */
 .popup-wrapper {
-    display: none;  /* Skjuler popupen som standard */
+    /*display: none;  !* Skjuler popupen som standard *!*/
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
+
     z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-wrapper.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Innholdet i popup-boksen */
 .popup-container {
     background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
     padding: 20px;
     text-align: center;
     width: 300px;

@@ -220,29 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })
 
-    // Holder boden som er fokusert
-    let aktivBod = null;
-
     // Når man trykker på en bod åpnes en popup som viser informasjon om boden
     document.getElementById("kart-oppe").addEventListener("click", function (e) {
         let bod = e.target.id;
         if (document.getElementById(bod) === null) return;
         console.log(bod);
-
-        if (bod === "kart-oppe") {
-            document.getElementById(aktivBod).setAttribute("stroke", "black")
-            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
-            return;
-        }
-
-        if (aktivBod !== null && aktivBod !== bod) {
-            document.getElementById(aktivBod).setAttribute("stroke", "black")
-            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
-        }
-
-        aktivBod = bod;
-        document.getElementById(bod).setAttribute("stroke", "#57B9FF");
-        document.getElementById(bod).setAttribute("stroke-width", "7");
 
         popup(bod);
     })
@@ -349,28 +331,10 @@ document.addEventListener("DOMContentLoaded", () => {
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
 
-    // Holder boden som er fokusert
-    let aktivBod = null;
-
     document.getElementById("kart-nede").addEventListener("click", function (e) {
         let bod = e.target.id;
         if (document.getElementById(bod) === null) return;
         console.log(bod);
-
-        if (bod === "kart-nede") {
-            document.getElementById(aktivBod).setAttribute("stroke", "black")
-            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
-            return;
-        }
-
-        if (aktivBod !== null && aktivBod !== bod) {
-            document.getElementById(aktivBod).setAttribute("stroke", "black")
-            document.getElementById(aktivBod).setAttribute("stroke-width", "2");
-        }
-
-        aktivBod = bod;
-        document.getElementById(bod).setAttribute("stroke", "#57B9FF");
-        document.getElementById(bod).setAttribute("stroke-width", "7");
 
         popup(bod);
     })
@@ -405,12 +369,12 @@ function popup(bod){
 
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
     document.getElementById("popup-box").innerHTML = popupBox;
-    document.getElementById("popup-box").style.display = "flex";
+    document.getElementById("popup-box").classList.add("show")
 
 }
 
 function lukkPopup(){
-    document.getElementById("popup-box").style.display = "none";
+    document.getElementById("popup-box").classList.remove("show");
 }
 
 
