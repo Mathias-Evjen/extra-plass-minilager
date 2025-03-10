@@ -1,5 +1,6 @@
 body {
     margin: 0; overflow: hidden;
+    font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container-oppe {
@@ -25,6 +26,7 @@ body {
 text {
     user-select: none;
     pointer-events: none;
+    font-size: 1.2rem;
 }
 
 svg:hover {
