@@ -344,6 +344,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function popup(bod){
+    let popupBox;
+    if (bod === "9" || bod === "305") {
+        popupBox = `
+                <div class="popup-container">
+                    <h1>Bod ${bod}</h1>
+                    <p>Denne boden er ikke tilgjengelig for utleie</p>
+                    <button class="close-btn" onclick="lukkPopup()">Close</button>
+                </div>
+            `;
+
+        //Pusher ut html koden for popup-boks til en div som ligger i kart.html
+        document.getElementById("popup-box").innerHTML = popupBox;
+        document.getElementById("popup-box").classList.add("show");
+        return;
+    }
+
     let bodObjekt = bodArray.find(boderObjekt => boderObjekt.nr === parseInt(bod, 10)); //Finner bod objektet for boden som ble trykket på i listen med alle boder
     let klasseObjekt = klasseArray.find(klasserObjekt => klasserObjekt.nr === parseInt(bodObjekt.klasseNr, 10)); //Finner klasse objektet for klassen boden som ble trykket på er i.
 
@@ -355,7 +371,7 @@ function popup(bod){
     else{etasje = "Nede";}
 
     //HTML koden for popup-boks
-    let popupBox = `
+    popupBox = `
                 <div class="popup-container">
                     <h1>Bod ${bod}</h1>
                     <p>Areal: ${klasseObjekt.areal}m²</p>
@@ -365,7 +381,7 @@ function popup(bod){
                     <p>Denne boden er ${bodOpptatt}</p>
                     <button class="close-btn" onclick="lukkPopup()">Close</button>
                 </div>
-            `
+            `;
 
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
     document.getElementById("popup-box").innerHTML = popupBox;
