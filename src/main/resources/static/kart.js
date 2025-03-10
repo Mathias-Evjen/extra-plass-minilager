@@ -29,10 +29,30 @@ function remToPixle(rem) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let kart = document.getElementById("kart-oppe");
+    let remWidth;
+    let remHeight;
 
-    let remWidth = remToPixle(126); // 2016
-    let remHeight = remToPixle(83)  // 1328
+    let minWidth;
+    let minHeight;
+
+    let kart = document.getElementById("kart-oppe");
+    if (kart === null) {
+        kart = document.getElementById("kart-nede");
+
+        remWidth = remToPixle(45); // 2016
+        remHeight = remToPixle(81)  // 1328
+        minWidth = 270;
+        minHeight = 480;
+
+
+    } else {
+        remWidth = remToPixle(126); // 2016
+        remHeight = remToPixle(83)  // 1328
+
+        minWidth = 480;
+        minHeight = 270;
+    }
+    console.log(kart);
 
     console.log(remWidth);
     console.log(remHeight);
@@ -44,8 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Minimum og maksimum zoom nivå
     const MAP_WIDTH = remWidth;
     const MAP_HEIGHT = remHeight;
-    const MIN_WIDTH = 480;
-    const MIN_HEIGHT = 270;
+
+    const MIN_WIDTH = minWidth;
+    const MIN_HEIGHT = minHeight;
 
     const MID_X = remWidth / 2;
     const MID_Y = remHeight / 2;
@@ -221,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Når man trykker på en bod åpnes en popup som viser informasjon om boden
-    document.getElementById("kart-oppe").addEventListener("click", function (e) {
+    kart.addEventListener("click", function (e) {
         let bod = e.target.id;
         if (document.getElementById(bod) === null) return;
         console.log(bod);
@@ -229,119 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
         popup(bod);
     })
 });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    let kart = document.getElementById("kart-nede");
-
-    let remWidth = remToPixle(45); // 2016
-    let remHeight = remToPixle(81)  // 1328
-
-    console.log(remWidth);
-    console.log(remHeight);
-
-
-    let isPanning = false;
-    let startX, startY;
-
-    // Minimum og maksimum zoom nivå
-    const MAP_WIDTH = remWidth;
-    const MAP_HEIGHT = remHeight;
-    const MIN_WIDTH = 270;
-    const MIN_HEIGHT = 480;
-
-    let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
-    kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
-
-
-    // Mouslistener som sjekker om man trykker på musa og setter startkoordinater for flytting av kartet
-    kart.addEventListener("mousedown", (e) => {
-        isPanning = true;
-        startX = e.clientX;
-        startY = e.clientY;
-    });
-
-    // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
-    window.addEventListener("mousemove", (e) => {
-        if (!isPanning) return;
-
-        let dx = (startX - e.clientX);
-        let dy = (startY - e.clientY);
-
-        let newX = viewBox.x + dx;
-        let newY = viewBox.y + dy;
-
-        // Sjekk at vi ikke beveger oss utenfor kartets grenser
-        let maxX = MAP_WIDTH - viewBox.width;
-        let maxY = MAP_HEIGHT - viewBox.height;
-
-        viewBox.x = Math.max(0, Math.min(newX, maxX));
-        viewBox.y = Math.max(0, Math.min(newY, maxY));
-
-        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
-
-        startX = e.clientX;
-        startY = e.clientY;
-    });
-
-    // Når musa ikke lenger holdes ikke flyttes ikke lenger på kartet
-    window.addEventListener("mouseup", () => isPanning = false);
-
-    const kartSize = {width: kart.clientWidth, height: kart.clientHeight};
-    let startPoint = {x: 0, y: 0};
-    let endPoint = {x: 0, y: 0};
-    let scale = 1;
-
-    // Når musehjulet rulles zoomes det inn eller ut fra musepunktet
-    // Zoom kan gjøres til maksimum eller minimum zoom nivå
-    kart.addEventListener("wheel", (e) => {
-
-        e.preventDefault(); // Hindrer siden fra å rulle nedover når man ruller
-
-        let zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;  // Bestemmer zoom-hastigheten når man ruller opp og ned
-
-        let newWidth = viewBox.width * zoomFactor;
-        let newHeight = viewBox.height * zoomFactor;
-
-        // Sjekk om vi er innenfor maks/min zoom-grenser
-        if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
-            kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
-            return;
-        } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
-            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
-            return;
-        }
-
-        let mouseX = e.clientX / window.innerWidth * viewBox.width + viewBox.x;
-        let mouseY = e.clientY / window.innerHeight * viewBox.height + viewBox.y;
-
-        viewBox.width = newWidth;
-        viewBox.height = newHeight;
-
-        viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
-        viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
-
-        // Sørger for at man ikke ser utenfor kartet når man zoomer ut
-        if (viewBox.x < 0) viewBox.x = 0;
-        if (viewBox.y < 0) viewBox.y = 0;
-
-        if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
-        if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
-
-        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
-    });
-
-    document.getElementById("kart-nede").addEventListener("click", function (e) {
-        let bod = e.target.id;
-        if (document.getElementById(bod) === null) return;
-        console.log(bod);
-
-        popup(bod);
-    })
-});
-
-
-
 
 function popup(bod){
     let popupBox;
