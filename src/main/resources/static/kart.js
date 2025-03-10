@@ -253,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function popup(bod){
     let popupBox;
+    if (bod === "kart-oppe" || bod === "kart-nede") return;
     if (bod === "9" || bod === "305") {
         popupBox = `
                 <div class="popup-container">
