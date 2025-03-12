@@ -1,108 +1,218 @@
-body {
-    margin: 0; overflow: hidden;
-    font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@media (max-width: 1086px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        touch-action: none;
+        user-select: none;
+        font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container-oppe {
+        position: relative;
+        width: 90vw;
+        height: 80dvh;
+        border: 1px solid red;
+        background-color: lightgray;
+    }
+
+    .container-nede {
+        position: relative;
+        width: 90vw;
+        height: 97dvh;
+        border: 1px solid red;
+        background-color: lightgray;
+    }
+
+    .søyle {
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .zoom-wrapper {
+        margin: 16px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .container-oppe .zoom-wrapper button {
+        width: 64px;
+        height: 64px;
+        border: none;
+        margin-bottom: 1px;
+        box-shadow: 2px 2px 2px darkgray;
+    }
+
+    .container-nede .zoom-wrapper button {
+        width: 32px;
+        height: 32px;
+        border: none;
+        margin-bottom: 1px;
+        box-shadow: 2px 2px 2px darkgray;
+
+    }
+
+    text {
+        user-select: none;
+        pointer-events: none;
+    }
+
+    /*Test popup*/
+    /* Popup bakgrunn */
+    .popup-wrapper {
+        /*display: none;  !* Skjuler popupen som standard *!*/
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+
+        z-index: 1000;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-wrapper.show {
+        opacity: 1;
+        visibility: visible;
+
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    /* Innholdet i popup-boksen */
+    .popup-container {
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20vh;
+        padding: 20px;
+        text-align: center;
+        width: 60vw;
+        border: 1px solid red;
+    }
+
+    /* Lukkeknapp */
+    .close-btn {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 }
 
-.container-oppe {
-    position: relative;
-    width: 63vw;
-    height: 41.5vw;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid red;
-    background-color: lightgray;
+@media (min-width: 1087px) {
+    body {
+        margin: 0;
+        overflow: hidden;
+        font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container-oppe {
+        position: relative;
+        width: 63vw;
+        height: 41.5vw;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid red;
+        background-color: lightgray;
+    }
+
+    .container-nede {
+        position: relative;
+        width: 53.5vh;
+        height: 96.5vh;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid red;
+        background-color: lightgray;
+    }
+
+    text {
+        user-select: none;
+        pointer-events: none;
+        font-size: 1.2rem;
+    }
+
+    svg:hover {
+        cursor: pointer;
+    }
+
+    rect{
+        stroke-width: 2;
+    }
+
+    rect:hover{
+        stroke-width: 7;
+    }
+
+    .søyle {
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .zoom-wrapper {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .zoom-wrapper button {
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        margin-bottom: 1px;
+        box-shadow: 2px 2px 2px darkgray;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+
+    /*Test popup*/
+    /* Popup bakgrunn */
+    .popup-wrapper {
+        /*display: none;  !* Skjuler popupen som standard *!*/
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+
+        z-index: 1000;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-wrapper.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Innholdet i popup-boksen */
+    .popup-container {
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20vh;
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+        border: 1px solid red;
+    }
+
+    /* Lukkeknapp */
+    .close-btn {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 }
 
-.container-nede {
-    position: relative;
-    width: 53.6vh;
-    height: 96.5vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid red;
-    background-color: lightgray;
-}
-
-text {
-    user-select: none;
-    pointer-events: none;
-    font-size: 1.2rem;
-}
-
-svg:hover {
-    cursor: pointer;
-}
-
-rect{
-    stroke-width: 2;
-}
-
-rect:hover{
-    stroke-width: 7;
-}
-
-.søyle {
-    user-select: none;
-    pointer-events: none;
-}
-
-.zoom-wrapper {
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.zoom-wrapper button {
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    margin-bottom: 1px;
-    box-shadow: 2px 2px 2px darkgray;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-
-/*Test popup*/
- /* Popup bakgrunn */
-.popup-wrapper {
-    /*display: none;  !* Skjuler popupen som standard *!*/
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-
-    z-index: 1000;
-
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.popup-wrapper.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Innholdet i popup-boksen */
-.popup-container {
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20vh;
-    padding: 20px;
-    text-align: center;
-    width: 300px;
-    border: 1px solid red;
-}
-
-/* Lukkeknapp */
-.close-btn {
-    padding: 10px 20px;
-    cursor: pointer;
-}

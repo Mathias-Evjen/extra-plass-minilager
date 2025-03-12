@@ -1,11 +1,12 @@
 src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
 
+const ADDR = "192.168.4.27";
 
 const bodArray = [];
 const klasseArray = [];
 
 window.onload = function hentBoder() {
-    $.get("http://localhost:8080/hentBoder", function(boder) {
+    $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
         console.log(boder);
         for (const bod of boder) {
             if (bod.nr === 9 || bod.nr === 305) continue;
@@ -17,7 +18,7 @@ window.onload = function hentBoder() {
         }
     })
 
-    $.get("http://localhost:8080/hentKlasser", function (klasser) {
+    $.get(`http://${ADDR}:8080/hentKlasser`, function (klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
@@ -29,49 +30,44 @@ function remToPixle(rem) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let remWidth;
-    let remHeight;
+    let maxWidth;
+    let maxHeight;
 
     let minWidth;
     let minHeight;
 
     let kart = document.getElementById("kart-oppe");
-    if (kart === null) {
+    if (!kart) {
         kart = document.getElementById("kart-nede");
 
-        remWidth = remToPixle(45); // 2016
-        remHeight = remToPixle(81)  // 1328
+        maxWidth = remToPixle(45);
+        maxHeight = remToPixle(81);
         minWidth = 270;
         minHeight = 480;
-
-
     } else {
-        remWidth = remToPixle(126); // 2016
-        remHeight = remToPixle(83)  // 1328
-
+        maxWidth = remToPixle(126); // 2016
+        maxHeight = remToPixle(83)  // 1328
         minWidth = 480;
         minHeight = 270;
     }
-    console.log(kart);
-
-    console.log(remWidth);
-    console.log(remHeight);
-
 
     let isPanning = false;
     let startX, startY;
 
-    // Minimum og maksimum zoom nivå
-    const MAP_WIDTH = remWidth;
-    const MAP_HEIGHT = remHeight;
+    let scale = 1;
+    let lastScale = 1;
 
+    // Minimum og maksimum zoom nivå
+    const MAP_WIDTH = maxWidth;
+    const MAP_HEIGHT = maxHeight;
     const MIN_WIDTH = minWidth;
     const MIN_HEIGHT = minHeight;
 
-    const MID_X = remWidth / 2;
-    const MID_Y = remHeight / 2;
+    const MID_X = maxWidth / 2;
+    const MID_Y = maxHeight / 2;
 
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
+
     kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
 
 
@@ -83,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
-    window.addEventListener("mousemove", (e) => {
+    kart.addEventListener("mousemove", (e) => {
         if (!isPanning) return;
 
         let dx = (startX - e.clientX);
@@ -95,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Sjekk at vi ikke beveger oss utenfor kartets grenser
         let maxX = MAP_WIDTH - viewBox.width;
         let maxY = MAP_HEIGHT - viewBox.height;
+
+        // if (window.innerWidth < 1086) maxX -= 100;
 
         viewBox.x = Math.max(0, Math.min(newX, maxX));
         viewBox.y = Math.max(0, Math.min(newY, maxY));
@@ -146,6 +144,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
     });
+
+    kart.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+            isPanning = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }
+        if (e.touches.length === 2) {
+            const dx = e.touches[1].clientX - e.touches[0].clientX;
+            const dy = e.touches[1].clientY - e.touches[0].clientY;
+            lastScale = Math.sqrt(dx * dx + dy * dy);
+        }
+    })
+
+    kart.addEventListener("touchend", (e) => {
+        isPanning = false;
+    })
+
+    const MAX_SCALE = 1;
+    const MIN_SCALE = 0.2;
+
+    kart.addEventListener("touchmove", (e) => {
+        if (e.touches.length === 2) {
+            // Beregn zoom-verdien
+            const dx = e.touches[1].clientX - e.touches[0].clientX;
+            const dy = e.touches[1].clientY - e.touches[0].clientY;
+            const currentScale = Math.sqrt(dx * dx + dy * dy);
+
+            const zoomFactor = currentScale / lastScale;
+            if (currentScale * zoomFactor < MIN_SCALE) {
+                scale = MIN_SCALE;
+            } else if (currentScale * zoomFactor > MAX_SCALE) {
+                scale = MAX_SCALE;
+            }
+
+            // Juster viewBox for å oppnå zoom-effekten
+            const newWidth = MAP_WIDTH * scale;
+            const newHeight = MAP_HEIGHT * scale;
+
+            viewBox.width = newWidth;
+            viewBox.height = newHeight;
+
+            const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+
+            // Beregn hvordan viewBox skal justeres for å holde midtpunktet konstant
+            const offsetX = (centerX / window.innerWidth) * (viewBox.width + viewBox.x);
+            const offsetY = (centerY / window.innerHeight) * (viewBox.height + viewBox.y);
+
+            viewBox.x = viewBox.x + offsetX;
+            viewBox.y = viewBox.y + offsetY
+
+            if (viewBox.x < 0) viewBox.x = 0;
+            if (viewBox.y < 0) viewBox.y = 0;
+
+            if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
+            if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
+
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+
+            lastScale = currentScale;
+        } else if (e.touches.length === 1 && isPanning) {
+            // Dra
+            let dx = (startX - e.touches[0].clientX);
+            let dy = (startY - e.touches[0].clientY);
+
+            let newX = viewBox.x + dx;
+            let newY = viewBox.y + dy;
+
+            // Sjekk at vi ikke beveger oss utenfor kartets grenser
+            let maxX = MAP_WIDTH - viewBox.width;
+            let maxY = MAP_HEIGHT - viewBox.height;
+
+            viewBox.x = Math.max(0, Math.min(newX, maxX));
+            viewBox.y = Math.max(0, Math.min(newY, maxY));
+
+            kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }
+    })
 
     let zoomInnKnapp = document.getElementById("zoom-inn-knapp");
     zoomInnKnapp.addEventListener("click", function (e) {
@@ -301,8 +381,6 @@ function popup(bod){
 function lukkPopup(){
     document.getElementById("popup-box").classList.remove("show");
 }
-
-
 
 
 
