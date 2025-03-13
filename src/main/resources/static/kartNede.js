@@ -1,6 +1,6 @@
 export function printKartNede() {
     let kart = `<div class="container-nede">
-        <div id="popup-box" class="popup-wrapper"></div>
+        <div id="popup-box-nede" class="popup-wrapper"></div>
 
         <!-- Zoom-knapper -->
         <div id="zoom-knapper" class="zoom-wrapper">

@@ -66,8 +66,11 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     }
 }
 
-function toggleSwitch() {
-    document.querySelector('.switch-container').classList.toggle('active');
+function toggleSwitchTabellKart() {
+    document.querySelector('.switch-container-tabell-kart').classList.toggle('active');
+}
+function toggleSwitchOppeNede() {
+    document.querySelector('.switch-container-oppe-nede').classList.toggle('active');
 }
 
 let highlightedBod = null;

@@ -1,6 +1,6 @@
 export function printKartOppe() {
     let kart = `<div id="kartContainer-oppe" class="container-oppe">
-        <div id="popup-box" class="popup-wrapper"></div><!--Denne div'en er for å vise popup boksen-->
+        <div id="popup-box-oppe" class="popup-wrapper"></div><!--Denne div'en er for å vise popup boksen-->
 
         <!-- Zoom-knapper -->
         <div id="zoom-knapper" class="zoom-wrapper">

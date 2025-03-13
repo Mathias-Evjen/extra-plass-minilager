@@ -310,7 +310,7 @@ function printMap(etasje){
         if (document.getElementById(bod) === null || isPanning) return;
         console.log(bod);
 
-        popup(bod);
+        popup(bod, etasje);
     })
 }
 
@@ -368,8 +368,11 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
 }
 
 //Popup boks med info om boden som ble trykket på
-function popup(bod){
+function popup(bod, etasjeVar){
+    console.log(etasjeVar)
     document.getElementById(bod).classList.remove("highlight-bod-i-kart"); //Fjerner highlight til boden som ble trykket på hvis brukeren har trykket på "Vis i kart" knappen i tabellen
+    const idPopup = "popup-box-"+etasjeVar;
+    console.log(idPopup)
     let popupBox;
     if (bod === "kart-oppe" || bod === "kart-nede") return; //Hvis bruker ikke trykker på noen av bodene, altså bakgrunnen, vil denne funksjonen lukkes
     if (bod === "9" || bod === "305") { //Spesielle boder som ikke kan leies
@@ -382,8 +385,8 @@ function popup(bod){
             `;
 
         //Pusher ut html koden for popup-boks til en div som ligger i kart.html
-        document.getElementById("popup-box").innerHTML = popupBox;
-        document.getElementById("popup-box").classList.add("show");
+        document.getElementById(idPopup).innerHTML = popupBox;
+        document.getElementById(idPopup).classList.add("show");
         return;
     }
 
@@ -414,14 +417,15 @@ function popup(bod){
             `;
     
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
-    document.getElementById("popup-box").innerHTML = popupBox;
-    document.getElementById("popup-box").classList.add("show")
+    document.getElementById(idPopup).innerHTML = popupBox;
+    document.getElementById(idPopup).classList.add("show");
 }
 
 
 //Lukke popup boksen til boden
 function lukkPopup(){
-    document.getElementById("popup-box").classList.remove("show");
+    document.getElementById("popup-box-oppe").classList.remove("show");
+    document.getElementById("popup-box-nede").classList.remove("show");
 }
 
 window.lukkPopup = lukkPopup;   // Gjør funksjonen globalt tilgjengelig

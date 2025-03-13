@@ -4,20 +4,24 @@ function tabellEllerKart(){
     const kartOppe = document.getElementById("kart-oppe-div");
     const kartNede = document.getElementById("kart-nede-div");
     const tabell = document.getElementById("tabell");
-    if (!checkboxTabellKart.checked){
+    const kartDiv = document.getElementById("kart-div")
+    if (!checkboxTabellKart.classList.contains("active")){
         tabell.style.display = "block";
         kartOppe.style.display = "none";
         kartNede.style.display = "none";
+        kartDiv.style.display = "none";
     }
-    else if(!checkboxOppeNede.checked && checkboxTabellKart.checked){
+    else if(!checkboxOppeNede.classList.contains("active") && checkboxTabellKart.classList.contains("active")){
         tabell.style.display = "none";
         kartOppe.style.display = "block";
         kartNede.style.display = "none";
+        kartDiv.style.display = "block";
     }
     else{
         tabell.style.display = "none";
         kartOppe.style.display = "none";
         kartNede.style.display = "block";
+        kartDiv.style.display = "block";
     }
     
 }
