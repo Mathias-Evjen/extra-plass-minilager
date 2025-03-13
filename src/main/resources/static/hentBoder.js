@@ -67,9 +67,12 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     }
 }
 
+let highlightedBod = null;
+
 function highlightBodIKart(bodNr){
-    console.log("se på meg")
+    if (highlightedBod) document.getElementById(highlightedBod).classList.remove("highlight-bod-i-kart");
     document.getElementById(bodNr).classList.add("highlight-bod-i-kart");
     document.getElementById("tabell-kart-checkbox").checked = "checked";
+    highlightedBod = bodNr;
     tabellEllerKart();
 }

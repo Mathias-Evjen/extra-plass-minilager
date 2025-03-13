@@ -21,7 +21,7 @@ window.onload = function hentBoder() {
         }
     })
 
-    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
+    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
