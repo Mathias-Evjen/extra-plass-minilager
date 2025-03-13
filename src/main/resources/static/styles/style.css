@@ -184,3 +184,35 @@ th {
     font-weight: 550;
 }
 
+.switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.switch-container {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    background: white;
+    border: 1px solid red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.switch-btn {
+    position: absolute;
+    width: 45px;
+    height: 28px;
+    background: darkgray;
+    transition: transform 0.3s ease-in-out;
+}
+.active .switch-btn {
+    transform: translateX(55px);
+    background: darkgray;
+}
+.label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}

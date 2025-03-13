@@ -66,10 +66,16 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     }
 }
 
+function toggleSwitch() {
+    document.querySelector('.switch-container').classList.toggle('active');
+}
 
-//Ved å trykke på "Vis i kart" knappen i tabellen, vil denne funksjonen ta deg til kartet og highlighte boden som ble trykket på
+let highlightedBod = null;
+
 function highlightBodIKart(bodNr){
-    document.getElementById(bodNr).classList.add("highlight-bod-i-kart"); //Legger til CSS klassen som har highlight stylingen til boden i kartet
-    document.getElementById("tabell-kart-checkbox").checked = "checked"; //Endret checkboxen på hjemsiden for å skjule tabellen og få frem kartet
-    tabellEllerKart(); //Kalles for å skjule og frem tabell og kart
+    if (highlightedBod) document.getElementById(highlightedBod).classList.remove("highlight-bod-i-kart");
+    document.getElementById(bodNr).classList.add("highlight-bod-i-kart");
+    document.getElementById("tabell-kart-checkbox").checked = "checked";
+    highlightedBod = bodNr;
+    tabellEllerKart();
 }
