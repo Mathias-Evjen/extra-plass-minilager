@@ -1,10 +1,5 @@
 const IP = "192.168.4.27";
 
-// window.onload = function hentKlasser() {
-//
-// }
-
-
 document.addEventListener("DOMContentLoaded", () => {
     $.get(`http://${IP}:8080/hentKlasser`, function(data){
       console.log(data);
