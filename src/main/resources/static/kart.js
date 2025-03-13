@@ -6,19 +6,22 @@ const ADDR = "192.168.4.27";
 const bodArray = [];
 const klasseArray = [];
 
+// Kaller API for å hente boder og klasser og legger dem inn i hvert sitt array
 window.onload = function hentBoder() {
-    $.get(`http://localhost:8080/hentBoder`, function(boder) {
+    $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
+
+        // Går gjennom alle bodene fra API og oppdaterer kartet visuelt
         for (const bod of boder) {
             if (bod.nr === 9 || bod.nr === 305) continue;
             let kartBod = document.getElementById(bod.nr);
             if (kartBod != null) {
-                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");
+                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");  // Setter boden til rød hvis den er opptatt og grønn hvis den er ledig
             }
             bodArray.push(bod);
         }
     })
 
-    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
+    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
@@ -42,18 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!kart) {
         kart = document.getElementById("kart-nede");
 
-        maxWidth = remToPixle(45);
-        maxHeight = remToPixle(81);
+        maxWidth = 720;
+        maxHeight = 1296;
         minWidth = 270;
         minHeight = 480;
     } else {
-        maxWidth = remToPixle(126); // 2016
-        maxHeight = remToPixle(83)  // 1328
+        maxWidth = 2016;
+        maxHeight = 1328;
         minWidth = 480;
         minHeight = 270;
     }
 
     let isPanning = false;
+    let isZoomedOut = true;
     let startX, startY;
 
     let scale = 1;
@@ -82,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
     kart.addEventListener("mousemove", (e) => {
-        if (!isPanning || (viewBox.x === 0 && viewBox.y === 0 && viewBox.width === MAP_WIDTH && viewBox.height === MAP_HEIGHT)) return;
+        // Sjekker om man drar på kartet eller er zoomet helt ut
+        if (!isPanning || isZoomedOut) return;
 
         let dx = (startX - e.clientX);
         let dy = (startY - e.clientY);
@@ -116,35 +121,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let zoomFactor = e.deltaY > 0 ? 1.05 : 0.95;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
+        // Setter den nye bredden og høyden på kartet
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
 
-        // Sjekk om vi er innenfor maks/min zoom-grenser
+        // Sjekk om vi er innenfor maks/min zoom-grenser og stopper dersom grensene overskrides
         if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            isZoomedOut = true;
             return;
         } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
             kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
             return;
         }
 
+        // Finner posisjonen på musa
         let mouseX = e.clientX / window.innerWidth * viewBox.width + viewBox.x;
         let mouseY = e.clientY / window.innerHeight * viewBox.height + viewBox.y;
 
+        // Oppdaterer bredden og høyden på kartet til de nye verdiene
         viewBox.width = newWidth;
         viewBox.height = newHeight;
 
+        // Setter de nye koordinatene til kartet
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
 
         // Sørger for at man ikke ser utenfor kartet når man zoomer ut
         if (viewBox.x < 0) viewBox.x = 0;
         if (viewBox.y < 0) viewBox.y = 0;
-
         if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
         if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+        isZoomedOut = false;
     });
 
     kart.addEventListener("touchstart", (e) => {
@@ -230,10 +240,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     let zoomInnKnapp = document.getElementById("zoom-inn-knapp");
-    zoomInnKnapp.addEventListener("click", function (e) {
+    zoomInnKnapp.addEventListener("click", (e) => {
         let zoomFactor = 0.8;   // Hvor mye som zoomes inn hver gang knappen trykkes på
 
-        viewBox = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+
+        viewBox = box;
+        isZoomedOut = zoom;
 
         // Lager en behagelig animasjon av at det zoomes
         gsap.to(kart, {
@@ -244,10 +257,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     let zoomUtKnapp = document.getElementById("zoom-ut-knapp");
-    zoomUtKnapp.addEventListener("click", function (e) {
+    zoomUtKnapp.addEventListener("click", (e) => {
         let zoomFactor = 1.2;
 
-        viewBox = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        viewBox = box;
+        isZoomedOut = zoom;
 
         gsap.to(kart, {
             attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
@@ -257,13 +272,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     let resetZoomKnapp = document.getElementById("reset-zoom-knapp");
-    resetZoomKnapp.addEventListener("click", function (e) {
+    resetZoomKnapp.addEventListener("click", (e) => {
 
         // Må oppdatere viewBox-parametrene så den husker at man er zoomet helt ut
         viewBox.x = 0;
         viewBox.y = 0;
         viewBox.width = MAP_WIDTH;
         viewBox.height = MAP_HEIGHT;
+
+        isZoomedOut = true;
 
         gsap.to(kart, {
             attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
@@ -275,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Når man trykker på en bod åpnes en popup som viser informasjon om boden
     kart.addEventListener("click", function (e) {
         let bod = e.target.id;
-        if (document.getElementById(bod) === null) return;
+        if (document.getElementById(bod) === null || isPanning) return;
         console.log(bod);
 
         popup(bod);
@@ -303,7 +320,10 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     // Sjekk om vi er innenfor maks/min zoom-grenser og stopper dersom grensene overskrides
     if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
         viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
-        return viewBox;
+        return {
+            box: viewBox,
+            zoom: true
+        };
     } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
         return viewBox;
     }
@@ -312,7 +332,7 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     let centerX = viewBox.x + viewBox.width / 2;
     let centerY = viewBox.y + viewBox.height / 2;
 
-    // Setter bredden på kartet til den nye bredden
+    // Oppdaterer bredden og høyden på kartet til den nye bredden
     viewBox.width = newWidth;
     viewBox.height = newHeight;
 
@@ -326,10 +346,14 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
     if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
-    return viewBox;
+    return {
+        box: viewBox,
+        zoom: false
+    };
 }
 
 function popup(bod){
+    document.getElementById(bod).classList.remove("highlight-bod-i-kart");
     let popupBox;
     if (bod === "kart-oppe" || bod === "kart-nede") return;
     if (bod === "9" || bod === "305") {
@@ -369,7 +393,7 @@ function popup(bod){
                     <button class="close-btn" onclick="lukkPopup()">Close</button>
                 </div>
             `;
-
+    
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
     document.getElementById("popup-box").innerHTML = popupBox;
     document.getElementById("popup-box").classList.add("show")

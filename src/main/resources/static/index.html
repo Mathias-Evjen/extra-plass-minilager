@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/kart.css">
     <script src="hentBoder.js"></script>
     <script src="kart.js" type="module"></script>
+    <script src="tabellEllerKart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
@@ -32,23 +33,30 @@
             <p>Her er et utvalg av priser/ størrelser på boder du kan leie hos oss.</p>
             <p>NB! Vi har flere ulike størrelser til leie hos oss, så ta kontakt i dag på 64 87 29 99 for en hyggelig prat.</p>
         </div>
+        <input type="checkbox" id="tabell-kart-checkbox" onclick="tabellEllerKart()">
+        <!--    
         <div class="switch-wrapper">
             <div class="label">Kart</div>
             <div class="switch-container" onclick="toggleSwitch()">
                 <div class="switch-btn"></div>
             </div>
             <div class="label">Tabell</div>
+        </div>-->
+        <div>
+            <div id="tabell">
+            <p style="font-weight: bold;">Trykk på radene i tabellen for å vise alle ledige boder for den klassen.</p>
+            <table id="bodtabell">
+                <tr>
+                    <th>Klasse</th>
+                    <th>Areal</th>
+                    <th>Volum</th>
+                    <th>Antall ledige</th>
+                    <th>Pris</th>
+                </tr>
+            </table>
+            </div>
+            <div id="kart" style="display: none;"></div>
         </div>
-        <h3 style="font-weight: bold;">Trykk på radene i tabellen for å vise alle ledige boder for den klassen.</h3>
-        <table id="bodtabell">
-            <tr>
-                <th>Klasse</th>
-                <th>Areal</th>
-                <th>Volum</th>
-                <th>Antall ledige</th>
-                <th>Pris</th>
-            </tr>
-        </table>
         <div class="ring-oss-info-wrapper">
             <p class="ring-oss-info-medium">Ring oss i dag</p>
             <p class="ring-oss-info-large">64 87 29 99</p>
@@ -57,6 +65,5 @@
             <p>Lørdag 10.00-14.00</p>
         </div>
     </div>
-    <div id="kart"></div>
 </body>
 </html>
