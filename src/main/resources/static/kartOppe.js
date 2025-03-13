@@ -1,4 +1,4 @@
-export function printKart() {
+export function printKartOppe() {
     let kart = `<div id="kartContainer-oppe" class="container-oppe">
         <div id="popup-box" class="popup-wrapper"></div><!--Denne div'en er for å vise popup boksen-->
 

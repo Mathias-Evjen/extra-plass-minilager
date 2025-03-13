@@ -1,0 +1,744 @@
+export function printKartNede() {
+    let kart = `<div class="container-nede">
+        <div id="popup-box" class="popup-wrapper"></div>
+
+        <!-- Zoom-knapper -->
+        <div id="zoom-knapper" class="zoom-wrapper">
+            <button id="reset-zoom-knapp">
+                <svg viewBox="0 0 64 64">
+                    <path d="M 32 64 C 14.357 64 0 49.643 0 31.998 L 0.018 31.562 l 4.982 0.438 l -0.018 0.436
+                    C 4 46 16 59 32 59 s 27 -11 27 -27 c 0 -16 -11 -27 -27 -27 C 21 5 12 8 6 22 L 1.884 19.454
+                    C 9.548 1.895 25.497 0 32 0 C 49.643 0 64 14.355 64 31.998 C 64 49.643 49.643 64 32 64 z"/>
+                    <polyline points="16.865,22.1 2.285,24.15 0.259,9.749"/>
+                </svg>
+            </button>
+            <button id="zoom-inn-knapp">
+                <svg viewBox="0 0 64 64">
+                    <rect y="29" width="64" height="4"></rect>
+                    <rect x="29" width="4" height="64"></rect>
+                </svg>
+            </button>
+            <button id="zoom-ut-knapp">
+                <svg viewBox="0 0 64 64">
+                    <rect y="29" width="64" height="4"></rect>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Kart -->
+        <svg id="kart-nede">
+            <!-- Øverste rad -->
+            <svg width="720px" height="48px" x="0" y="0">
+                <!-- Klasse 3 -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="600" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">600</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="601" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">601</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="0">
+                        <rect id="602" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">602</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="144px" y="0">
+                        <rect id="603" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">603</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="192px" y="0">
+                        <rect id="604" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">604</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="240px" y="0">
+                        <rect id="605" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">605</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="288px" y="0">
+                        <rect id="606" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">606</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="336px" y="0">
+                        <rect id="607" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">607</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="384px" y="0">
+                        <rect id="608" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">608</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="432px" y="0">
+                        <rect id="609" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">609</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="480px" y="0">
+                        <rect id="610" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">610</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="576px" y="0">
+                        <rect id="611" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">611</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="624px" y="0">
+                        <rect id="612" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">612</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="672px" y="0">
+                        <rect id="613" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">613</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Rad 1 vertikal -->
+            <svg width="96px" height="384px" x="48px" y="96px">
+
+                <!-- Klasse 3 venstre -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="407" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">407</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="48px">
+                        <rect id="406" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">406</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="96px">
+                        <rect id="405" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">405</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="144px">
+                        <rect id="404" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">404</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="192px">
+                        <rect id="403" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">403</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="240px">
+                        <rect id="402" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">402</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="288px">
+                        <rect id="401" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">401</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="336px">
+                        <rect id="400" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">400</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 3 høyre -->
+                <g>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="408" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">408</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="48px">
+                        <rect id="409" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">409</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="96px">
+                        <rect id="410" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">410</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="144px">
+                        <rect id="411" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">411</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="192px">
+                        <rect id="412" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">412</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="240px">
+                        <rect id="413" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">413</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="288px">
+                        <rect id="414" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">414</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="336px">
+                        <rect id="415" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">415</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Rad 2 vertikal -->
+            <svg width="144px" height="480px" x="192px" y="96px">
+
+                <!-- Klasse 3 -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="423" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">423</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="424" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">424</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="0">
+                        <rect id="425" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">425</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="96px" y="192px">
+                        <rect id="429" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">429</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="240px">
+                        <rect id="430" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">430</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="0" y="432px">
+                        <rect id="567" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">567</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="432px">
+                        <rect id="569" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">569</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="432px">
+                        <rect id="416" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">416</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 7 venstre -->
+                <g>
+                    <svg width="72px" height="48px" x="0" y="48px">
+                        <rect id="422" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">422</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="96px">
+                        <rect id="421" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">421</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="144px">
+                        <rect id="420" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">420</text>
+                    </svg>
+
+                    <svg width="72px" height="48px" x="0" y="288px">
+                        <rect id="418" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">418</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="336px">
+                        <rect id="417" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">417</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="384px">
+                        <rect id="565" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">565</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 7 høyre -->
+                <g>
+                    <svg width="72px" height="48px" x="72px" y="48px">
+                        <rect id="426" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">426</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="96px">
+                        <rect id="427" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">427</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="144px">
+                        <rect id="428" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">428</text>
+                    </svg>
+
+                    <svg width="72px" height="48px" x="72px" y="288px">
+                        <rect id="431" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">431</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="336px">
+                        <rect id="432" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">432</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="384px">
+                        <rect id="433" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">433</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 14 -->
+                <svg width="96px" height="96px" x="0" y="192px">
+                    <rect id="419" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                    <rect class="søyle" width="12.8px" height="12.8px" x="16px" y="12.8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
+                    <text x="33%" y="60%">419</text>
+                </svg>
+            </svg>
+
+            <!-- Rad 3 vertikal -->
+            <svg width="144px" height="480px" x="384px" y="96px">
+
+                <!-- Klasse 3 -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="458" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">458</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="459" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">459</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="0">
+                        <rect id="460" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">460</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="0" y="432px">
+                        <rect id="449" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">449</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="432px">
+                        <rect id="448" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">448</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="432px">
+                        <rect id="447" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">447</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 7 venstre -->
+                <g>
+                    <svg width="72px" height="48px" x="0" y="48px">
+                        <rect id="457" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">457</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="96px">
+                        <rect id="456" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">456</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="144px">
+                        <rect id="455" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">455</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="192px">
+                        <rect id="454" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <rect class="søyle" width="12.8px" height="12.8px" x="22.4px" y="8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
+                        <text x="25%" y="85%">454</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="240px">
+                        <rect id="453" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">453</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="288px">
+                        <rect id="452" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">452</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="336px">
+                        <rect id="451" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">451</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="0" y="384px">
+                        <rect id="450" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">450</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 7 Høyre -->
+                <g>
+                    <svg width="72px" height="48px" x="72px" y="48px">
+                        <rect id="461" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">461</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="96px">
+                        <rect id="462" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">462</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="144px">
+                        <rect id="463" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">463</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="192px">
+                        <rect id="464" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">464</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="240px">
+                        <rect id="465" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">465</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="288px">
+                        <rect id="466" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">466</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="336px">
+                        <rect id="467" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">467</text>
+                    </svg>
+                    <svg width="72px" height="48px" x="72px" y="384px">
+                        <rect id="468" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="60%">468</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Rad 4 vertikal -->
+            <svg width="96px" height="480px" x="576px" y="96px">
+                <!-- Klasse 3 venstre -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="498" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">498</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="48px">
+                        <rect id="497" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">497</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="96px">
+                        <rect id="496" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">496</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="144px">
+                        <rect id="495" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">495</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="192px">
+                        <rect id="494" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">494</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="240px">
+                        <rect id="493" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">493</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="288px">
+                        <rect id="492" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">492</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="336px">
+                        <rect id="491" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">491</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="384px">
+                        <rect id="490" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">490</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="432px">
+                        <rect id="489" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">489</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 3 høyre -->
+                <g>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="499" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">499</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="48px">
+                        <rect id="500" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">500</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="96px">
+                        <rect id="501" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">501</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="144px">
+                        <rect id="502" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">502</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="48px" y="288px">
+                        <rect id="504" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">504</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="336px">
+                        <rect id="505" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">505</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="384px">
+                        <rect id="506" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">506</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="432px">
+                        <rect id="488" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">488</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 9 -->
+                <svg width="48px" height="96px" x="48px" y="192px">
+                    <rect id="503" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                    <rect class="søyle" width="12.8px" height="12.8px" x="11.2px" y="8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
+                    <text x="15%" y="58%">503</text>
+                </svg>
+            </svg>
+
+            <!-- Rad 5 vertikal -->
+            <svg width="144px" height="432px" x="384px" y="624px">
+
+                <!-- Klasse 3 -->
+                <g>
+                    <svg width="48px" height="48px" x="0" y="0">
+                        <rect id="444" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">444</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="0">
+                        <rect id="445" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">445</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="0">
+                        <rect id="446" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">446</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="0" y="48px">
+                        <rect id="443" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">443</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="96px">
+                        <rect id="442" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">442</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="144px">
+                        <rect id="441" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">441</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="192px">
+                        <rect id="440" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">440</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="240px">
+                        <rect id="439" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">439</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="288px">
+                        <rect id="438" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">438</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="336px">
+                        <rect id="437" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">437</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0" y="384px">
+                        <rect id="436" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">436</text>
+                    </svg>
+
+                    <svg width="48px" height="48px" x="48px" y="384px">
+                        <rect id="435" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">435</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="96px" y="384px">
+                        <rect id="434" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">434</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 9 -->
+                <g>
+                    <svg width="96px" height="48px" x="48px" y="48px">
+                        <rect id="469" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">469</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="96px">
+                        <rect id="470" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">470</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="144px">
+                        <rect id="471" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">471</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="192px">
+                        <rect id="472" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">472</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="240px">
+                        <rect id="473" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">473</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="288px">
+                        <rect id="474" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">474</text>
+                    </svg>
+                    <svg width="96px" height="48px" x="48px" y="336px">
+                        <rect id="475" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">475</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Rad 6 vertikal -->
+            <svg width="96px" height="480px" x="576px" y="624px">
+
+                <!-- Klasse 9 -->
+                <g>
+                    <svg width="96px" height="48px" x="0px" y="0px">
+                        <rect id="487" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="30%" y="60%">487</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="48px" y="240px">
+                        <rect id="511" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="58%">511</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 3 venstre-->
+                <g>
+                    <svg width="48px" height="48px" x="0px" y="48px">
+                        <rect id="486" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">486</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="96px">
+                        <rect id="485" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">485</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="144px">
+                        <rect id="484" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">484</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="192px">
+                        <rect id="483" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">483</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="240px">
+                        <rect id="482" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">482</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="288px">
+                        <rect id="481" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">481</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="336px">
+                        <rect id="480" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">480</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="384px">
+                        <rect id="479" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">479</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="0px" y="432px">
+                        <rect id="478" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">478</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 3 høyre -->
+                <g>
+                    <svg width="48px" height="48px" x="48px" y="48px">
+                        <rect id="507" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">507</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="96px">
+                        <rect id="508" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">508</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="144px">
+                        <rect id="509" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">509</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="192px">
+                        <rect id="510" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">510</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="336px">
+                        <rect id="512" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">512</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="384px">
+                        <rect id="513" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">513</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="48px" y="432px">
+                        <rect id="514" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="60%">514</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Innerste rom -->
+            <svg width="336px" height="528px" x="0" y="624px">
+
+                <!-- Klasse 16 -->
+                <g>
+                    <svg width="168px" height="72px" x="0" y="0">
+                        <rect id="521" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">521</text>
+                    </svg>
+                    <svg width="168px" height="72px" x="0" y="72px">
+                        <rect id="520" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">520</text>
+                    </svg>
+                    <svg width="168px" height="72px" x="0" y="144px">
+                        <rect id="519" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">519</text>
+                    </svg>
+                    <svg width="168px" height="72px" x="0" y="216px">
+                        <rect id="518" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">518</text>
+                    </svg>
+                    <svg width="168px" height="72px" x="0" y="288px">
+                        <rect id="517" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">517</text>
+                    </svg>
+
+                    <svg width="168px" height="96px" x="0" y="432px">
+                        <rect id="515" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">515</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 15 -->
+                <g>
+                    <svg width="168px" height="72px" x="0" y="360px">
+                        <rect id="516" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">516</text>
+                    </svg>
+
+                    <svg width="120px" height="72px" x="216px" y="0">
+                        <rect id="522" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">522</text>
+                    </svg>
+                    <svg width="120px" height="72px" x="216px" y="72px">
+                        <rect id="523" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">523</text>
+                    </svg>
+                    <svg width="120px" height="72px" x="216px" y="144px">
+                        <rect id="524" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">524</text>
+                    </svg>
+                    <svg width="120px" height="72px" x="216px" y="216px">
+                        <rect id="525" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">525</text>
+                    </svg>
+                    <svg width="120px" height="72px" x="216px" y="288px">
+                        <rect id="526" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="38%" y="60%">526</text>
+                    </svg>
+                </g>
+
+                <!-- Outline -->
+                <line x1="0" x2="100%" y1="0" y2="0" stroke="black" stroke-width="4"/>
+                <line x1="0" x2="100%" y1="100%" y2="100%" stroke="black" stroke-width="4"/>
+                <line x1="100%" x2="100%" y1="0" y2="432px" stroke="black" stroke-width="4"/>
+                <line x1="100%" x2="100%" y1="504px" y2="100%" stroke="black" stroke-width="4"/>
+            </svg>
+
+
+            <!-- Trapp -->
+            <svg width="336px" height="144px" x="0" y="1152px">
+                <rect width="100%" height="100%" fill="beige"/>
+                <text x="35%" y="60%"><--- Trapp</text>
+                <line x1="100%" x2="100%" y1="0" y2="72px" stroke="black" stroke-width="4"/>
+                <line x1="100%" x2="100%" y1="120px" y2="100%" stroke="black" stroke-width="4"/>
+            </svg>
+
+            <!-- Port -->
+            <svg width="144px" height="24px" x="512px" y="1272px">
+                <rect width="100%" height="100%" fill="white"/>
+                <text x="38%" y="80%">Port</text>
+                <line x1="0%" y1="100%" x2="0" y2="0" stroke="black" stroke-dasharray="7" stroke-width="2"/>
+                <line x1="0" x2="100%" y1="0" y2="0" stroke="black" stroke-dasharray="7" stroke-width="2"/>
+                <line x1="100%" y1="100%" x2="100%" y2="0" stroke="black" stroke-dasharray="7" stroke-width="2"/>
+            </svg>
+
+        </svg>
+    </div>`
+    return kart;
+}
