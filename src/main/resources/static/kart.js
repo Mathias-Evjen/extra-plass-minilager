@@ -1,7 +1,7 @@
 import {printKartOppe} from "./kartOppe.js";
 import {printKartNede} from "./kartNede.js";
 
-const ADDR = "192.168.4.27";
+const ADDR = "localhost";
 
 const bodArray = [];
 const klasseArray = [];
@@ -21,7 +21,7 @@ window.onload = function hentBoder() {
         }
     })
 
-    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
+    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
@@ -32,8 +32,21 @@ function remToPixle(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("kart").innerHTML =  printKartOppe();
+document.addEventListener("DOMContentLoaded", function(){
+    printMap("oppe");
+});
+document.addEventListener("DOMContentLoaded", function(){
+    printMap("nede");
+});
+
+function printMap(etasje){
+    console.log(etasje)
+    if(etasje === "oppe"){
+        document.getElementById("kart-oppe-div").innerHTML =  printKartOppe();
+    }
+    else{
+        document.getElementById("kart-nede-div").innerHTML =  printKartNede();
+    }
 
     let maxWidth;
     let maxHeight;
@@ -42,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let minHeight;
 
     let kart = document.getElementById("kart-oppe");
-    if (!kart) {
+    if (etasje === "nede") {
         kart = document.getElementById("kart-nede");
 
         maxWidth = 720;
@@ -50,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         minWidth = 270;
         minHeight = 480;
     } else {
+        kart = document.getElementById("kart-oppe");
         maxWidth = 2016;
         maxHeight = 1328;
         minWidth = 480;
@@ -73,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const MID_Y = maxHeight / 2;
 
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
+    console.log(viewBox);
 
     kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
 
@@ -297,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         popup(bod);
     })
-});
+}
 
 
 // Håndterer zoom når man trykker på zoom-knappene på kartet
@@ -352,11 +367,12 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     };
 }
 
+//Popup boks med info om boden som ble trykket på
 function popup(bod){
-    document.getElementById(bod).classList.remove("highlight-bod-i-kart");
+    document.getElementById(bod).classList.remove("highlight-bod-i-kart"); //Fjerner highlight til boden som ble trykket på hvis brukeren har trykket på "Vis i kart" knappen i tabellen
     let popupBox;
-    if (bod === "kart-oppe" || bod === "kart-nede") return;
-    if (bod === "9" || bod === "305") {
+    if (bod === "kart-oppe" || bod === "kart-nede") return; //Hvis bruker ikke trykker på noen av bodene, altså bakgrunnen, vil denne funksjonen lukkes
+    if (bod === "9" || bod === "305") { //Spesielle boder som ikke kan leies
         popupBox = `
                 <div class="popup-container">
                     <h1>Bod ${bod}</h1>
@@ -374,9 +390,12 @@ function popup(bod){
     let bodObjekt = bodArray.find(boderObjekt => boderObjekt.nr === parseInt(bod, 10)); //Finner bod objektet for boden som ble trykket på i listen med alle boder
     let klasseObjekt = klasseArray.find(klasserObjekt => klasserObjekt.nr === parseInt(bodObjekt.klasseNr, 10)); //Finner klasse objektet for klassen boden som ble trykket på er i.
 
+    //Sjekker om en bod er opptatt eller ikke
     let bodOpptatt = "";
     if (bodObjekt.opptatt){bodOpptatt = "opptatt";}
     else{bodOpptatt = "ledig";}
+
+    //Sjekker hvilken etasje boden befinner seg i
     let etasje = "";
     if (bodObjekt.etasje === 1){etasje = "Oppe";}
     else{etasje = "Nede";}
@@ -399,6 +418,8 @@ function popup(bod){
     document.getElementById("popup-box").classList.add("show")
 }
 
+
+//Lukke popup boksen til boden
 function lukkPopup(){
     document.getElementById("popup-box").classList.remove("show");
 }
