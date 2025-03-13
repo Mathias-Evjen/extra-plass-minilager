@@ -107,7 +107,6 @@
 @media (min-width: 1087px) {
     body {
         margin: 0;
-        overflow: hidden;
         font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 

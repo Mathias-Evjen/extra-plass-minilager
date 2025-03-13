@@ -1,11 +1,16 @@
-window.onload = function hentKlasser() {
-    $.get("http://localhost:8080/hentKlasser", function(data){
+const IP = "192.168.4.27";
+
+// window.onload = function hentKlasser() {
+//
+// }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    $.get(`http://${IP}:8080/hentKlasser`, function(data){
       console.log(data);
       printKlasser(data);
     })
-}
-
-
+})
 
 function testklasser(){
     let testboder = [{klasseNr: 1, areal: 10, volum: 9, antallLedig: 8, pris: 790}, {klasseNr: 2, areal: 8, volum: 6, antallLedig: 6, pris: 690}, {katNr: 3, areal: 11, volum: 12, antallLedig: 12, pris: 890}];
@@ -19,8 +24,8 @@ function printKlasser(klasser) {
     for(let i = 0; i < klasser.length; i++){
         utvid = ``;
         antallLedigeBoder = klasser[i].antallBoder - klasser[i].antallOpptatt;
-        nybod = document.createElement("tr");
-        bodIKat = document.createElement("tr");
+        let nybod = document.createElement("tr");
+        let bodIKat = document.createElement("tr");
         nybod.classList.add("klasse-rad");
         bodIKat.classList.add();
         bodIKat.id = "klasse" + klasser[i].nr;
@@ -39,11 +44,11 @@ function printKlasser(klasser) {
 }
 
 function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
+    let printUt;
     let katID = "klasse" + klasseNummer;
     let rad = document.getElementById(katID);
     if(rad.innerHTML.trim() !== ""){                            // Sjekker om utvid-knappen har blir trykket på
         rad.innerHTML = "";                                     // Lukker og tømmer dataen om den var trykket på
-        boderIKat.textContent = ">";
     }
     else{
         if(antallLedigeBoder > 0){                              // Hvis knappen ikke var trykket på viser den dataen om det er noen ledige boder    
@@ -65,7 +70,6 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
             printUt = `<td colspan="5"><p class="ingen-ledige-boder-info" style="font-weight: bold;">Det er ingen ledige boder for denne klassen!</p></td>`
         }
         rad.innerHTML = printUt;
-        boderIKat.textContent = "v";  // Endre knappens ikon for å indikere at den er åpen
     }
 }
 
