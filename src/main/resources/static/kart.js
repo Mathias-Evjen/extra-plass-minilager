@@ -408,7 +408,7 @@ function popup(bod, etasjeVar){
                     <p>Pris: ${klasseObjekt.pris}kr</p>
                     <p>Etasje: ${etasje}</p>
                     <p>Denne boden er ${bodOpptatt}</p>
-                    <button class="close-btn" onclick="lukkPopup(${kartEtasje})">Close</button>
+                    <button class="close-btn" onclick="lukkPopup(${etasjeVar})">Close</button>
                 </div>
             `;
 
