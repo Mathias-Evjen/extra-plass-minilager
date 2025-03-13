@@ -6,19 +6,22 @@ const ADDR = "192.168.4.27";
 const bodArray = [];
 const klasseArray = [];
 
+// Kaller API for å hente boder og klasser og legger dem inn i hvert sitt array
 window.onload = function hentBoder() {
-    $.get(`http://localhost:8080/hentBoder`, function(boder) {
+    $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
+
+        // Går gjennom alle bodene fra API og oppdaterer kartet visuelt
         for (const bod of boder) {
             if (bod.nr === 9 || bod.nr === 305) continue;
             let kartBod = document.getElementById(bod.nr);
             if (kartBod != null) {
-                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");
+                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");  // Setter boden til rød hvis den er opptatt og grønn hvis den er ledig
             }
             bodArray.push(bod);
         }
     })
 
-    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
+    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
@@ -42,13 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!kart) {
         kart = document.getElementById("kart-nede");
 
-        maxWidth = remToPixle(45);
-        maxHeight = remToPixle(81);
+        maxWidth = 720;
+        maxHeight = 1296;
         minWidth = 270;
         minHeight = 480;
     } else {
-        maxWidth = remToPixle(126); // 2016
-        maxHeight = remToPixle(83)  // 1328
+        maxWidth = 2016;
+        maxHeight = 1328;
         minWidth = 480;
         minHeight = 270;
     }
@@ -118,10 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let zoomFactor = e.deltaY > 0 ? 1.05 : 0.95;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
+        // Setter den nye bredden og høyden på kartet
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
 
-        // Sjekk om vi er innenfor maks/min zoom-grenser
+        // Sjekk om vi er innenfor maks/min zoom-grenser og stopper dersom grensene overskrides
         if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
             isZoomedOut = true;
@@ -131,19 +135,21 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Finner posisjonen på musa
         let mouseX = e.clientX / window.innerWidth * viewBox.width + viewBox.x;
         let mouseY = e.clientY / window.innerHeight * viewBox.height + viewBox.y;
 
+        // Oppdaterer bredden og høyden på kartet til de nye verdiene
         viewBox.width = newWidth;
         viewBox.height = newHeight;
 
+        // Setter de nye koordinatene til kartet
         viewBox.x = mouseX - (mouseX - viewBox.x) * zoomFactor;
         viewBox.y = mouseY - (mouseY - viewBox.y) * zoomFactor;
 
         // Sørger for at man ikke ser utenfor kartet når man zoomer ut
         if (viewBox.x < 0) viewBox.x = 0;
         if (viewBox.y < 0) viewBox.y = 0;
-
         if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
         if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
@@ -234,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     let zoomInnKnapp = document.getElementById("zoom-inn-knapp");
-    zoomInnKnapp.addEventListener("click", function (e) {
+    zoomInnKnapp.addEventListener("click", (e) => {
         let zoomFactor = 0.8;   // Hvor mye som zoomes inn hver gang knappen trykkes på
 
         const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
@@ -251,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     let zoomUtKnapp = document.getElementById("zoom-ut-knapp");
-    zoomUtKnapp.addEventListener("click", function (e) {
+    zoomUtKnapp.addEventListener("click", (e) => {
         let zoomFactor = 1.2;
 
         const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
@@ -266,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     let resetZoomKnapp = document.getElementById("reset-zoom-knapp");
-    resetZoomKnapp.addEventListener("click", function (e) {
+    resetZoomKnapp.addEventListener("click", (e) => {
 
         // Må oppdatere viewBox-parametrene så den husker at man er zoomet helt ut
         viewBox.x = 0;
@@ -326,7 +332,7 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     let centerX = viewBox.x + viewBox.width / 2;
     let centerY = viewBox.y + viewBox.height / 2;
 
-    // Setter bredden på kartet til den nye bredden
+    // Oppdaterer bredden og høyden på kartet til den nye bredden
     viewBox.width = newWidth;
     viewBox.height = newHeight;
 

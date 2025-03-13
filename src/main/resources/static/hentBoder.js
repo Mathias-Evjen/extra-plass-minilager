@@ -1,8 +1,7 @@
 const IP = "192.168.4.27";
 
 document.addEventListener("DOMContentLoaded", () => {
-    $.get(`http://localhost:8080/hentKlasser`, function(data){
-      console.log(data);
+    $.get(`http://${IP}:8080/hentKlasser`, function(data){
       printKlasser(data);
     })
 })
