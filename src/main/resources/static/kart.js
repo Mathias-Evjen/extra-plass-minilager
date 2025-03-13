@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
     kart.addEventListener("mousemove", (e) => {
-        if (!isPanning) return;
+        if (!isPanning || (viewBox.x === 0 && viewBox.y === 0 && viewBox.width === MAP_WIDTH && viewBox.height === MAP_HEIGHT)) return;
 
         let dx = (startX - e.clientX);
         let dy = (startY - e.clientY);

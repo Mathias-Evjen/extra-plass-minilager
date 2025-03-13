@@ -4,8 +4,8 @@
     }
 
     body {
-        touch-action: none;
-        user-select: none;
+        /*touch-action: none;*/
+        /*user-select: none;*/
         font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
