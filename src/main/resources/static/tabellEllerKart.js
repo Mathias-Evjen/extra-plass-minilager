@@ -12,12 +12,14 @@ function tabellEllerKart(){
         kartDiv.style.display = "none";
     }
     else if(!checkboxOppeNede.classList.contains("active") && checkboxTabellKart.classList.contains("active")){
+        console.log(checkboxOppeNede.classList.contains("active"))
         tabell.style.display = "none";
         kartOppe.style.display = "block";
         kartNede.style.display = "none";
         kartDiv.style.display = "block";
     }
     else {
+        console.log(checkboxOppeNede.classList.contains("active"))
         tabell.style.display = "none";
         kartOppe.style.display = "none";
         kartNede.style.display = "block";

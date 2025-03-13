@@ -78,14 +78,14 @@ function highlightBodIKart(bodNr){
 
     for (const bod of bodArray) {
         if (bod.nr === bodNr && bod.etasje === -1) {
-            $("#oppe-nede-checkbox").prop('checked', true);
+            document.querySelector('.switch-container-oppe-nede').classList.add("active");
             break;
         }
-        else $("#oppe-nede-checkbox").prop('checked', false);
+        else document.querySelector('.switch-container-oppe-nede').classList.remove("active");
     }
 
     document.getElementById(bodNr).classList.add("highlight-bod-i-kart");
-    document.getElementById("tabell-kart-checkbox").checked = "checked";
+    document.querySelector('.switch-container-tabell-kart').classList.toggle('active');
     highlightedBod = bodNr;
     tabellEllerKart();
 }
