@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let isPanning = false;
+    let isZoomedOut = true;
     let startX, startY;
 
     let scale = 1;
@@ -82,7 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sjekker om musa holdes inne og flytter på kartet, og flytter på kartet relativt til musas koordinater
     kart.addEventListener("mousemove", (e) => {
-        if (!isPanning || (viewBox.x === 0 && viewBox.y === 0 && viewBox.width === MAP_WIDTH && viewBox.height === MAP_HEIGHT)) return;
+        // Sjekker om man drar på kartet eller er zoomet helt ut
+        if (!isPanning || isZoomedOut) return;
 
         let dx = (startX - e.clientX);
         let dy = (startY - e.clientY);
@@ -122,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Sjekk om vi er innenfor maks/min zoom-grenser
         if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
             kart.setAttribute("viewBox", `${0} ${0} ${MAP_WIDTH} ${MAP_HEIGHT}`);
+            isZoomedOut = true;
             return;
         } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
             kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${MIN_WIDTH} ${MIN_HEIGHT}`);
@@ -145,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
         kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`);
+        isZoomedOut = false;
     });
 
     kart.addEventListener("touchstart", (e) => {
@@ -233,7 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
     zoomInnKnapp.addEventListener("click", function (e) {
         let zoomFactor = 0.8;   // Hvor mye som zoomes inn hver gang knappen trykkes på
 
-        viewBox = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+
+        viewBox = box;
+        isZoomedOut = zoom;
 
         // Lager en behagelig animasjon av at det zoomes
         gsap.to(kart, {
@@ -247,7 +254,9 @@ document.addEventListener("DOMContentLoaded", () => {
     zoomUtKnapp.addEventListener("click", function (e) {
         let zoomFactor = 1.2;
 
-        viewBox = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
+        viewBox = box;
+        isZoomedOut = zoom;
 
         gsap.to(kart, {
             attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
@@ -264,6 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
         viewBox.y = 0;
         viewBox.width = MAP_WIDTH;
         viewBox.height = MAP_HEIGHT;
+
+        isZoomedOut = true;
 
         gsap.to(kart, {
             attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
@@ -303,7 +314,10 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     // Sjekk om vi er innenfor maks/min zoom-grenser og stopper dersom grensene overskrides
     if (newHeight > MAP_HEIGHT || newWidth > MAP_WIDTH) {
         viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
-        return viewBox;
+        return {
+            box: viewBox,
+            zoom: true
+        };
     } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
         return viewBox;
     }
@@ -326,7 +340,10 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
     if (viewBox.x + viewBox.width > MAP_WIDTH) viewBox.x = MAP_WIDTH - viewBox.width;
     if (viewBox.y + viewBox.height > MAP_HEIGHT) viewBox.y = MAP_HEIGHT - viewBox.height;
 
-    return viewBox;
+    return {
+        box: viewBox,
+        zoom: false
+    };
 }
 
 function popup(bod){
