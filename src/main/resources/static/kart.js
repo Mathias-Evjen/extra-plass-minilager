@@ -336,7 +336,12 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
             zoom: true
         };
     } else if (newHeight < MIN_HEIGHT || newWidth < MIN_WIDTH) {
-        return viewBox;
+        viewBox.width = MIN_WIDTH;
+        viewBox.height = MIN_HEIGHT;
+        return {
+            box: viewBox,
+            zoom: false
+        }
     }
 
     // Finner midtpunktet av kartet
@@ -408,7 +413,7 @@ function popup(bod, etasjeVar){
                     <p>Pris: ${klasseObjekt.pris}kr</p>
                     <p>Etasje: ${etasje}</p>
                     <p>Denne boden er ${bodOpptatt}</p>
-                    <button class="close-btn" onclick="lukkPopup(${etasjeVar})">Close</button>
+                    <button class="close-btn" onclick="lukkPopup()">Close</button>
                 </div>
             `;
 
