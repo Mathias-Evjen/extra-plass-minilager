@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault(); // Hindrer siden fra å rulle nedover når man ruller
 
-        let zoomFactor = e.deltaY > 0 ? 1.2 : 0.8;  // Bestemmer zoom-hastigheten når man ruller opp og ned
+        let zoomFactor = e.deltaY > 0 ? 1.05 : 0.95;  // Bestemmer zoom-hastigheten når man ruller opp og ned
 
         let newWidth = viewBox.width * zoomFactor;
         let newHeight = viewBox.height * zoomFactor;
