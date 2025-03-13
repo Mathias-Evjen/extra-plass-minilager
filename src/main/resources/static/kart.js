@@ -9,7 +9,7 @@ let klasseArray = [];
 let klasserTest;
 
 window.onload = function hentBoder() {
-    $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
+    $.get(`http://localhost:8080/hentBoder`, function(boder) {
         for (const bod of boder) {
             if (bod.nr === 9 || bod.nr === 305) continue;
             let kartBod = document.getElementById(bod.nr);
@@ -20,7 +20,7 @@ window.onload = function hentBoder() {
         }
     })
 
-    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
+    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
