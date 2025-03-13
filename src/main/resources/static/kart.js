@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Når man trykker på en bod åpnes en popup som viser informasjon om boden
     kart.addEventListener("click", function (e) {
         let bod = e.target.id;
-        if (document.getElementById(bod) === null) return;
+        if (document.getElementById(bod) === null || isPanning) return;
         console.log(bod);
 
         popup(bod);
