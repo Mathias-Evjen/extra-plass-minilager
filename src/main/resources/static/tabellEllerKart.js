@@ -17,7 +17,7 @@ function tabellEllerKart(){
         kartNede.style.display = "none";
         kartDiv.style.display = "block";
     }
-    else{
+    else {
         tabell.style.display = "none";
         kartOppe.style.display = "none";
         kartNede.style.display = "block";
