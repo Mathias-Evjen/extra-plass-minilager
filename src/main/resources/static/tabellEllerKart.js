@@ -5,14 +5,13 @@ function tabellEllerKart(){
     const kartNede = document.getElementById("kart-nede-div");
     const tabell = document.getElementById("tabell");
     const kartDiv = document.getElementById("kart-div")
-    if (!checkboxTabellKart.classList.contains("active")){
+    if (!checkboxTabellKart.classList.contains("active")) {
         tabell.style.display = "block";
         kartOppe.style.display = "none";
         kartNede.style.display = "none";
         kartDiv.style.display = "none";
     }
-    else if(!checkboxOppeNede.classList.contains("active") && checkboxTabellKart.classList.contains("active")){
-        console.log(checkboxOppeNede.classList.contains("active"))
+    else if (!checkboxOppeNede.classList.contains("active") && checkboxTabellKart.classList.contains("active")) {
         tabell.style.display = "none";
         kartOppe.style.display = "block";
         kartNede.style.display = "none";
