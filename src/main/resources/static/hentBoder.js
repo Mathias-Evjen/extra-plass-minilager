@@ -6,7 +6,7 @@ const IP = "192.168.4.27";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    $.get(`http://${IP}:8080/hentKlasser`, function(data){
+    $.get(`http://localhost:8080/hentKlasser`, function(data){
       console.log(data);
       printKlasser(data);
     })
@@ -60,7 +60,7 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
                     <div class="bod-i-kat-item">
                     <div>Bod nummer: ${boder[i].nr}</div>
                     <div>Etasje: ${boder[i].etasje === 1 ? "Oppe" : "Nede"}</div>
-                    <button>Vis i kart</button>
+                    <button onclick="highlightBodIKart(${boder[i].nr})">Vis i kart</button>
                     </div>`;
                 }
             }
@@ -73,3 +73,9 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     }
 }
 
+function highlightBodIKart(bodNr){
+    console.log("se på meg")
+    document.getElementById(bodNr).classList.add("highlight-bod-i-kart");
+    document.getElementById("tabell-kart-checkbox").checked = "checked";
+    tabellEllerKart();
+}

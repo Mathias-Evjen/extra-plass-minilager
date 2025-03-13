@@ -9,7 +9,7 @@ let klasseArray = [];
 let klasserTest;
 
 window.onload = function hentBoder() {
-    $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
+    $.get(`http://localhost:8080/hentBoder`, function(boder) {
         for (const bod of boder) {
             if (bod.nr === 9 || bod.nr === 305) continue;
             let kartBod = document.getElementById(bod.nr);
@@ -20,7 +20,7 @@ window.onload = function hentBoder() {
         }
     })
 
-    $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
+    $.get(`http://localhost:8080/hentKlasser`, function(klasser) {
         for (const klasse of klasser) {
             klasseArray.push(klasse);
         }
@@ -336,6 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function popup(bod){
+    document.getElementById(bod).classList.remove("highlight-bod-i-kart");
     let popupBox;
     if (bod === "kart-oppe" || bod === "kart-nede") return;
     if (bod === "9" || bod === "305") {
@@ -375,7 +376,7 @@ function popup(bod){
                     <button class="close-btn" onclick="lukkPopup()">Close</button>
                 </div>
             `;
-
+    
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
     document.getElementById("popup-box").innerHTML = popupBox;
     document.getElementById("popup-box").classList.add("show")
