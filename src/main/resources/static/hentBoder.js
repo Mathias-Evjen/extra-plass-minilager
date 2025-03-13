@@ -68,3 +68,7 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
     }
 }
 
+function toggleSwitch() {
+    document.querySelector('.switch-container').classList.toggle('active');
+}
+
