@@ -2,8 +2,10 @@ import {printKartOppe} from "./kartOppe.js";
 import {printKartNede} from "./kartNede.js";
 
 const ADDR = "localhost";
+window.ADDR = ADDR;
 
 const bodArray = [];
+window.bodArray = bodArray;
 const klasseArray = [];
 
 // Kaller API for å hente boder og klasser og legger dem inn i hvert sitt array
@@ -28,16 +30,13 @@ window.onload = function hentBoder() {
     })
 }
 
-function remToPixle(rem) {
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-}
-
 document.addEventListener("DOMContentLoaded", function(){
     printMap("oppe");
 });
-document.addEventListener("DOMContentLoaded", function(){
+
+document.addEventListener("DOMContentLoaded", function () {
     printMap("nede");
-});
+})
 
 function printMap(etasje){
     console.log(etasje)
@@ -53,7 +52,6 @@ function printMap(etasje){
 
     let minWidth;
     let minHeight;
-
     let kart = document.getElementById("kart-oppe");
     if (etasje === "nede") {
         kart = document.getElementById("kart-nede");
@@ -87,7 +85,6 @@ function printMap(etasje){
     const MID_Y = maxHeight / 2;
 
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
-    console.log(viewBox);
 
     kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`)
 
@@ -253,13 +250,11 @@ function printMap(etasje){
             startY = e.touches[0].clientY;
         }
     })
-
-    let zoomInnKnapp = document.getElementById("zoom-inn-knapp");
+    let zoomInnKnapp = document.getElementById("zoom-inn-knapp-" + etasje);
     zoomInnKnapp.addEventListener("click", (e) => {
         let zoomFactor = 0.8;   // Hvor mye som zoomes inn hver gang knappen trykkes på
 
         const {box, zoom} = handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT);
-
         viewBox = box;
         isZoomedOut = zoom;
 
@@ -271,7 +266,7 @@ function printMap(etasje){
         });
     });
 
-    let zoomUtKnapp = document.getElementById("zoom-ut-knapp");
+    let zoomUtKnapp = document.getElementById("zoom-ut-knapp-" + etasje);
     zoomUtKnapp.addEventListener("click", (e) => {
         let zoomFactor = 1.2;
 
@@ -285,8 +280,7 @@ function printMap(etasje){
             ease: "power2.out",
         });
     });
-
-    let resetZoomKnapp = document.getElementById("reset-zoom-knapp");
+    let resetZoomKnapp = document.getElementById("reset-zoom-knapp-" + etasje);
     resetZoomKnapp.addEventListener("click", (e) => {
 
         // Må oppdatere viewBox-parametrene så den husker at man er zoomet helt ut
@@ -310,7 +304,7 @@ function printMap(etasje){
         if (document.getElementById(bod) === null || isPanning) return;
         console.log(bod);
 
-        popup(bod);
+        popup(bod, etasje);
     })
 }
 
@@ -328,6 +322,8 @@ function printMap(etasje){
 // Returnerer:
 //  viewBox - oppdatert med zoomet inn verdier
 function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_HEIGHT) {
+    console.log("HandleZoom")
+
     // Setter den nye bredden og høyden på kartet
     let newWidth = viewBox.width * zoomFactor;
     let newHeight = viewBox.height * zoomFactor;
@@ -368,7 +364,7 @@ function handleZoom(viewBox, zoomFactor, MAP_WIDTH, MAP_HEIGHT, MIN_WIDTH, MIN_H
 }
 
 //Popup boks med info om boden som ble trykket på
-function popup(bod){
+function popup(bod, kartEtasje){
     document.getElementById(bod).classList.remove("highlight-bod-i-kart"); //Fjerner highlight til boden som ble trykket på hvis brukeren har trykket på "Vis i kart" knappen i tabellen
     let popupBox;
     if (bod === "kart-oppe" || bod === "kart-nede") return; //Hvis bruker ikke trykker på noen av bodene, altså bakgrunnen, vil denne funksjonen lukkes
@@ -377,13 +373,13 @@ function popup(bod){
                 <div class="popup-container">
                     <h1>Bod ${bod}</h1>
                     <p>Denne boden er ikke tilgjengelig for utleie</p>
-                    <button class="close-btn" onclick="lukkPopup()">Close</button>
+                    <button class="close-btn" onclick="lukkPopup(${kartEtasje})">Close</button>
                 </div>
             `;
 
         //Pusher ut html koden for popup-boks til en div som ligger i kart.html
-        document.getElementById("popup-box").innerHTML = popupBox;
-        document.getElementById("popup-box").classList.add("show");
+
+        document.getElementById("popup-box-" + kartEtasje).innerHTML = popupBox;
         return;
     }
 
@@ -409,19 +405,19 @@ function popup(bod){
                     <p>Pris: ${klasseObjekt.pris}kr</p>
                     <p>Etasje: ${etasje}</p>
                     <p>Denne boden er ${bodOpptatt}</p>
-                    <button class="close-btn" onclick="lukkPopup()">Close</button>
+                    <button class="close-btn" onclick="lukkPopup(${kartEtasje})">Close</button>
                 </div>
             `;
-    
+
     //Pusher ut html koden for popup-boks til en div som ligger i kart.html
-    document.getElementById("popup-box").innerHTML = popupBox;
-    document.getElementById("popup-box").classList.add("show")
+    document.getElementById("popup-box-" + kartEtasje).innerHTML = popupBox;
+    document.getElementById("popup-box-" + kartEtasje).classList.add("show");
 }
 
 
 //Lukke popup boksen til boden
-function lukkPopup(){
-    document.getElementById("popup-box").classList.remove("show");
+function lukkPopup(kartEtasje){
+    document.getElementById("popup-box-" + kartEtasje).classList.remove("show");
 }
 
 window.lukkPopup = lukkPopup;   // Gjør funksjonen globalt tilgjengelig

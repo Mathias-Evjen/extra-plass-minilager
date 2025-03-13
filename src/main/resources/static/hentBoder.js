@@ -1,7 +1,5 @@
-const IP = "localhost";
-
 document.addEventListener("DOMContentLoaded", () => {
-    $.get(`http://${IP}:8080/hentKlasser`, function(data){
+    $.get(`http://${ADDR}:8080/hentKlasser`, function(data){
       printKlasser(data);
     })
 })
@@ -74,6 +72,15 @@ let highlightedBod = null;
 
 function highlightBodIKart(bodNr){
     if (highlightedBod) document.getElementById(highlightedBod).classList.remove("highlight-bod-i-kart");
+
+    for (const bod of bodArray) {
+        if (bod.nr === bodNr && bod.etasje === -1) {
+            $("#oppe-nede-checkbox").prop('checked', true);
+            break;
+        }
+        else $("#oppe-nede-checkbox").prop('checked', false);
+    }
+
     document.getElementById(bodNr).classList.add("highlight-bod-i-kart");
     document.getElementById("tabell-kart-checkbox").checked = "checked";
     highlightedBod = bodNr;

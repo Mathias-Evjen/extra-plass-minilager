@@ -1,10 +1,10 @@
 export function printKartNede() {
     let kart = `<div class="container-nede">
-        <div id="popup-box" class="popup-wrapper"></div>
+        <div id="popup-box-nede" class="popup-wrapper"></div>
 
         <!-- Zoom-knapper -->
         <div id="zoom-knapper" class="zoom-wrapper">
-            <button id="reset-zoom-knapp">
+            <button id="reset-zoom-knapp-nede">
                 <svg viewBox="0 0 64 64">
                     <path d="M 32 64 C 14.357 64 0 49.643 0 31.998 L 0.018 31.562 l 4.982 0.438 l -0.018 0.436
                     C 4 46 16 59 32 59 s 27 -11 27 -27 c 0 -16 -11 -27 -27 -27 C 21 5 12 8 6 22 L 1.884 19.454
@@ -12,13 +12,13 @@ export function printKartNede() {
                     <polyline points="16.865,22.1 2.285,24.15 0.259,9.749"/>
                 </svg>
             </button>
-            <button id="zoom-inn-knapp">
+            <button id="zoom-inn-knapp-nede">
                 <svg viewBox="0 0 64 64">
                     <rect y="29" width="64" height="4"></rect>
                     <rect x="29" width="4" height="64"></rect>
                 </svg>
             </button>
-            <button id="zoom-ut-knapp">
+            <button id="zoom-ut-knapp-nede">
                 <svg viewBox="0 0 64 64">
                     <rect y="29" width="64" height="4"></rect>
                 </svg>
@@ -26,7 +26,7 @@ export function printKartNede() {
         </div>
 
         <!-- Kart -->
-        <svg id="kart-nede">
+        <svg id="kart-nede" width="100%" height="100%">
             <!-- Øverste rad -->
             <svg width="720px" height="48px" x="0" y="0">
                 <!-- Klasse 3 -->

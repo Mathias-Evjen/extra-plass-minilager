@@ -4,17 +4,17 @@ function tabellEllerKart(){
     const kartOppe = document.getElementById("kart-oppe-div");
     const kartNede = document.getElementById("kart-nede-div");
     const tabell = document.getElementById("tabell");
-    if (!checkboxTabellKart.checked){
+    if (!checkboxTabellKart.checked) {
         tabell.style.display = "block";
         kartOppe.style.display = "none";
         kartNede.style.display = "none";
     }
-    else if(!checkboxOppeNede.checked && checkboxTabellKart.checked){
+    else if (!checkboxOppeNede.checked && checkboxTabellKart.checked) {
         tabell.style.display = "none";
         kartOppe.style.display = "block";
         kartNede.style.display = "none";
     }
-    else{
+    else {
         tabell.style.display = "none";
         kartOppe.style.display = "none";
         kartNede.style.display = "block";
