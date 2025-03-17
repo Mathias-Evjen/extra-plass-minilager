@@ -266,11 +266,14 @@ export function printKartNede() {
                 </g>
 
                 <!-- Klasse 14 -->
-                <svg id="klasse-14" width="96px" height="96px" x="0" y="192px">
-                    <rect id="419" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                    <rect class="søyle" width="12.8px" height="12.8px" x="16px" y="12.8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
-                    <text x="33%" y="60%">419</text>
-                </svg>
+                <g id="klasse-14">
+                    <svg width="96px" height="96px" x="0" y="192px">
+                        <rect id="419" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <rect class="søyle" width="12.8px" height="12.8px" x="16px" y="12.8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
+                        <text x="33%" y="60%">419</text>
+                    </svg>
+                </g>
+                
             </svg>
 
             <!-- Rad 3 vertikal -->
@@ -463,11 +466,13 @@ export function printKartNede() {
                 </g>
 
                 <!-- Klasse 9 -->
-                <svg id="klasse-9" width="48px" height="96px" x="48px" y="192px">
-                    <rect id="503" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                    <rect class="søyle" width="12.8px" height="12.8px" x="11.2px" y="8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
-                    <text x="15%" y="58%">503</text>
-                </svg>
+                <g id="klasse-9-liggende">
+                    <svg width="48px" height="96px" x="48px" y="192px">
+                        <rect id="503" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <rect class="søyle" width="12.8px" height="12.8px" x="11.2px" y="8px" stroke="black" stroke-width="1" fill="cornflowerblue"/>
+                        <text x="15%" y="58%">503</text>
+                    </svg>
+                </g>
             </svg>
 
             <!-- Rad 5 vertikal -->
@@ -573,6 +578,8 @@ export function printKartNede() {
                         <rect id="487" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
                         <text x="30%" y="60%">487</text>
                     </svg>
+                </g>
+                <g id="klasse-9-liggende">
                     <svg width="48px" height="96px" x="48px" y="240px">
                         <rect id="511" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
                         <text x="15%" y="58%">511</text>
@@ -685,7 +692,7 @@ export function printKartNede() {
                 </g>
 
                 <!-- Klasse 15 -->
-                <g id="klasse-16">
+                <g id="klasse-15">
                     <svg width="168px" height="72px" x="0" y="360px">
                         <rect id="516" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
                         <text x="38%" y="60%">516</text>

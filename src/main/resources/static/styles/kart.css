@@ -168,8 +168,20 @@
         transform: rotate(-90deg);
     }
 
-    .container-nede text {
-        transform: translateX(10%) translateY(130%) rotate(-0.25turn);
+    .container-nede #klasse-3 text {
+        transform: translateX(10%) translateY(98%) rotate(-0.25turn);
+    }
+
+    .container-nede #klasse-9 text {
+        transform: translateX(25%) translateY(140%) rotate(-0.25turn);
+    }
+
+    .container-nede #klasse-9-liggende text {
+        transform: translateX(-50%) translateY(75%) rotate(-0.25turn);
+    }
+
+    .container-nede #klasse-14 text {
+        transform: translateX(5%) translateY(100%) rotate(-0.25turn);
     }
 
     .zoom-wrapper button {
