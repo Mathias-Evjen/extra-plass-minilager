@@ -168,6 +168,10 @@
         transform: rotate(-90deg);
     }
 
+    .container-nede text {
+        transform: translateX(10%) translateY(130%) rotate(-0.25turn);
+    }
+
     .zoom-wrapper button {
         width: 2rem;
         height: 2rem;
