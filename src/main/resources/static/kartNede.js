@@ -687,7 +687,7 @@ export function printKartNede() {
 
                     <svg width="168px" height="96px" x="0" y="432px">
                         <rect id="515" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="38%" y="60%">515</text>
+                        <text x="38%" y="60%" style="transform: translateX(22%) translateY(130%) rotate(-0.25turn);">515</text>
                     </svg>
                 </g>
 
@@ -695,7 +695,7 @@ export function printKartNede() {
                 <g id="klasse-15">
                     <svg width="168px" height="72px" x="0" y="360px">
                         <rect id="516" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="38%" y="60%">516</text>
+                        <text x="38%" y="60%" style="transform: translateX(30%) translateY(160%) rotate(-0.25turn);">516</text>
                     </svg>
 
                     <svg width="120px" height="72px" x="216px" y="0">
@@ -731,7 +731,7 @@ export function printKartNede() {
             <!-- Trapp -->
             <svg width="336px" height="144px" x="0" y="1152px">
                 <rect width="100%" height="100%" fill="beige"/>
-                <text x="35%" y="60%"><--- Trapp</text>
+                <text x="35%" y="60%" style="transform: translateX(30%) translateY(150%) rotate(-0.25turn);">Trapp</text>
                 <line x1="100%" x2="100%" y1="0" y2="72px" stroke="black" stroke-width="4"/>
                 <line x1="100%" x2="100%" y1="120px" y2="100%" stroke="black" stroke-width="4"/>
             </svg>

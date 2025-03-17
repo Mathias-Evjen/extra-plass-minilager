@@ -171,17 +171,23 @@
     .container-nede #klasse-3 text {
         transform: translateX(10%) translateY(98%) rotate(-0.25turn);
     }
-
+    .container-nede #klasse-7 text {
+        transform: translateX(20%) translateY(120%) rotate(-0.25turn);
+    }
     .container-nede #klasse-9 text {
         transform: translateX(25%) translateY(140%) rotate(-0.25turn);
     }
-
     .container-nede #klasse-9-liggende text {
         transform: translateX(-50%) translateY(75%) rotate(-0.25turn);
     }
-
     .container-nede #klasse-14 text {
         transform: translateX(5%) translateY(100%) rotate(-0.25turn);
+    }
+    .container-nede #klasse-15 text {
+        transform: translateX(20%) translateY(135%) rotate(-0.25turn);
+    }
+    .container-nede #klasse-16 text {
+        transform: translateX(30%) translateY(160%) rotate(-0.25turn);
     }
 
     .zoom-wrapper button {
