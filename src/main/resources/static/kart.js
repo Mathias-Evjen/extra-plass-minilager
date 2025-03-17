@@ -104,14 +104,24 @@ function printMap(etasje){
         let dx = (startX - e.clientX);
         let dy = (startY - e.clientY);
 
-        let newX = viewBox.x + dx;
-        let newY = viewBox.y + dy;
+        let newX;
+        let newY;
+
+        if (window.innerWidth > 1086 && etasje === "nede") {
+            newX = viewBox.x + dy;
+            newY = viewBox.y + -dx;
+            console.log("her")
+        } else {
+            newX = viewBox.x + dx;
+            newY = viewBox.y + dy;
+            console.log("ikke her")
+        }
 
         // Sjekk at vi ikke beveger oss utenfor kartets grenser
         let maxX = MAP_WIDTH - viewBox.width;
         let maxY = MAP_HEIGHT - viewBox.height;
 
-        // if (window.innerWidth < 1086) maxX -= 100;
+
 
         viewBox.x = Math.max(0, Math.min(newX, maxX));
         viewBox.y = Math.max(0, Math.min(newY, maxY));
