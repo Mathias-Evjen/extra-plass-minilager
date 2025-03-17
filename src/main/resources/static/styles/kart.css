@@ -189,6 +189,16 @@
     .container-nede #klasse-16 text {
         transform: translateX(30%) translateY(160%) rotate(-0.25turn);
     }
+    .container-nede #klasse-16-515 text {
+        transform: translateX(22%) translateY(130%) rotate(-0.25turn); 
+    }
+    .container-nede #klasse-15-516 text {
+        transform: translateX(30%) translateY(160%) rotate(-0.25turn);
+    }
+    .container-nede #trapp-text text {
+        transform: translateX(30%) translateY(150%) rotate(-0.25turn);
+    }
+    
 
     .zoom-wrapper button {
         width: 2rem;
@@ -242,24 +252,23 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+    .kart-nede-div{
+        transform: rotate(90deg);
+        max-height: 571.1px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    
+    .kart-container{
+        width: 1030px;
+        height: 678.5px;
+        position: relative;
+        display: none;
+    }
 }
 
 .highlight-bod-i-kart{
     stroke-width: 10;
     fill: rgb(79, 192, 41);
-}
-
-.kart-nede-div{
-    transform: rotate(90deg);
-    max-height: 571.1px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-.kart-container{
-    width: 1030px;
-    height: 678.5px;
-    position: relative;
-    display: none;
 }
