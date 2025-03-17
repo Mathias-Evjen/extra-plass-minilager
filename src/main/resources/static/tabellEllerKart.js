@@ -4,18 +4,22 @@ function tabellEllerKart(){
     const kartOppe = document.getElementById("kart-oppe-div");
     const kartNede = document.getElementById("kart-nede-div");
     const tabell = document.getElementById("tabell");
-    const kartDiv = document.getElementById("kart-div")
+    const kartDiv = document.getElementById("kart-div");
+    const kartContainer = document.getElementById("kart-container");
     if (!checkboxTabellKart.classList.contains("active")) {
         tabell.style.display = "block";
         kartOppe.style.display = "none";
         kartNede.style.display = "none";
         kartDiv.style.display = "none";
+        kartContainer.style.display = "none";
     }
     else if (!checkboxOppeNede.classList.contains("active") && checkboxTabellKart.classList.contains("active")) {
         tabell.style.display = "none";
         kartOppe.style.display = "block";
         kartNede.style.display = "none";
         kartDiv.style.display = "block";
+        kartContainer.style.display = "block";
+        kartContainer.style.height = "678.5px";
     }
     else {
         console.log(checkboxOppeNede.classList.contains("active"))
@@ -23,6 +27,8 @@ function tabellEllerKart(){
         kartOppe.style.display = "none";
         kartNede.style.display = "block";
         kartDiv.style.display = "block";
+        kartContainer.style.display = "block";
+        kartContainer.style.height = "571.1px";
     }
     
 }
