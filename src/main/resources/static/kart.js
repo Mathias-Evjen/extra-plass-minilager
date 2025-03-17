@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function printMap(etasje){
     console.log(etasje)
-    if(etasje === "oppe"){
+    if (etasje === "oppe") {
         document.getElementById("kart-oppe-div").innerHTML =  printKartOppe();
     }
-    else{
+    else {
         document.getElementById("kart-nede-div").innerHTML =  printKartNede();
     }
 
@@ -110,11 +110,9 @@ function printMap(etasje){
         if (window.innerWidth > 1086 && etasje === "nede") {
             newX = viewBox.x + dy;
             newY = viewBox.y + -dx;
-            console.log("her")
         } else {
             newX = viewBox.x + dx;
             newY = viewBox.y + dy;
-            console.log("ikke her")
         }
 
         // Sjekk at vi ikke beveger oss utenfor kartets grenser
@@ -391,7 +389,7 @@ function popup(bod, etasjeVar){
                 <div class="popup-container">
                     <h1>Bod ${bod}</h1>
                     <p>Denne boden er ikke tilgjengelig for utleie</p>
-                    <button class="close-btn" onclick="lukkPopup(${kartEtasje})">Close</button>
+                    <button class="close-btn" onclick="lukkPopup()">Close</button>
                 </div>
             `;
 
