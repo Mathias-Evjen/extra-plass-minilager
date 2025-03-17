@@ -1,26 +1,42 @@
 @media (max-width: 1086px) {
-    html {
-        font-size: 16px;
-    }
-
     body {
         /*touch-action: none;*/
         /*user-select: none;*/
         font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
+    .kart-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: none;
+    }
+
+    .kart-oppe-div {
+        transform: rotate(-90deg);
+        max-width: 100%;
+        max-height: 55.8vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .kart-nede-div {
+        transform: none;
+    }
+
     .container-oppe {
         position: relative;
-        width: 100%;
-        height: 65.9%;
+        width: 55.8vh;
+        height: 60%;
         border: 1px solid red;
         background-color: lightgray;
     }
 
     .container-nede {
         position: relative;
-        width: 90vw;
-        height: 97dvh;
+        width: 100%;
+        height: 67.8vh;
         border: 1px solid red;
         background-color: lightgray;
     }
@@ -90,11 +106,15 @@
         background-color: white;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20vh;
+        margin-top: 15vh;
         padding: 20px;
         text-align: center;
-        width: 60vw;
+        width: 50vw;
         border: 1px solid red;
+    }
+
+    .kart-oppe-div .popup-container {
+        transform: rotate(90deg);
     }
 
     /* Lukkeknapp */
@@ -108,6 +128,25 @@
     body {
         margin: 0;
         font: 13px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .kart-container{
+        width: 1030px;
+        height: 678.5px;
+        position: relative;
+        display: none;
+    }
+
+    .kart-oppe-div {
+        transform: none;
+    }
+
+    .kart-nede-div {
+        transform: rotate(90deg);
+        max-height: 571.1px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .container-oppe {
@@ -239,11 +278,16 @@
         background-color: white;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 26vh;
+        margin-top: 20vh;
         padding: 20px;
         text-align: center;
         width: 300px;
         border: 1px solid red;
+    }
+
+    .kart-nede-div .popup-container {
+        margin-top: 36vh;
+        margin-right: 26vh;
         transform: rotate(-90deg);
     }
 
@@ -272,3 +316,9 @@
     stroke-width: 10;
     fill: rgb(79, 192, 41);
 }
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes

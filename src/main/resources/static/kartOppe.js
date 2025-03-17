@@ -26,7 +26,7 @@ export function printKartOppe() {
         </div>
 
         <!-- Kart -->
-        <svg id="kart-oppe" width="100%" height="100%">
+        <svg id="kart-oppe">
 
             <!-- Kjørerampe -->
             <svg width="160px" height="496px" x="0" y="672px">
