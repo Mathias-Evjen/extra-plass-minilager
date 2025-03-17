@@ -162,6 +162,12 @@
         left: 0;
     }
 
+    .container-nede .zoom-wrapper {
+        bottom: -20px;
+        left: 475px;
+        transform: rotate(-90deg);
+    }
+
     .zoom-wrapper button {
         width: 2rem;
         height: 2rem;
