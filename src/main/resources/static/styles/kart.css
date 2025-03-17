@@ -207,11 +207,12 @@
         background-color: white;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20vh;
+        margin-top: 26vh;
         padding: 20px;
         text-align: center;
         width: 300px;
         border: 1px solid red;
+        transform: rotate(-90deg);
     }
 
     /* Lukkeknapp */
