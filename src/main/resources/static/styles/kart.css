@@ -168,8 +168,14 @@
         transform: rotate(-90deg);
     }
 
-    .container-nede text {
-        transform: translateX(10%) translateY(130%) rotate(-0.25turn);
+    .container-nede #klasse-7 text {
+        transform: translateX(20%) translateY(120%) rotate(-0.25turn);
+    }
+    .container-nede #klasse-15 text {
+        transform: translateX(20%) translateY(135%) rotate(-0.25turn);
+    }
+    .container-nede #klasse-16 text {
+        transform: translateX(30%) translateY(160%) rotate(-0.25turn);
     }
 
     .zoom-wrapper button {
@@ -224,24 +230,24 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+
+    .kart-nede-div{
+        transform: rotate(90deg);
+        max-height: 571.1px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    
+    .kart-container{
+        width: 1030px;
+        height: 678.5px;
+        position: relative;
+        display: none;
+    }
 }
 
 .highlight-bod-i-kart{
     stroke-width: 10;
     fill: rgb(79, 192, 41);
-}
-
-.kart-nede-div{
-    transform: rotate(90deg);
-    max-height: 571.1px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-.kart-container{
-    width: 1030px;
-    height: 678.5px;
-    position: relative;
-    display: none;
 }
