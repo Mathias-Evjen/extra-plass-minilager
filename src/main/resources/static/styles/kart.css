@@ -123,6 +123,10 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+
+    #trapp-ikon {
+        transform: scale(2);
+    }
 }
 
 @media (min-width: 1087px) {
@@ -241,6 +245,9 @@
     }
     .container-nede #trapp-text text {
         transform: translateX(30%) translateY(150%) rotate(-0.25turn);
+    }
+    .container-nede #trapp-ikon {
+        transform: translateX(25%) translateY(172%) rotate(-0.25turn) scale(2);
     }
     
 

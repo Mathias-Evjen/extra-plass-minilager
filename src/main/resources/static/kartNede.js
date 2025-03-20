@@ -763,7 +763,7 @@ export function printKartNede() {
             <g id="trapp-text">
                 <svg width="672px" height="288px" x="0" y="2304px">
                     <rect width="100%" height="100%" fill="beige"/>
-                    <text x="35%" y="60%">Trapp</text>
+                    <svg id="trapp-ikon" xmlns="http://www.w3.org/2000/svg" x="22%" y="18%" height="48px" viewBox="0 0 24 24" width="48px" fill="#000000"><g><rect fill="none" height="24" width="24" x="0"/><g><g><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M18,8h-2.42v3.33H13v3.33h-2.58 V18H6v-2h2.42v-3.33H11V9.33h2.58V6H18V8z"/></g></g></g></svg>
                     <line x1="100%" x2="100%" y1="0" y2="144px" stroke="black" stroke-width="4"/>
                     <line x1="100%" x2="100%" y1="240px" y2="100%" stroke="black" stroke-width="4"/>
                 </svg>
