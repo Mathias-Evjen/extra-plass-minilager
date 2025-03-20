@@ -7,18 +7,18 @@
 
     .kart-container {
         width: 100%;
-        height: auto;
+        max-height: 65.87%;
         position: relative;
         display: none;
     }
 
     .kart-oppe-div {
         transform: rotate(-90deg);
-        max-width: 100%;
-        max-height: 55.8vh;
+        max-height: 60%;
+        width: 60%;
         position: absolute;
         bottom: 0;
-        left: 0;
+        right: 20%;
     }
 
     .kart-nede-div {
@@ -28,7 +28,7 @@
     .container-oppe {
         position: relative;
         width: 55.8vh;
-        height: 60%;
+        height: 55%;
         border: 1px solid red;
         background-color: lightgray;
     }
@@ -75,6 +75,7 @@
     text {
         user-select: none;
         pointer-events: none;
+        font-size: 2rem;
     }
 
     /*Test popup*/
@@ -175,6 +176,10 @@
         font-size: 1.2rem;
     }
 
+    .container-nede text {
+        font-size: 1.7rem;
+    }
+
     svg:hover {
         cursor: pointer;
     }
@@ -208,31 +213,31 @@
     }
 
     .container-nede #klasse-3 text {
-        transform: translateX(10%) translateY(98%) rotate(-0.25turn);
+        transform: translateX(3%) translateY(92%) rotate(-0.25turn);
     }
     .container-nede #klasse-7 text {
-        transform: translateX(20%) translateY(120%) rotate(-0.25turn);
+        transform: translateX(17%) translateY(120%) rotate(-0.25turn);
     }
     .container-nede #klasse-9 text {
         transform: translateX(25%) translateY(140%) rotate(-0.25turn);
     }
     .container-nede #klasse-9-liggende text {
-        transform: translateX(-50%) translateY(75%) rotate(-0.25turn);
+        transform: translateX(-55%) translateY(72%) rotate(-0.25turn);
     }
     .container-nede #klasse-14 text {
-        transform: translateX(5%) translateY(100%) rotate(-0.25turn);
+        transform: translateX(3%) translateY(97%) rotate(-0.25turn);
     }
     .container-nede #klasse-15 text {
-        transform: translateX(20%) translateY(135%) rotate(-0.25turn);
+        transform: translateX(20%) translateY(133%) rotate(-0.25turn);
     }
     .container-nede #klasse-16 text {
-        transform: translateX(30%) translateY(160%) rotate(-0.25turn);
+        transform: translateX(30%) translateY(163%) rotate(-0.25turn);
     }
     .container-nede #klasse-16-515 text {
-        transform: translateX(22%) translateY(130%) rotate(-0.25turn); 
+        transform: translateX(23%) translateY(133%) rotate(-0.25turn);
     }
     .container-nede #klasse-15-516 text {
-        transform: translateX(30%) translateY(160%) rotate(-0.25turn);
+        transform: translateX(30%) translateY(163%) rotate(-0.25turn);
     }
     .container-nede #trapp-text text {
         transform: translateX(30%) translateY(150%) rotate(-0.25turn);
@@ -316,9 +321,3 @@
     stroke-width: 10;
     fill: rgb(79, 192, 41);
 }
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes

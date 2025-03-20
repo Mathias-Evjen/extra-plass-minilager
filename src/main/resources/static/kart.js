@@ -56,8 +56,8 @@ function printMap(etasje){
     if (etasje === "nede") {
         kart = document.getElementById("kart-nede");
 
-        maxWidth = 720;
-        maxHeight = 1296;
+        maxWidth = 1440;
+        maxHeight = 2592;
         minWidth = 270;
         minHeight = 480;
     } else {
