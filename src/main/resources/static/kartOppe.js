@@ -1,3 +1,30 @@
+const klasse18TextCoords = {
+    x: "45%",
+    y: "55%"
+}
+
+const klasse3TextCoords = {
+    x: "15%",
+    y: "65%"
+}
+
+const klasse4TextCoords = {
+    x: "25%",
+    y: "60%"
+}
+
+const klasse9TextCoords = {
+    x: "30%",
+    x2: "15%",  // For tre-sifrede tall
+    y: "55%"
+}
+
+const klasse14TextCoords = {
+    x: "40%",
+    x2: "30%",  // For tre-sifrede tall
+    y: "55%",
+}
+
 export function printKartOppe() {
     let kart = `<div id="kartContainer-oppe" class="container-oppe">
         <div id="popup-box-oppe" class="popup-wrapper"></div><!--Denne div'en er for å vise popup boksen-->
@@ -42,11 +69,11 @@ export function printKartOppe() {
                 <g>
                     <svg width="160px" height="96px" x="0" y="0">
                         <rect id="46" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="45%" y="55%">46</text>
+                        <text x="${klasse18TextCoords.x}" y="${klasse18TextCoords.y}">46</text>
                     </svg>
                     <svg width="160px" height="96px" x="0" y="96px">
                         <rect id="47" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="45%" y="55%">47</text>
+                        <text x="${klasse18TextCoords.x}" y="${klasse18TextCoords.y}">47</text>
                     </svg>
                 </g>
 
@@ -78,19 +105,19 @@ export function printKartOppe() {
                 <g>
                     <svg width="64px" height="48px" x="80px" y="368px">
                         <rect id="318" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="25%" y="60%">318</text>
+                        <text x="${klasse4TextCoords.x}" y="${klasse4TextCoords.y}">318</text>
                     </svg>
                     <svg width="64px" height="48px" x="80px" y="416px">
                         <rect id="317" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="25%" y="60%">317</text>
+                        <text x="${klasse4TextCoords.x}" y="${klasse4TextCoords.y}">317</text>
                     </svg>
                     <svg width="64px" height="48px" x="80px" y="464px">
                         <rect id="316" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="25%" y="60%">316</text>
+                        <text x="${klasse4TextCoords.x}" y="${klasse4TextCoords.y}">316</text>
                     </svg>
                     <svg width="64px" height="48px" x="80px" y="512px">
                         <rect id="315" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="25%" y="60%">315</text>
+                        <text x="${klasse4TextCoords.x}" y="${klasse4TextCoords.y}">315</text>
                     </svg>
                 </g>
             </svg>
@@ -101,7 +128,7 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="0" y="0">
                         <rect id="121" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="55%">121</text>
+                        <text x="15%" y="${klasse9TextCoords.y}">121</text>
                     </svg>
                 </g>
 
@@ -109,51 +136,51 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="48px" x="0" y="96px">
                         <rect id="122" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="65%">122</text>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">122</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="144px">
                         <rect id="123" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="65%">123</text>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">123</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="192px">
                         <rect id="124" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="65%">124</text>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">124</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="240px">
                         <rect id="125" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="65%">125</text>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">125</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="512px">
                         <rect id="128" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">128</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">128</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="560px">
                         <rect id="129" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">129</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">129</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="608px">
                         <rect id="130" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">130</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">130</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="928px">
                         <rect id="282" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">282</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">282</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="976px">
                         <rect id="283" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">283</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">283</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="1024px">
                         <rect id="284" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">284</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">284</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="1072px">
                         <rect id="285" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">285</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">285</text>
                     </svg>
                     <svg width="48px" height="48px" x="0" y="1120px">
                         <rect id="286" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="60%">286</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">286</text>
                     </svg>
                 </g>
 
@@ -208,40 +235,40 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="80px" y="0">
                         <rect id="2" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">2</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">2</text>
                     </svg>
                     <svg width="96px" height="96px" x="176px" y="0">
                         <rect id="3" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">3</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">3</text>
                     </svg>
                     <svg width="96px" height="96px" x="272px" y="0">
                         <rect id="4" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">4</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">4</text>
                     </svg>
                     <svg width="96px" height="96px" x="368px" y="0">
                         <rect id="5" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">5</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">5</text>
                     </svg>
                     <svg width="96px" height="96px" x="464px" y="0">
                         <rect id="6" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">6</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">6</text>
                     </svg>
                     <svg width="96px" height="96px" x="560px" y="0">
                         <rect id="7" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">7</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">7</text>
                     </svg>
                     <svg width="96px" height="96px" x="656px" y="0">
                         <rect id="8" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">8</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">8</text>
                     </svg>
 
                     <svg width="96px" height="96px" x="912px" y="0">
                         <rect id="11" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">11</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">11</text>
                     </svg>
                     <svg width="96px" height="96px" x="1008px" y="0">
                         <rect id="12" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">12</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">12</text>
                     </svg>
                 </g>
 
@@ -249,7 +276,7 @@ export function printKartOppe() {
                 <g>
                     <svg width="112px" height="96px" x="752px" y="0">
                         <rect id="9" width="100%" height="100%" stroke="black" stroke-width="2" fill="pink"/>
-                        <text x="40%" y="55%">9</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">9</text>
                     </svg>
                 </g>
 
@@ -265,47 +292,47 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1104px" y="0">
                         <rect id="13" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">13</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">13</text>
                     </svg>
                     <svg width="48px" height="96px" x="1152px" y="0">
                         <rect id="14" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">14</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">14</text>
                     </svg>
                     <svg width="48px" height="96px" x="1200px" y="0">
                         <rect id="15" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">15</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">15</text>
                     </svg>
                     <svg width="48px" height="96px" x="1248px" y="0">
                         <rect id="16" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">16</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">16</text>
                     </svg>
                     <svg width="48px" height="96px" x="1296px" y="0">
                         <rect id="17" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">17</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">17</text>
                     </svg>
                     <svg width="48px" height="96px" x="1344px" y="0">
                         <rect id="18" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">18</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">18</text>
                     </svg>
                     <svg width="48px" height="96px" x="1392px" y="0">
                         <rect id="19" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">19</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">19</text>
                     </svg>
                     <svg width="48px" height="96px" x="1440px" y="0">
                         <rect id="20" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">20</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">20</text>
                     </svg>
                     <svg width="48px" height="96px" x="1488px" y="0">
                         <rect id="21" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">21</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">21</text>
                     </svg>
                     <svg width="48px" height="96px" x="1536px" y="0">
                         <rect id="22" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">22</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">22</text>
                     </svg>
                     <svg width="48px" height="96px" x="1584px" y="0">
                         <rect id="23" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">23</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">23</text>
                     </svg>
                 </g>
 
@@ -324,47 +351,47 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="0" y="0">
                         <rect id="48" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">48</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">48</text>
                     </svg>
                     <svg width="96px" height="96px" x="96px" y="0">
                         <rect id="45" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">45</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">45</text>
                     </svg>
                     <svg width="96px" height="96px" x="192px" y="0">
                         <rect id="44" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">44</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">44</text>
                     </svg>
                     <svg width="96px" height="96px" x="288px" y="0">
                         <rect id="43" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">43</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">43</text>
                     </svg>
                     <svg width="96px" height="96px" x="384px" y="0">
                         <rect id="42" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">42</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">42</text>
                     </svg>
                     <svg width="96px" height="96px" x="480px" y="0">
                         <rect id="41" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">41</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">41</text>
                     </svg>
                     <svg width="96px" height="96px" x="576px" y="0">
                         <rect id="40" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">40</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">40</text>
                     </svg>
                     <svg width="96px" height="96px" x="672px" y="0">
                         <rect id="39" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">39</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">39</text>
                     </svg>
                     <svg width="96px" height="96px" x="768px" y="0">
                         <rect id="38" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">38</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">38</text>
                     </svg>
                     <svg width="96px" height="96px" x="864px" y="0">
                         <rect id="37" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">37</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">37</text>
                     </svg>
                     <svg width="96px" height="96px" x="960px" y="0">
                         <rect id="36" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">36</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">36</text>
                     </svg>
                 </g>
 
@@ -372,47 +399,47 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="0" y="96px">
                         <rect id="49" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">49</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">49</text>
                     </svg>
                     <svg width="96px" height="96px" x="96px" y="96px">
                         <rect id="50" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">50</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">50</text>
                     </svg>
                     <svg width="96px" height="96px" x="192px" y="96px">
                         <rect id="51" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">51</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">51</text>
                     </svg>
                     <svg width="96px" height="96px" x="288px" y="96px">
                         <rect id="52" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">52</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">52</text>
                     </svg>
                     <svg width="96px" height="96px" x="384px" y="96px">
                         <rect id="53" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">53</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">53</text>
                     </svg>
                     <svg width="96px" height="96px" x="480px" y="96px">
                         <rect id="54" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">54</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">54</text>
                     </svg>
                     <svg width="96px" height="96px" x="576px" y="96px">
                         <rect id="55" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">55</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">55</text>
                     </svg>
                     <svg width="96px" height="96px" x="672px" y="96px">
                         <rect id="56" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">56</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">56</text>
                     </svg>
                     <svg width="96px" height="96px" x="768px" y="96px">
                         <rect id="57" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">57</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">57</text>
                     </svg>
                     <svg width="96px" height="96px" x="864px" y="96px">
                         <rect id="58" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">58</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">58</text>
                     </svg>
                     <svg width="96px" height="96px" x="960px" y="96px">
                         <rect id="59" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">59</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">59</text>
                     </svg>
                 </g>
 
@@ -432,43 +459,43 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1120px" y="0px">
                         <rect id="34" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">34</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">34</text>
                     </svg>
                     <svg width="48px" height="96px" x="1168px" y="0px">
                         <rect id="33" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">33</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">33</text>
                     </svg>
                     <svg width="48px" height="96px" x="1216px" y="0px">
                         <rect id="32" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">32</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">32</text>
                     </svg>
                     <svg width="48px" height="96px" x="1264px" y="0px">
                         <rect id="31" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">31</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">31</text>
                     </svg>
                     <svg width="48px" height="96px" x="1312px" y="0px">
                         <rect id="30" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">30</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">30</text>
                     </svg>
                     <svg width="48px" height="96px" x="1360px" y="0px">
                         <rect id="29" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">29</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">29</text>
                     </svg>
                     <svg width="48px" height="96px" x="1408px" y="0px">
                         <rect id="28" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">28</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">28</text>
                     </svg>
                     <svg width="48px" height="96px" x="1456px" y="0px">
                         <rect id="27" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">27</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">27</text>
                     </svg>
                     <svg width="48px" height="96px" x="1504px" y="0px">
                         <rect id="26" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">26</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">26</text>
                     </svg>
                     <svg width="48px" height="96px" x="1552px" y="0px">
                         <rect id="25" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">25</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">25</text>
                     </svg>
                 </g>
 
@@ -476,44 +503,44 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1120px" y="96px">
                         <rect id="61" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">61</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">61</text>
                     </svg>
                     <svg width="48px" height="96px" x="1168px" y="96px">
                         <rect id="62" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">62</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">62</text>
                     </svg>
 
                     <svg width="48px" height="96px" x="1216px" y="96px">
                         <rect id="63" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">63</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">63</text>
                     </svg>
                     <svg width="48px" height="96px" x="1264px" y="96px">
                         <rect id="64" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">64</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">64</text>
                     </svg>
                     <svg width="48px" height="96px" x="1312px" y="96px">
                         <rect id="65" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">65</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">65</text>
                     </svg>
                     <svg width="48px" height="96px" x="1360px" y="96px">
                         <rect id="66" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">66</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">66</text>
                     </svg>
                     <svg width="48px" height="96px" x="1408px" y="96px">
                         <rect id="67" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">67</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">67</text>
                     </svg>
                     <svg width="48px" height="96px" x="1456px" y="96px">
                         <rect id="68" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">68</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">68</text>
                     </svg>
                     <svg width="48px" height="96px" x="1504px" y="96px">
                         <rect id="69" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">69</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">69</text>
                     </svg>
                     <svg width="48px" height="96px" x="1552px" y="96px">
                         <rect id="70" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">70</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">70</text>
                     </svg>
                 </g>
 
@@ -585,27 +612,27 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="544px" y="0">
                         <rect id="86" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">86</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">86</text>
                     </svg>
                     <svg width="96px" height="96px" x="640px" y="0">
                         <rect id="85" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">85</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">85</text>
                     </svg>
                     <svg width="96px" height="96px" x="736px" y="0">
                         <rect id="84" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">84</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">84</text>
                     </svg>
                     <svg width="96px" height="96px" x="832px" y="0">
                         <rect id="83" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">83</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">83</text>
                     </svg>
                     <svg width="96px" height="96px" x="928px" y="0">
                         <rect id="82" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">82</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">82</text>
                     </svg>
                     <svg width="96px" height="96px" x="1024px" y="0">
                         <rect id="81" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">81</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">81</text>
                     </svg>
                 </g>
 
@@ -613,27 +640,27 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="544px" y="96px">
                         <rect id="97" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">97</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">97</text>
                     </svg>
                     <svg width="96px" height="96px" x="640px" y="96px">
                         <rect id="98" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">98</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">98</text>
                     </svg>
                     <svg width="96px" height="96px" x="736px" y="96px">
                         <rect id="99" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="55%">99</text>
+                        <text x="${klasse14TextCoords.x}" y="${klasse14TextCoords.y}">99</text>
                     </svg>
                     <svg width="96px" height="96px" x="832px" y="96px">
                         <rect id="100" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="35%" y="55%">100</text>
+                        <text x="35%" y="${klasse14TextCoords.y}">100</text>
                     </svg>
                     <svg width="96px" height="96px" x="928px" y="96px">
                         <rect id="101" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="35%" y="55%">101</text>
+                        <text x="35%" y="${klasse14TextCoords.y}">101</text>
                     </svg>
                     <svg width="96px" height="96px" x="1024px" y="96px">
                         <rect id="102" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="35%" y="55%">102</text>
+                        <text x="35%" y="${klasse14TextCoords.y}">102</text>
                     </svg>
                 </g>
 
@@ -641,44 +668,44 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1120px" y="0px">
                         <rect id="80" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">80</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">80</text>
                     </svg>
                     <svg width="48px" height="96px" x="1168px" y="0px">
                         <rect id="79" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">79</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">79</text>
                     </svg>
 
                     <svg width="48px" height="96px" x="1216px" y="0px">
                         <rect id="78" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">78</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">78</text>
                     </svg>
                     <svg width="48px" height="96px" x="1264px" y="0px">
                         <rect id="77" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">77</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">77</text>
                     </svg>
                     <svg width="48px" height="96px" x="1312px" y="0px">
                         <rect id="76" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">76</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">76</text>
                     </svg>
                     <svg width="48px" height="96px" x="1360px" y="0px">
                         <rect id="75" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">75</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">75</text>
                     </svg>
                     <svg width="48px" height="96px" x="1408px" y="0px">
                         <rect id="74" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">74</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">74</text>
                     </svg>
                     <svg width="48px" height="96px" x="1456px" y="0px">
                         <rect id="73" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">73</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">73</text>
                     </svg>
                     <svg width="48px" height="96px" x="1504px" y="0px">
                         <rect id="72" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">72</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">72</text>
                     </svg>
                     <svg width="48px" height="96px" x="1552px" y="0px">
                         <rect id="71" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">71</text>
+                        <text x="${klasse9TextCoords.x}" y="${klasse9TextCoords.y}">71</text>
                     </svg>
                 </g>
 
@@ -686,45 +713,45 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1120px" y="96px">
                         <rect id="103" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">103</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">103</text>
                     </svg>
                     <svg width="48px" height="96px" x="1168px" y="96px">
                         <rect id="104" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">104</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">104</text>
                     </svg>
 
                     <svg width="48px" height="96px" x="1216px" y="96px">
                         <rect id="105" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">105</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">105</text>
                     </svg>
                     <svg width="48px" height="96px" x="1264px" y="96px">
                         <rect id="106" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">106</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">106</text>
                     </svg>
                     <svg width="48px" height="96px" x="1312px" y="96px">
                         <rect id="107" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">107</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">107</text>
                     </svg>
                     <svg width="48px" height="96px" x="1360px" y="96px">
                         <rect id="108" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">108</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">108</text>
                     </svg>
 
                     <svg width="48px" height="96px" x="1408px" y="96px">
                         <rect id="109" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">109</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">109</text>
                     </svg>
                     <svg width="48px" height="96px" x="1456px" y="96px">
                         <rect id="110" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">110</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">110</text>
                     </svg>
                     <svg width="48px" height="96px" x="1504px" y="96px">
                         <rect id="111" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">111</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">111</text>
                     </svg>
                     <svg width="48px" height="96px" x="1552px" y="96px">
                         <rect id="112" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">112</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">112</text>
                     </svg>
                 </g>
 
@@ -831,7 +858,7 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1440px" y="0px">
                         <rect id="201" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="50%">201</text>
+                        <text x="${klasse9TextCoords.x2}" y="50%">201</text>
                     </svg>
                     <svg width="96px" height="48px" x="1440px" y="96px">
                         <rect id="277" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
@@ -840,35 +867,35 @@ export function printKartOppe() {
 
                     <svg width="48px" height="96px" x="1104px" y="144px">
                         <rect id="228" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">228</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">228</text>
                     </svg>
                     <svg width="48px" height="96px" x="1152px" y="144px">
                         <rect id="229" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">229</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">229</text>
                     </svg>
                     <svg width="48px" height="96px" x="1200px" y="144px">
                         <rect id="230" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">230</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">230</text>
                     </svg>
                     <svg width="48px" height="96px" x="1248px" y="144px">
                         <rect id="231" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">231</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">231</text>
                     </svg>
                     <svg width="48px" height="96px" x="1296px" y="144px">
                         <rect id="232" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">232</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">232</text>
                     </svg>
                     <svg width="48px" height="96px" x="1344px" y="144px">
                         <rect id="233" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">233</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">233</text>
                     </svg>
                     <svg width="48px" height="96px" x="1392px" y="144px">
                         <rect id="234" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">234</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">234</text>
                     </svg>
                     <svg width="48px" height="96px" x="1440px" y="144px">
                         <rect id="235" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">235</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">235</text>
                     </svg>
                 </g>
 
@@ -876,19 +903,19 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="48px" x="1488px" y="0px">
                         <rect id="279" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="60%">279</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">279</text>
                     </svg>
                     <svg width="48px" height="48px" x="1488px" y="48px">
                         <rect id="278" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="60%">278</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">278</text>
                     </svg>
                     <svg width="48px" height="48px" x="1488px" y="144px">
                         <rect id="276" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="60%">276</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">276</text>
                     </svg>
                     <svg width="48px" height="48px" x="1488px" y="192px">
                         <rect id="275" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="60%">275</text>
+                        <text x="${klasse3TextCoords.x}" y="60%">275</text>
                     </svg>
                 </g>
 
@@ -896,43 +923,43 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="144px" y="144px">
                         <rect id="218" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">218</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">218</text>
                     </svg>
                     <svg width="96px" height="96px" x="240px" y="144px">
                         <rect id="219" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">219</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">219</text>
                     </svg>
                     <svg width="96px" height="96px" x="336px" y="144px">
                         <rect id="220" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">220</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">220</text>
                     </svg>
                     <svg width="96px" height="96px" x="432px" y="144px">
                         <rect id="221" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">221</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">221</text>
                     </svg>
                     <svg width="96px" height="96px" x="528px" y="144px">
                         <rect id="222" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">222</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">222</text>
                     </svg>
                     <svg width="96px" height="96px" x="624px" y="144px">
                         <rect id="223" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">223</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">223</text>
                     </svg>
                     <svg width="96px" height="96px" x="720px" y="144px">
                         <rect id="224" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">224</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">224</text>
                     </svg>
                     <svg width="96px" height="96px" x="816px" y="144px">
                         <rect id="225" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">225</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">225</text>
                     </svg>
                     <svg width="96px" height="96px" x="912px" y="144px">
                         <rect id="226" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">226</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">226</text>
                     </svg>
                     <svg width="96px" height="96px" x="1008px" y="144px">
                         <rect id="227" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">227</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">227</text>
                     </svg>
                 </g>
 
@@ -972,27 +999,27 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="528px" y="0px">
                         <rect id="249" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">249</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">249</text>
                     </svg>
                     <svg width="96px" height="96px" x="624px" y="0px">
                         <rect id="248" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">248</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">248</text>
                     </svg>
                     <svg width="96px" height="96px" x="720px" y="0px">
                         <rect id="247" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">247</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">247</text>
                     </svg>
                     <svg width="96px" height="96px" x="816px" y="0px">
                         <rect id="246" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">246</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">246</text>
                     </svg>
                     <svg width="96px" height="96px" x="912px" y="0px">
                         <rect id="245" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">245</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">245</text>
                     </svg>
                     <svg width="96px" height="96px" x="1008px" y="0px">
                         <rect id="244" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">244</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">244</text>
                     </svg>
                 </g>
 
@@ -1000,35 +1027,35 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="240px" y="96px">
                         <rect id="255" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">255</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">255</text>
                     </svg>
                     <svg width="96px" height="96px" x="336px" y="96px">
                         <rect id="256" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">256</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">256</text>
                     </svg>
                     <svg width="96px" height="96px" x="528px" y="96px">
                         <rect id="257" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">257</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">257</text>
                     </svg>
                     <svg width="96px" height="96px" x="624px" y="96px">
                         <rect id="258" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">258</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">258</text>
                     </svg>
                     <svg width="96px" height="96px" x="720px" y="96px">
                         <rect id="259" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">259</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">259</text>
                     </svg>
                     <svg width="96px" height="96px" x="816px" y="96px">
                         <rect id="260" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">260</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">260</text>
                     </svg>
                     <svg width="96px" height="96px" x="912px" y="96px">
                         <rect id="261" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">261</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">261</text>
                     </svg>
                     <svg width="96px" height="96px" x="1008px" y="96px">
                         <rect id="262" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">262</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">262</text>
                     </svg>
                 </g>
 
@@ -1036,35 +1063,35 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1104px" y="0">
                         <rect id="243" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">243</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">243</text>
                     </svg>
                     <svg width="48px" height="96px" x="1152px" y="0">
                         <rect id="242" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">242</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">242</text>
                     </svg>
                     <svg width="48px" height="96px" x="1200px" y="0">
                         <rect id="241" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">241</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">241</text>
                     </svg>
                     <svg width="48px" height="96px" x="1248px" y="0">
                         <rect id="240" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">240</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">240</text>
                     </svg>
                     <svg width="48px" height="96px" x="1296px" y="0">
                         <rect id="239" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">239</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">239</text>
                     </svg>
                     <svg width="48px" height="96px" x="1344px" y="0">
                         <rect id="238" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">238</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">238</text>
                     </svg>
                     <svg width="48px" height="96px" x="1392px" y="0">
                         <rect id="237" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">237</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">237</text>
                     </svg>
                     <svg width="48px" height="96px" x="1440px" y="0">
                         <rect id="236" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">236</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">236</text>
                     </svg>
                 </g>
 
@@ -1072,35 +1099,35 @@ export function printKartOppe() {
                 <g>
                     <svg width="48px" height="96px" x="1104px" y="96px">
                         <rect id="263" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">263</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">263</text>
                     </svg>
                     <svg width="48px" height="96px" x="1152px" y="96px">
                         <rect id="264" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">264</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">264</text>
                     </svg>
                     <svg width="48px" height="96px" x="1200px" y="96px">
                         <rect id="265" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">265</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">265</text>
                     </svg>
                     <svg width="48px" height="96px" x="1248px" y="96px">
                         <rect id="266" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">266</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">266</text>
                     </svg>
                     <svg width="48px" height="96px" x="1296px" y="96px">
                         <rect id="267" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">267</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">267</text>
                     </svg>
                     <svg width="48px" height="96px" x="1344px" y="96px">
                         <rect id="268" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">268</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">268</text>
                     </svg>
                     <svg width="48px" height="96px" x="1392px" y="96px">
                         <rect id="269" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">269</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">269</text>
                     </svg>
                     <svg width="48px" height="96px" x="1440px" y="96px">
                         <rect id="270" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">270</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">270</text>
                     </svg>
                 </g>
 
@@ -1170,19 +1197,19 @@ export function printKartOppe() {
                 <g>
                     <svg width="96px" height="96px" x="352px" y="0px">
                         <rect id="309" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">309</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">309</text>
                     </svg>
                     <svg width="96px" height="96px" x="448px" y="0px">
                         <rect id="308" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">308</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">308</text>
                     </svg>
                     <svg width="96px" height="96px" x="544px" y="0px">
                         <rect id="307" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">307</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">307</text>
                     </svg>
                     <svg width="96px" height="96px" x="640px" y="0px">
                         <rect id="306" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="30%" y="55%">306</text>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">306</text>
                     </svg>
                 </g>
 
@@ -1190,74 +1217,74 @@ export function printKartOppe() {
                 <!-- Bod 305 -->
                 <svg width="96px" height="96px" x="736px" y="0">
                     <rect id="305" width="100%" height="100%" stroke="black" stroke-width="2" fill="pink"/>
-                    <text x="30%" y="55%">305</text>
+                    <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">305</text>
                 </svg>
 
                 <!-- Klasse 9 -->
                 <g>
                     <svg width="48px" height="96px" x="832px" y="0px">
                         <rect id="304" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">304</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">304</text>
                     </svg>
                     <svg width="48px" height="96px" x="880px" y="0px">
                         <rect id="303" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">303</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">303</text>
                     </svg>
                     <svg width="48px" height="96px" x="928px" y="0px">
                         <rect id="302" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">302</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">302</text>
                     </svg>
                     <svg width="48px" height="96px" x="976px" y="0px">
                         <rect id="301" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">301</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">301</text>
                     </svg>
                     <svg width="48px" height="96px" x="1024px" y="0px">
                         <rect id="300" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">300</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">300</text>
                     </svg>
                     <svg width="48px" height="96px" x="1072px" y="0px">
                         <rect id="299" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">299</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">299</text>
                     </svg>
                     <svg width="48px" height="96px" x="1120px" y="0px">
                         <rect id="298" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">298</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">298</text>
                     </svg>
                     <svg width="48px" height="96px" x="1168px" y="0px">
                         <rect id="297" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">297</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">297</text>
                     </svg>
                     <svg width="48px" height="96px" x="1216px" y="0px">
                         <rect id="296" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">296</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">296</text>
                     </svg>
                     <svg width="48px" height="96px" x="1264px" y="0px">
                         <rect id="295" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">295</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">295</text>
                     </svg>
                     <svg width="48px" height="96px" x="1312px" y="0px">
                         <rect id="294" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">294</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">294</text>
                     </svg>
                     <svg width="48px" height="96px" x="1360px" y="0px">
                         <rect id="293" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">293</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">293</text>
                     </svg>
                     <svg width="48px" height="96px" x="1408px" y="0px">
                         <rect id="292" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">292</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">292</text>
                     </svg>
                     <svg width="48px" height="96px" x="1456px" y="0px">
                         <rect id="291" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">291</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">291</text>
                     </svg>
                     <svg width="48px" height="96px" x="1504px" y="0px">
                         <rect id="290" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">290</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">290</text>
                     </svg>
                     <svg width="48px" height="96px" x="1552px" y="0px">
                         <rect id="289" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="15%" y="55%">289</text>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">289</text>
                     </svg>
                 </g>
 
