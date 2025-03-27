@@ -1,5 +1,6 @@
-import {printKartOppe} from "./kartOppeLiggende.js";
-import {printKartNede} from "./kartNedeStående.js";
+import {printKartOppeLiggende} from "./kartOppeLiggende.js";
+import {printKartNedeStaaende} from "./kartNedeStaaende.js";
+import {printKartNedeLiggende} from "./kartNedeLiggende.js";
 
 const ADDR = "localhost";
 window.ADDR = ADDR;
@@ -41,25 +42,33 @@ document.addEventListener("DOMContentLoaded", function () {
 function printMap(etasje){
     console.log(etasje)
     if (etasje === "oppe") {
-        document.getElementById("kart-oppe-div").innerHTML =  printKartOppe();
+        document.getElementById("kart-oppe-div").innerHTML =  printKartOppeLiggende();
     }
     else {
-        document.getElementById("kart-nede-div").innerHTML =  printKartNede();
+        window.innerWidth < 1087 ? document.getElementById("kart-nede-div").innerHTML =  printKartNedeStaaende() : document.getElementById("kart-nede-div").innerHTML =  printKartNedeLiggende();
     }
 
     let maxWidth;
     let maxHeight;
-
     let minWidth;
     let minHeight;
+
     let kart = document.getElementById("kart-oppe");
     if (etasje === "nede") {
         kart = document.getElementById("kart-nede");
+        console.log(window.innerWidth);
 
-        maxWidth = 1440;
-        maxHeight = 2592;
-        minWidth = 270;
-        minHeight = 480;
+        if (window.innerWidth < 1087) {
+            maxWidth = 1440;
+            maxHeight = 2592;
+            minWidth = 270;
+            minHeight = 480;
+        } else {
+            maxWidth = 2592;
+            maxHeight = 1440;
+            minWidth = 480;
+            minHeight = 270;
+        }
     } else {
         kart = document.getElementById("kart-oppe");
         maxWidth = 2016;
@@ -76,13 +85,13 @@ function printMap(etasje){
     let lastScale = 1;
 
     // Minimum og maksimum zoom nivå
-    const MAP_WIDTH = maxWidth;
-    const MAP_HEIGHT = maxHeight;
-    const MIN_WIDTH = minWidth;
-    const MIN_HEIGHT = minHeight;
+    let MAP_WIDTH = maxWidth;
+    let MAP_HEIGHT = maxHeight;
+    let MIN_WIDTH = minWidth;
+    let MIN_HEIGHT = minHeight;
 
-    const MID_X = maxWidth / 2;
-    const MID_Y = maxHeight / 2;
+    let MID_X = maxWidth / 2;
+    let MID_Y = maxHeight / 2;
 
     let viewBox = {x: 0, y: 0, width: MAP_WIDTH, height: MAP_HEIGHT};
 
@@ -107,13 +116,8 @@ function printMap(etasje){
         let newX;
         let newY;
 
-        if (window.innerWidth > 1086 && etasje === "nede") {
-            newX = viewBox.x + dy;
-            newY = viewBox.y + -dx;
-        } else {
-            newX = viewBox.x + dx;
-            newY = viewBox.y + dy;
-        }
+        newX = viewBox.x + dx;
+        newY = viewBox.y + dy;
 
         // Sjekk at vi ikke beveger oss utenfor kartets grenser
         let maxX = MAP_WIDTH - viewBox.width;

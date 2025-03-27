@@ -23,9 +23,9 @@ const klasse16TextCoords = {
     y: "60%"
 }
 
-export function printKartNede() {
+export function printKartNedeStaaende() {
     let kart = `<div class="container-nede">
-        <div id="popup-box-nede" class="popup-wrapper"></div>
+        <div id="popup-box-nede" class="popup-wrapper"></div> <!--Denne div'en er for å vise popup boksen-->
 
         <!-- Zoom-knapper -->
         <div id="zoom-knapper" class="zoom-wrapper">
@@ -118,6 +118,7 @@ export function printKartNede() {
 
             <!-- Rad 1 vertikal -->
             <svg width="192px" height="768px" x="96px" y="192px">
+            
                 <!-- Klasse 3 venstre -->
                 <g id="klasse-3">
                     <svg width="96px" height="96px" x="0" y="0">
@@ -208,6 +209,7 @@ export function printKartNede() {
                         <rect id="425" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">425</text>
                     </svg>
+                    
                     <svg width="96px" height="96px" x="192px" y="384px">
                         <rect id="429" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">429</text>
@@ -216,6 +218,7 @@ export function printKartNede() {
                         <rect id="430" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">430</text>
                     </svg>
+                    
                     <svg width="96px" height="96px" x="0" y="864px">
                         <rect id="567" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">567</text>
@@ -546,11 +549,11 @@ export function printKartNede() {
                         <rect id="437" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">437</text>
                     </svg>
+                    
                     <svg width="96px" height="96px" x="0" y="768px">
                         <rect id="436" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">436</text>
                     </svg>
-                    
                     <svg width="96px" height="96px" x="96px" y="768px">
                         <rect id="435" width="100%" height="100%" stroke="black" stroke-width="4" fill="white"/>
                         <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">435</text>

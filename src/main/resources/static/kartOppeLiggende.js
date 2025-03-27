@@ -25,7 +25,7 @@ const klasse14TextCoords = {
     y: "55%",
 }
 
-export function printKartOppe() {
+export function printKartOppeLiggende() {
     let kart = `<div id="kartContainer-oppe" class="container-oppe">
         <div id="popup-box-oppe" class="popup-wrapper"></div><!--Denne div'en er for å vise popup boksen-->
 
@@ -346,7 +346,7 @@ export function printKartOppe() {
             </svg>
 
             <!-- Rad 2 -->
-            <svg width="1664px" height="192px" x="256px" y="160px">
+            <svg width="1648px" height="192px" x="256px" y="160px">
                 <!-- Klasse 14 over -->
                 <g>
                     <svg width="96px" height="96px" x="0" y="0">
@@ -567,7 +567,7 @@ export function printKartOppe() {
             </svg>
 
             <!-- Rad 3 -->
-            <svg width="1664px" height="192px" x="256px" y="416px">
+            <svg width="1648px" height="192px" x="256px" y="416px">
                 <!-- Klasse 18 -->
                 <g>
                     <svg width="160px" height="96px" x="0" y="0">
