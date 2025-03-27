@@ -13,9 +13,8 @@
     }
 
     .kart-oppe-div {
-        transform: rotate(-90deg);
-        max-height: 60%;
-        width: 60%;
+        max-height: 65.87vh;
+        width: 100%;
         position: absolute;
         bottom: 0;
         right: 20%;
@@ -27,8 +26,8 @@
 
     .container-oppe {
         position: relative;
-        width: 55.8vh;
-        height: 55%;
+        width: 100%;
+        height: 65.87vh;
         border: 1px solid red;
         background-color: lightgray;
     }
@@ -272,4 +271,14 @@
 .highlight-bod-i-kart{
     stroke-width: 10;
     fill: rgb(79, 192, 41);
+}
+
+.container-oppe-test {
+    position: relative;
+    height: 1030px;
+    width: 678.5px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
+    background-color: lightgray;
 }

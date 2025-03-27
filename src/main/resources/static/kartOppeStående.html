@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Kart Oppe Stående</title>
+    <script src="kart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="styles/kart.css">
+</head>
+<body>
+    <div class="container-oppe-test">
+        <div id="popup-box" class="popup-wrapper"></div>
+
+        <!-- Zoom-knapper -->
+        <div id="zoom-knapper" class="zoom-wrapper">
+            <button id="reset-zoom-knapp">
+                <svg viewBox="0 0 64 64">
+                    <path d="M 32 64 C 14.357 64 0 49.643 0 31.998 L 0.018 31.562 l 4.982 0.438 l -0.018 0.436
+                    C 4 46 16 59 32 59 s 27 -11 27 -27 c 0 -16 -11 -27 -27 -27 C 21 5 12 8 6 22 L 1.884 19.454
+                    C 9.548 1.895 25.497 0 32 0 C 49.643 0 64 14.355 64 31.998 C 64 49.643 49.643 64 32 64 z"/>
+                    <polyline points="16.865,22.1 2.285,24.15 0.259,9.749"/>
+                </svg>
+            </button>
+            <button id="zoom-inn-knapp">
+                <svg viewBox="0 0 64 64">
+                    <rect y="29" width="64" height="4"></rect>
+                    <rect x="29" width="4" height="64"></rect>
+                </svg>
+            </button>
+            <button id="zoom-ut-knapp">
+                <svg viewBox="0 0 64 64">
+                    <rect y="29" width="64" height="4"></rect>
+                </svg>
+            </button>
+        </div>
+<!--1366 900-->
+        <!-- Kart -->
+        <svg id="kart-oppe" viewbox="0 0 1328 2016">
+            <!-- Høyre vegg -->
+            <svg width="1232px" height="48px" x="0" y="0">
+                <!-- Klasse 9 -->
+                <g>
+                    <svg width="96px" height="48px" x="0" y="0">
+                        <rect id="121" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="${klasse9TextCoords.y}">121</text>
+                    </svg>
+                </g>
+                <!-- Klasse 3 -->
+                <g>
+                    <svg width="48px" height="48px" x="96px" y="0">
+                        <rect id="122" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">122</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="144px" y="0">
+                        <rect id="123" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">123</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="192px" y="0">
+                        <rect id="124" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">124</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="240px" y="0">
+                        <rect id="125" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="${klasse3TextCoords.y}">125</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="512px" y="0">
+                        <rect id="128" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">128</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="560px" y="0">
+                        <rect id="129" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">129</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="608px" y="0">
+                        <rect id="130" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">130</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="928px" y="0">
+                        <rect id="282" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">282</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="976px" y="0">
+                        <rect id="283" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">283</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="1024px" y="0">
+                        <rect id="284" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">284</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="1072px" y="0">
+                        <rect id="285" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">285</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="1120px" y="0">
+                        <rect id="286" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse3TextCoords.x}" y="60%">286</text>
+                    </svg>
+                </g>
+                <!-- Klasse 7 -->
+                <g>
+                    <svg width="80px" height="48px" x="288px" y="0">
+                        <rect id="126" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="20%" y="50%">126</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 5 -->
+                <g>
+                    <svg width="64px" height="48px" x="448px" y="0">
+                        <rect id="127" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="20%" y="50%">127</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 2 -->
+                <g>
+                    <svg width="32px" height="48px" x="656px" y="0">
+                        <rect id="280" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="20%" y="70%">280</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 6 -->
+                <g>
+                    <svg width="64px" height="48px" x="752px" y="0">
+                        <rect id="281" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="20%" y="55%">281</text>
+                    </svg>
+                    <svg width="64px" height="48px" x="1168px" y="0">
+                        <rect id="287" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="20%" y="55%">287</text>
+                    </svg>
+                </g>
+            </svg>
+
+            <!-- Rad 6 -->
+            <svg width="1712px" height="96px" x="304px" y="1232px">
+                <!-- Trapp -->
+                <svg x="0" y="0">
+                    <rect width="100%" height="100%" fill="beige"/>
+                    <svg id="trapp-ikon" xmlns="http://www.w3.org/2000/svg" x="0.5%" y="50%" height="48px" viewBox="0 0 24 24" width="48px" fill="#000000"><g><rect fill="none" height="24" width="24" x="0"/><g><g><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M18,8h-2.42v3.33H13v3.33h-2.58 V18H6v-2h2.42v-3.33H11V9.33h2.58V6H18V8z"/></g></g></g></svg>
+                    <line x1="0" x2="0" y1="0" y2="100%" stroke="black" stroke-width="2"/>
+                    <line x1="0" x2="100%" y1="100%" y2="100%" stroke="black" stroke-width="2"/>
+                </svg>
+
+                <!-- Klasse 1 -->
+                <g>
+                    <svg width="48px" height="48px" x="64px" y="0px">
+                        <rect id="314" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="65%">314</text>
+                    </svg>
+                    <svg width="48px" height="48px" x="112px" y="0px">
+                        <rect id="313" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="15%" y="65%">313</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 6 -->
+                <svg width="64px" height="48px" x="160px" y="0px">
+                    <rect id="312" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                    <text x="20%" y="65%">312</text>
+                </svg>
+
+                <!-- Klasse 10 -->
+                <g>
+                    <svg width="64px" height="96px" x="224px" y="0px">
+                        <rect id="311" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="55%">311</text>
+                    </svg>
+                    <svg width="64px" height="96px" x="288px" y="0px">
+                        <rect id="310" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="25%" y="55%">310</text>
+                    </svg>
+                </g>
+
+                <!-- Klasse 14 -->
+                <g>
+                    <svg width="96px" height="96px" x="352px" y="0px">
+                        <rect id="309" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">309</text>
+                    </svg>
+                    <svg width="96px" height="96px" x="448px" y="0px">
+                        <rect id="308" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">308</text>
+                    </svg>
+                    <svg width="96px" height="96px" x="544px" y="0px">
+                        <rect id="307" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">307</text>
+                    </svg>
+                    <svg width="96px" height="96px" x="640px" y="0px">
+                        <rect id="306" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">306</text>
+                    </svg>
+                </g>
+
+
+                <!-- Bod 305 -->
+                <svg width="96px" height="96px" x="736px" y="0">
+                    <rect id="305" width="100%" height="100%" stroke="black" stroke-width="2" fill="pink"/>
+                    <text x="${klasse14TextCoords.x2}" y="${klasse14TextCoords.y}">305</text>
+                </svg>
+
+                <!-- Klasse 9 -->
+                <g>
+                    <svg width="48px" height="96px" x="832px" y="0px">
+                        <rect id="304" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">304</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="880px" y="0px">
+                        <rect id="303" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">303</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="928px" y="0px">
+                        <rect id="302" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">302</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="976px" y="0px">
+                        <rect id="301" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">301</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1024px" y="0px">
+                        <rect id="300" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">300</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1072px" y="0px">
+                        <rect id="299" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">299</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1120px" y="0px">
+                        <rect id="298" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">298</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1168px" y="0px">
+                        <rect id="297" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">297</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1216px" y="0px">
+                        <rect id="296" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">296</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1264px" y="0px">
+                        <rect id="295" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">295</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1312px" y="0px">
+                        <rect id="294" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">294</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1360px" y="0px">
+                        <rect id="293" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">293</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1408px" y="0px">
+                        <rect id="292" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">292</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1456px" y="0px">
+                        <rect id="291" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">291</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1504px" y="0px">
+                        <rect id="290" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">290</text>
+                    </svg>
+                    <svg width="48px" height="96px" x="1552px" y="0px">
+                        <rect id="289" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                        <text x="${klasse9TextCoords.x2}" y="${klasse9TextCoords.y}">289</text>
+                    </svg>
+                </g>
+
+
+                <!-- Klasse 13 -->
+                <svg width="112px" height="96px" x="1600px" y="0">
+                    <rect id="288" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
+                    <text x="35%" y="55%" >288</text>
+                </svg>
+            </svg>
+        </svg>
+    </div>
+</body>
