@@ -1,43 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Kart Oppe Stående</title>
-    <script src="kart.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link rel="stylesheet" href="styles/kart.css">
-</head>
-<body>
-    <div class="container-oppe-test">
-        <div id="popup-box" class="popup-wrapper"></div>
+const klasse18TextCoords = {
+    x: "45%",
+    y: "55%"
+}
 
-        <!-- Zoom-knapper -->
-        <div id="zoom-knapper" class="zoom-wrapper">
-            <button id="reset-zoom-knapp">
-                <svg viewBox="0 0 64 64">
-                    <path d="M 32 64 C 14.357 64 0 49.643 0 31.998 L 0.018 31.562 l 4.982 0.438 l -0.018 0.436
-                    C 4 46 16 59 32 59 s 27 -11 27 -27 c 0 -16 -11 -27 -27 -27 C 21 5 12 8 6 22 L 1.884 19.454
-                    C 9.548 1.895 25.497 0 32 0 C 49.643 0 64 14.355 64 31.998 C 64 49.643 49.643 64 32 64 z"/>
-                    <polyline points="16.865,22.1 2.285,24.15 0.259,9.749"/>
-                </svg>
-            </button>
-            <button id="zoom-inn-knapp">
-                <svg viewBox="0 0 64 64">
-                    <rect y="29" width="64" height="4"></rect>
-                    <rect x="29" width="4" height="64"></rect>
-                </svg>
-            </button>
-            <button id="zoom-ut-knapp">
-                <svg viewBox="0 0 64 64">
-                    <rect y="29" width="64" height="4"></rect>
-                </svg>
-            </button>
-        </div>
-<!--1366 900-->
-        <!-- Kart -->
-        <svg id="kart-oppe" viewbox="0 0 1328 2016">
+const klasse3TextCoords = {
+    x: "15%",
+    y: "65%"
+}
+
+const klasse4TextCoords = {
+    x: "25%",
+    y: "60%"
+}
+
+const klasse9TextCoords = {
+    x: "30%",
+    x2: "15%",  // For tre-sifrede tall
+    y: "55%"
+}
+
+const klasse14TextCoords = {
+    x: "40%",
+    x2: "30%",  // For tre-sifrede tall
+    y: "55%",
+}
+
+export function printKartOppeStående(){
+    kart = `
+    <svg id="kart-oppe">
 
             <!-- Kjørerampe -->
             <svg width="496px" height="160px" x="672px" y="1856px">
@@ -1281,5 +1271,6 @@
                 </svg>
             </svg>
         </svg>
-    </div>
-</body>
+    `
+    return kart;
+}
