@@ -146,16 +146,12 @@
         display: none;
     }
 
-    .kart-oppe-div {
-        transform: none;
-    }
-
     .kart-nede-div {
-        transform: rotate(90deg);
-        max-height: 571.1px;
         position: absolute;
-        top: 0;
-        right: 0;
+        min-width: 1030px;
+        max-width: 1030px;
+        min-height: 571.5px;
+        max-height: 571.5px;
     }
 
     .container-oppe {
@@ -170,8 +166,8 @@
 
     .container-nede {
         position: relative;
-        width: 571.1px;
-        height: 1030px;
+        width: 1030px;
+        height: 571.5px;
         margin-left: auto;
         margin-right: auto;
         border: 1px solid red;
@@ -186,6 +182,10 @@
 
     .container-nede text {
         font-size: 1.7rem;
+    }
+
+    .container-nede #trapp-ikon {
+        transform: translateX(-25%) translateY(20%) scale(2.5);
     }
 
     svg:hover {
@@ -214,47 +214,6 @@
         left: 0;
     }
 
-    .container-nede .zoom-wrapper {
-        bottom: -20px;
-        left: 475px;
-        transform: rotate(-90deg);
-    }
-
-    .container-nede #klasse-3 text {
-        transform: translateX(3%) translateY(92%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-7 text {
-        transform: translateX(17%) translateY(120%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-9 text {
-        transform: translateX(25%) translateY(140%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-9-liggende text {
-        transform: translateX(-55%) translateY(72%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-14 text {
-        transform: translateX(3%) translateY(97%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-15 text {
-        transform: translateX(20%) translateY(133%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-16 text {
-        transform: translateX(30%) translateY(163%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-16-515 text {
-        transform: translateX(23%) translateY(133%) rotate(-0.25turn);
-    }
-    .container-nede #klasse-15-516 text {
-        transform: translateX(30%) translateY(163%) rotate(-0.25turn);
-    }
-    .container-nede #trapp-text text {
-        transform: translateX(30%) translateY(150%) rotate(-0.25turn);
-    }
-    .container-nede #trapp-ikon {
-        transform: translateX(53%) translateY(171%) rotate(-0.25turn) scale(2);
-    }
-    
-
     .zoom-wrapper button {
         width: 2rem;
         height: 2rem;
@@ -268,7 +227,6 @@
     }
 
 
-    /*Test popup*/
     /* Popup bakgrunn */
     .popup-wrapper {
         /*display: none;  !* Skjuler popupen som standard *!*/
@@ -302,10 +260,6 @@
         text-align: center;
         width: 300px;
         border: 1px solid red;
-    }
-
-    .kart-nede-div .popup-container {
-        transform: rotate(-90deg);
     }
 
     /* Lukkeknapp */
