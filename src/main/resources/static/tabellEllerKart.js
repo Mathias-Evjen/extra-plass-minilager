@@ -24,11 +24,11 @@ function tabellEllerKart() {
         if (!checkboxOppeNede.classList.contains("active")) {
             kartOppe.style.display = "block";
             kartNede.style.display = "none";
-            kartContainer.style.height = "678.5px";
+            kartContainer.style.height = "auto";
         } else {
             kartOppe.style.display = "none";
             kartNede.style.display = "block";
-            kartContainer.style.height = "571.1px";
+            kartContainer.style.height = "auto";
         }
     }
 }

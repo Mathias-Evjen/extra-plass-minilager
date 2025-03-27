@@ -1,4 +1,5 @@
 import {printKartOppeLiggende} from "./kartOppeLiggende.js";
+import {printKartOppeStaaende} from "./kartOppeStaaende.js";
 import {printKartNedeStaaende} from "./kartNedeStaaende.js";
 import {printKartNedeLiggende} from "./kartNedeLiggende.js";
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function printMap(etasje){
     console.log(etasje)
     if (etasje === "oppe") {
-        document.getElementById("kart-oppe-div").innerHTML =  printKartOppeLiggende();
+        window.innerWidth >= 1087 ? document.getElementById("kart-oppe-div").innerHTML =  printKartOppeLiggende() : document.getElementById("kart-oppe-div").innerHTML =  printKartOppeStaaende();
     }
     else {
         window.innerWidth < 1087 ? document.getElementById("kart-nede-div").innerHTML =  printKartNedeStaaende() : document.getElementById("kart-nede-div").innerHTML =  printKartNedeLiggende();
@@ -71,10 +72,18 @@ function printMap(etasje){
         }
     } else {
         kart = document.getElementById("kart-oppe");
-        maxWidth = 2016;
-        maxHeight = 1328;
-        minWidth = 480;
-        minHeight = 270;
+
+        if (window.innerWidth < 1087) {
+            maxWidth = 1328;
+            maxHeight = 2016;
+            minWidth = 270;
+            minHeight = 480;
+        } else {
+            maxWidth = 2016;
+            maxHeight = 1328;
+            minWidth = 480;
+            minHeight = 270;
+        }
     }
 
     let isPanning = false;

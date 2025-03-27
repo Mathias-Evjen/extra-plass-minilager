@@ -6,28 +6,14 @@
     }
 
     .kart-container {
-        width: 100%;
-        max-height: 65.87%;
         position: relative;
         display: none;
-    }
-
-    .kart-oppe-div {
-        max-height: 65.87vh;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        right: 20%;
-    }
-
-    .kart-nede-div {
-        transform: none;
     }
 
     .container-oppe {
         position: relative;
         width: 100%;
-        height: 65.87vh;
+        height: auto;
         border: 1px solid red;
         background-color: lightgray;
     }
@@ -35,7 +21,7 @@
     .container-nede {
         position: relative;
         width: 100%;
-        height: 67.8vh;
+        height: auto;
         border: 1px solid red;
         background-color: lightgray;
     }
@@ -46,25 +32,25 @@
     }
 
     .zoom-wrapper {
-        margin: 16px;
+        margin: 12px;
         display: flex;
         flex-direction: column;
         position: absolute;
         bottom: 0;
-        left: 0;
+        right: 0;
     }
 
     .container-oppe .zoom-wrapper button {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
         border: none;
         margin-bottom: 1px;
         box-shadow: 2px 2px 2px darkgray;
     }
 
     .container-nede .zoom-wrapper button {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
         border: none;
         margin-bottom: 1px;
         box-shadow: 2px 2px 2px darkgray;
@@ -95,6 +81,10 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .popup-wrapper.show {
@@ -110,15 +100,10 @@
         background-color: white;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 15vh;
         padding: 20px;
         text-align: center;
         width: 50vw;
         border: 1px solid red;
-    }
-
-    .kart-oppe-div .popup-container {
-        transform: rotate(90deg);
     }
 
     /* Lukkeknapp */
@@ -143,14 +128,6 @@
         height: 678.5px;
         position: relative;
         display: none;
-    }
-
-    .kart-nede-div {
-        position: absolute;
-        min-width: 1030px;
-        max-width: 1030px;
-        min-height: 571.5px;
-        max-height: 571.5px;
     }
 
     .container-oppe {
