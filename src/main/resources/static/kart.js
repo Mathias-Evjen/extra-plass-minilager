@@ -1,5 +1,5 @@
-import {printKartOppe} from "./kartOppe.js";
-import {printKartNede} from "./kartNede.js";
+import {printKartOppe} from "./kartOppeLiggende.js";
+import {printKartNede} from "./kartNedeStående.js";
 
 const ADDR = "localhost";
 window.ADDR = ADDR;
