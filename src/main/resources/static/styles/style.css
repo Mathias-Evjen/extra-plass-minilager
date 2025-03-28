@@ -183,9 +183,14 @@ th {
     font-size: x-large;
     font-weight: 550;
 }
-.switch-wrapper-tabell-kart,
-.switch-wrapper-oppe-nede {
+.switch-wrapper-tabell-kart {
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch-wrapper-oppe-nede {
+    display: none;
     align-items: center;
     gap: 10px;
 }
