@@ -164,17 +164,7 @@
         transform: translateX(-25%) translateY(20%) scale(2.5);
     }
 
-    svg:hover {
-        cursor: pointer;
-    }
-
-    rect{
-        stroke-width: 2;
-    }
-
-    rect:hover{
-        stroke-width: 7;
-    }
+   
 
     .søyle {
         user-select: none;
@@ -243,6 +233,18 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+}
+
+svg:hover {
+    cursor: pointer;
+}
+
+rect{
+    stroke-width: 2;
+}
+
+rect:hover{
+    stroke-width: 7;
 }
 
 .highlight-bod-i-kart{
