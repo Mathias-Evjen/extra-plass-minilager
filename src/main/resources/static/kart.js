@@ -301,6 +301,7 @@ function printMap(etasje){
             ease: "power2.out",
         });
     });
+
     let resetZoomKnapp = document.getElementById("reset-zoom-knapp-" + etasje);
     resetZoomKnapp.addEventListener("click", (e) => {
 

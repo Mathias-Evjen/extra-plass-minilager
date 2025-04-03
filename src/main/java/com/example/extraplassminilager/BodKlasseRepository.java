@@ -60,12 +60,12 @@ public class BodKlasseRepository {
     // Value: Liste med boder tilhørende klassen
     //
     // Returnerer mapet
-    public Map<Integer, List<Integer>> bodKlasseMap() {
+    public Map<Integer, List<Integer>> opprettBodKlasseMap(List<BodKlasse> bodKlasser) {
         Map<Integer, List<Integer>> bodklasser = new HashMap<>();
 
         // Går gjennom liste med BodKlasse-objekter og legger i et map
         // med katNr som nøkkel og liste med tilhørende bodNr som verdi
-        for (BodKlasse bodKat : hentBodKlasserFraDatabase()) {
+        for (BodKlasse bodKat : bodKlasser) {
             bodklasser.putIfAbsent(bodKat.getKlasseNr(), new ArrayList<>());    // Oppretter ny liste om klassen ikke allerede har en
             bodklasser.get(bodKat.getKlasseNr()).add(bodKat.getBodNr());        // Legger til bodnr i lista tilhørende nøkkel
         }

@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Klasse {
     private int nr, antallBoder, antallOpptatt, pris;
-    private float areal, volum;
+    private double areal, volum;
     private List<Bod> boder = new ArrayList<>();
 
     public Klasse() {}
 
-    public Klasse(int nr, float areal, float volum, int pris) {
+    public Klasse(int nr, double areal, double volum, int pris) {
         this.nr = nr;
         this.areal = areal;
         this.volum = volum;
@@ -37,7 +37,7 @@ public class Klasse {
         this.antallBoder = antallBoder;
     }
 
-    public void incAntallBoder() {
+    public void inkrementerAntallBoder() {
         this.antallBoder++;
     }
 
@@ -53,7 +53,7 @@ public class Klasse {
         this.antallOpptatt++;
     }
 
-    public float getAreal() {
+    public double getAreal() {
         return areal;
     }
 
@@ -61,7 +61,7 @@ public class Klasse {
         this.areal = areal;
     }
 
-    public float getVolum() {
+    public double getVolum() {
         return volum;
     }
 
@@ -81,7 +81,7 @@ public class Klasse {
         return this.boder;
     }
 
-    public void addBoder(Bod bod) {
+    public void leggTilBoder(Bod bod) {
         this.boder.add(bod);
     }
 

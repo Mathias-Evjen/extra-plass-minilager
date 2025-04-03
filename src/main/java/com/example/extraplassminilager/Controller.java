@@ -17,7 +17,8 @@ public class Controller {
 
     @GetMapping("/hentKlasser")
     public List<Klasse> hentKlasser() {
-        List<Klasse> klasser = klasseRepo.getKlasser(bodKlasseRepo.bodKlasseMap(), dataRepo.getOpptatt());
+        List<Klasse> klasser = klasseRepo.hentKlasserFraDatabase();
+        klasser = klasseRepo.populerKlasser(bodKlasseRepo.opprettBodKlasseMap(bodKlasseRepo.hentBodKlasserFraDatabase()), dataRepo.getOpptatt(), klasser);
         return klasser;
     }
 

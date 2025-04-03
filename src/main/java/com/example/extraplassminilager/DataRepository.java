@@ -4,6 +4,7 @@
 
 package com.example.extraplassminilager;
 
+import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class DataRepository {
     @Autowired
     private JdbcTemplate db;
 
-    private Map<Integer, String> bodTilgjengelighet = new HashMap<>();
+    private Map<String, List<Integer>> bodTilgjengelighet = new HashMap<>();
 
     private boolean splittet = false;
 
@@ -38,19 +39,54 @@ public class DataRepository {
         }
     }
 
+    // Oppretter bod-objekter og oppdaterer om de er ledige eller ikke
+    // Returnerer liste med bod-objektene
+    public List<Bod> getBoder(List<BodKlasse> bodKlasser) {
+        if (bodKlasser.isEmpty()) throw new NullPointerException("Lista kan ikke være tom");
+
+        List<Bod> boder = new ArrayList<>();
+
+        // Går gjennom bodKlasse og oppretter Bod-objekter for alle bodene
+        for (BodKlasse bodKlasse : bodKlasser) {
+            // Setter bodens etasje som oppe dersom bodNr er under 400 og nede dersom bodNr er 400 eller over
+            int etasje = 1;
+            if (bodKlasse.getBodNr() >= 400) etasje = -1;
+            boder.add(new Bod(bodKlasse.getBodNr(), bodKlasse.getKlasseNr(), etasje));   // Legger til Bod-objekt i boder-lista
+        }
+
+        return oppdaterOpptatteBoder(boder);
+    }
+
+    public List<Bod> oppdaterOpptatteBoder(List<Bod> boder) {
+        // Går gjennom alle bodene og oppdaterer dere status som opptatt eller ledig
+        for (Bod bod : boder) {
+            // Går gjennom bodene i liste over bodNr som er opptatt
+            for (int tatt : getOpptatt()) {
+                // Dersom bodens bodNr finnes i opptatt settes boden som opptatt
+                if (bod.getNr() == tatt) {
+                    bod.settOpptatt();
+                }
+            }
+        }
+        return boder;
+    }
+
     // Returnerer liste med alle bodnummere som er opptatt
     public List<Integer> getOpptatt() {
         if (!splittet) splitBoder(hentData());  // Sjekker om boder har blitt splittet, splitter om de ikke allerede er det
         List<Integer> erOpptatt = new ArrayList<>();
 
         // Går gjennom alle bodene i bodTilgjengelighet og oppdaterer status som opptatt eller ledig utifra prisgruppe
-        bodTilgjengelighet.forEach( (bodNr, tilgjengelighet) -> {
-            if (tilgjengelighet.equals("MND") || tilgjengelighet.equals("KVARTAL") || tilgjengelighet.equals("HALVÅR") || tilgjengelighet.equals("ÅR")) {
-                erOpptatt.add(bodNr);
+        bodTilgjengelighet.forEach( (tilgjengelighet, bodNrListe) -> {
+            if (tilgjengelighet.equals("MND") ||
+                    tilgjengelighet.equals("KVARTAL") ||
+                    tilgjengelighet.equals("HALVÅR") ||
+                    tilgjengelighet.equals("ÅR")) {
+                for (int bodNr : bodNrListe) {
+                    erOpptatt.add(bodNr);
+                }
             }
         });
-
-        //System.out.println(erOpptatt);
         return erOpptatt;
     }
 
@@ -65,11 +101,11 @@ public class DataRepository {
                 String[] nrs = lNr.split("[-/]+");  // Splitter på bindestrek og skråstrek
 
                 for (String nr : nrs) {
-                    bodTilgjengelighet.put(Integer.parseInt(nr), linje.getPrisgruppe());    // Legger inn hver bod og dets tilhørende prisgruppe i bodTilgjengelighet
+                    bodTilgjengelighet.putIfAbsent(linje.getPrisgruppe(), new ArrayList<>());
+                    bodTilgjengelighet.get(linje.getPrisgruppe()).add(Integer.parseInt(nr));
                 }
             }
             logger.info("(Data Repository) Splittet linjer med flere boder");
-            //System.out.println(bodTilgjengelighet);
             splittet = true;
             return true;
         // Om den ikke kan splitte bodene skriver ut error og returnerer false
@@ -95,32 +131,12 @@ public class DataRepository {
         }
     }
 
-    // Oppretter bod-objekter og oppdaterer om de er ledige eller ikke
-    // Returnerer liste med bod-objektene
-    public List<Bod> getBoder(List<BodKlasse> bodKlasser) {
-        Objects.requireNonNull(bodKlasser, "Lista kan ikke være null");    // Kaster NullPointerException dersom lista med BodKlasse-objekter er null
-        List<Bod> boder = new ArrayList<>();
+    public Map<String, List<Integer>> getBodTilgjengelighet() {
+        return bodTilgjengelighet;
+    }
 
-        // Går gjennom bodKlasse og oppretter Bod-objekter for alle bodene
-        for (BodKlasse bodKlasse : bodKlasser) {
-            // Setter bodens etasje som oppe dersom bodNr er under 400 og nede dersom bodNr er 400 eller over
-            int etasje = 1;
-            if (bodKlasse.getBodNr() >= 400) etasje = -1;
-            boder.add(new Bod(bodKlasse.getBodNr(), bodKlasse.getKlasseNr(), etasje));   // Legger til Bod-objekt i boder-lista
-        }
-
-        // Går gjennom alle bodene og oppdaterer dere status som opptatt eller ledig
-        for (Bod bod : boder) {
-            // Går gjennom bodene i liste over bodNr som er opptatt
-            for (int tatt : getOpptatt()) {
-                // Dersom bodens bodNr finnes i opptatt settes boden som opptatt
-                if (bod.getNr() == tatt) {
-                    bod.settOpptatt();
-                }
-            }
-        }
-
-        return boder;
+    public void setBodTilgjengelighetEmpty() {
+        bodTilgjengelighet = new HashMap<>();
     }
 }
 
