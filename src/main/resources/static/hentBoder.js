@@ -51,7 +51,7 @@ function visBodIKlasse(klasseNummer, boderIKat, antallLedigeBoder){
                     <div class="bod-i-kat-item">
                     <div>Bod nummer: ${boder[i].nr}</div>
                     <div>Etasje: ${boder[i].etasje === 1 ? "Oppe" : "Nede"}</div>
-                    <button onclick="highlightBodIKart(${boder[i].nr})">Vis i kart</button>
+                    <button class="vis-i-kart" onclick="window.visIKart(), highlightBodIKart(${boder[i].nr})">Vis i kart</button>
                     </div>`;
                 }
             }

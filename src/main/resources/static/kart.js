@@ -35,10 +35,10 @@ window.onload = function hentBoder() {
 document.addEventListener("DOMContentLoaded", function(){
     printMap("oppe");
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     printMap("nede");
 })
+
 
 function printMap(etasje){
     console.log(etasje)
@@ -311,7 +311,7 @@ function printMap(etasje){
         viewBox.height = MAP_HEIGHT;
 
         isZoomedOut = true;
-
+        
         gsap.to(kart, {
             attr: {viewBox: `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`},
             duration: 0.3,
@@ -327,8 +327,22 @@ function printMap(etasje){
 
         popup(bod, etasje);
     })
-}
 
+    function visIKart(){
+        viewBox.x = 0;
+        viewBox.y = 0;
+        viewBox.width = MAP_WIDTH;
+        viewBox.height = MAP_HEIGHT;
+        console.log(viewBox.width, viewBox.height)
+        isZoomedOut = true;
+        kart = document.getElementById("kart-oppe")
+        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${2016} ${1328}`)
+        kart = document.getElementById("kart-nede")
+        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${2592} ${1440}`)
+        lukkPopup();
+    }
+    window.visIKart = visIKart;
+}
 
 // Håndterer zoom når man trykker på zoom-knappene på kartet
 //
