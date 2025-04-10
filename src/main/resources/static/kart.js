@@ -10,19 +10,17 @@ const bodArray = [];
 window.bodArray = bodArray;
 const klasseArray = [];
 
+let kartErLiggende;
+window.innerWidth >= 1087 ? kartErLiggende = true : kartErLiggende = false;
+
 // Kaller API for å hente boder og klasser og legger dem inn i hvert sitt array
 window.onload = function hentBoder() {
     $.get(`http://${ADDR}:8080/hentBoder`, function(boder) {
 
+        for (const bod of boder) bodArray.push(bod);
+
         // Går gjennom alle bodene fra API og oppdaterer kartet visuelt
-        for (const bod of boder) {
-            if (bod.nr === 9 || bod.nr === 305) continue;
-            let kartBod = document.getElementById(bod.nr);
-            if (kartBod != null) {
-                kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");  // Setter boden til rød hvis den er opptatt og grønn hvis den er ledig
-            }
-            bodArray.push(bod);
-        }
+        oppdaterKart(boder);
     })
 
     $.get(`http://${ADDR}:8080/hentKlasser`, function(klasser) {
@@ -30,6 +28,16 @@ window.onload = function hentBoder() {
             klasseArray.push(klasse);
         }
     })
+}
+
+function oppdaterKart(boder) {
+    for (const bod of boder) {
+        if (bod.nr === 9 || bod.nr === 305) continue;
+        let kartBod = document.getElementById(bod.nr);
+        if (kartBod != null) {
+            kartBod.setAttribute("fill", bod.opptatt ? "#d06a6a" : "#71bd6d");  // Setter boden til rød hvis den er opptatt og grønn hvis den er ledig
+        }
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -338,6 +346,20 @@ function printMap(etasje){
     }
     window.visIKart = visIKart;
 }
+
+window.addEventListener("resize", function() {
+    if (window.innerWidth >= 1087 && !kartErLiggende) {
+        printMap("oppe");
+        printMap("nede");
+        oppdaterKart(bodArray);
+        kartErLiggende = true;
+    } else if (window.innerWidth < 1087 && kartErLiggende) {
+        printMap("oppe");
+        printMap("nede");
+        oppdaterKart(bodArray);
+        kartErLiggende = false;
+    }
+})
 
 // Håndterer zoom når man trykker på zoom-knappene på kartet
 //

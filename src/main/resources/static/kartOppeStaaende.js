@@ -1,29 +1,35 @@
-const klasse18TextCoords = {
-    x: "45%",
-    y: "55%"
-}
-
 const klasse3TextCoords = {
     x: "15%",
     y: "65%"
 }
 
 const klasse4TextCoords = {
-    x: "25%",
+    x: "15%",
     y: "60%"
 }
 
 const klasse9TextCoords = {
-    x: "30%",
-    x2: "15%",  // For tre-sifrede tall
-    y: "55%"
+    x: "35%",
+    x2: "33%",  // For tre-sifrede tall
+    y: "65%"
 }
 
 const klasse14TextCoords = {
-    x: "40%",
-    x2: "30%",  // For tre-sifrede tall
+    x: "35%",
+    x2: "33%",  // For tre-sifrede tall
     y: "55%",
 }
+
+const klasse17TextCoords = {
+    x: "38%",
+    y: "55%"
+}
+
+const klasse18TextCoords = {
+    x: "38%",
+    y: "55%"
+}
+
 
 export function printKartOppeStaaende(){
     let kart = `<div id="kartContainer-oppe" class="container-oppe">
@@ -82,7 +88,7 @@ export function printKartOppeStaaende(){
                         <svg width="96px" height="160px" x="192px" y="0">
                             <rect width="100%" height="100%" fill="cornflowerblue" opacity="50%"/>
                             <rect width="100%" height="100%" stroke="black" stroke-width="2" fill="transparent"/>
-                            <text x="35%" y="55%">Kontor</text>
+                            <text x="20%" y="55%">Kontor</text>
                         </svg>
                     </g>
                 </svg>
@@ -92,13 +98,13 @@ export function printKartOppeStaaende(){
                     <!-- Klasse 21 -->
                     <svg width="192px" height="144px" x="0" y="0">
                         <rect id="320" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="50%">320</text>
+                        <text x="40%" y="55%">320</text>
                     </svg>
     
                     <!-- Klasse 19 -->
                     <svg width="176px" height="144px" x="192px" y="0">
                         <rect id="319" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="40%" y="50%">319</text>
+                        <text x="40%" y="55%">319</text>
                     </svg>
     
                     <!-- Klasse 4 -->
@@ -128,7 +134,7 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="96px" height="48px" x="0" y="0">
                             <rect id="121" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="15%" y="${klasse9TextCoords.y}">121</text>
+                            <text x="35%" y="${klasse9TextCoords.y}">121</text>
                         </svg>
                     </g>
                     <!-- Klasse 3 -->
@@ -151,42 +157,42 @@ export function printKartOppeStaaende(){
                         </svg>
                         <svg width="48px" height="48px" x="512px" y="0">
                             <rect id="128" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">128</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">128</text>
                         </svg>
                         <svg width="48px" height="48px" x="560px" y="0">
                             <rect id="129" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">129</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">129</text>
                         </svg>
                         <svg width="48px" height="48px" x="608px" y="0">
                             <rect id="130" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">130</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">130</text>
                         </svg>
                         <svg width="48px" height="48px" x="928px" y="0">
                             <rect id="282" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">282</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">282</text>
                         </svg>
                         <svg width="48px" height="48px" x="976px" y="0">
                             <rect id="283" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">283</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">283</text>
                         </svg>
                         <svg width="48px" height="48px" x="1024px" y="0">
                             <rect id="284" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">284</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">284</text>
                         </svg>
                         <svg width="48px" height="48px" x="1072px" y="0">
                             <rect id="285" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">285</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">285</text>
                         </svg>
                         <svg width="48px" height="48px" x="1120px" y="0">
                             <rect id="286" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse3TextCoords.x}" y="60%">286</text>
+                            <text x="${klasse3TextCoords.x}" y="65%">286</text>
                         </svg>
                     </g>
                     <!-- Klasse 7 -->
                     <g>
                         <svg width="80px" height="48px" x="288px" y="0">
                             <rect id="126" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="20%" y="50%">126</text>
+                            <text x="30%" y="65%">126</text>
                         </svg>
                     </g>
     
@@ -194,7 +200,7 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="64px" height="48px" x="448px" y="0">
                             <rect id="127" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="20%" y="50%">127</text>
+                            <text x="20%" y="65%">127</text>
                         </svg>
                     </g>
     
@@ -202,7 +208,7 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="32px" height="48px" x="656px" y="0">
                             <rect id="280" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="20%" y="70%">280</text>
+                            <text x="19%" y="-20%" style="transform: rotate(90deg)">280</text>
                         </svg>
                     </g>
     
@@ -210,11 +216,11 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="64px" height="48px" x="752px" y="0">
                             <rect id="281" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="20%" y="55%">281</text>
+                            <text x="25%" y="65%">281</text>
                         </svg>
                         <svg width="64px" height="48px" x="1168px" y="0">
                             <rect id="287" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="20%" y="55%">287</text>
+                            <text x="25%" y="65%">287</text>
                         </svg>
                     </g>
                 </svg>
@@ -570,11 +576,11 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="96px" height="160px" x="0" y="1488px">
                             <rect id="91" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="45%" y="55%">91</text>
+                            <text x="38%" y="55%">91</text>
                         </svg>
                         <svg width="96px" height="160px" x="96px" y="1488px">
                             <rect id="92" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="45%" y="55%">92</text>
+                            <text x="38%" y="55%">92</text>
                         </svg>
                     </g>
     
@@ -781,11 +787,11 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="96px" height="144px" x="0px" y="1392px">
                             <rect id="216" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="38%" y="55%">216</text>
+                            <text x="35%" y="55%">216</text>
                         </svg>
                         <svg width="144px" height="144px" x="96px" y="1392px">
                             <rect id="217" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="38%" y="50%">217</text>
+                            <text x="38%" y="55%">217</text>
                         </svg>
                     </g>
     
@@ -793,55 +799,55 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="144px" height="96px" x="0" y="1296px">
                             <rect id="215" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">215</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">215</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="1200px">
                             <rect id="214" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">214</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">214</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="1104px">
                             <rect id="213" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">213</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">213</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="1008px">
                             <rect id="212" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">212</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">212</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="912px">
                             <rect id="211" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">211</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">211</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="816px">
                             <rect id="210" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">210</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">210</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="720px">
                             <rect id="209" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">209</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">209</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="624px">
                             <rect id="208" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">208</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">208</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="528px">
                             <rect id="207" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">207</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">207</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="432px">
                             <rect id="206" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">206</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">206</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="336px">
                             <rect id="205" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">205</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">205</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="240px">
                             <rect id="204" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">204</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">204</text>
                         </svg>
                         <svg width="144px" height="96px" x="0" y="144px">
                             <rect id="203" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="30%" y="55%">203</text>
+                            <text x="${klasse17TextCoords.x}" y="${klasse17TextCoords.y}">203</text>
                         </svg>
                     </g>
     
@@ -849,7 +855,7 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="144px" height="48px" x="0" y="96px">
                             <rect id="202" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="15%" y="55%">202</text>
+                            <text x="38%" y="65%">202</text>
                         </svg>
                     </g>
     
@@ -857,11 +863,11 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="96px" height="48px" x="0" y="48px">
                             <rect id="201" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="${klasse9TextCoords.x2}" y="50%">201</text>
+                            <text x="${klasse9TextCoords.x2}" y="65%">201</text>
                         </svg>
                         <svg width="48px" height="96px" x="96px" y="0">
                             <rect id="277" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="33%" y="60%">277</text>
+                            <text x="15%" y="60%">277</text>
                         </svg>
     
                         <svg width="96px" height="48px" x="144px" y="384px">
@@ -983,15 +989,15 @@ export function printKartOppeStaaende(){
                     <g>
                         <svg width="192px" height="96px" x="0" y="1296px">
                             <rect id="252" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="32%" y="53%">252</text>
+                            <text x="40%" y="55%">252</text>
                         </svg>
                         <svg width="96px" height="192px" x="0" y="1104px">
                             <rect id="251" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="42%" y="55%">251</text>
+                            <text x="35%" y="55%">251</text>
                         </svg>
                         <svg width="192px" height="96px" x="0" y="1008px">
                             <rect id="250" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                            <text x="32%" y="53%">250</text>
+                            <text x="40%" y="55%">250</text>
                         </svg>
                     </g>
     
@@ -1179,7 +1185,7 @@ export function printKartOppeStaaende(){
                     <!-- Klasse 6 -->
                     <svg width="48px" height="64px" x="0" y="1488px">
                         <rect id="312" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="20%" y="65%">312</text>
+                        <text x="15%" y="65%">312</text>
                     </svg>
     
                     <!-- Klasse 10 -->
@@ -1293,7 +1299,7 @@ export function printKartOppeStaaende(){
                     <!-- Klasse 13 -->
                     <svg width="96px" height="112px" x="0" y="0">
                         <rect id="288" width="100%" height="100%" stroke="black" stroke-width="2" fill="white"/>
-                        <text x="35%" y="55%" >288</text>
+                        <text x="35%" y="55%">288</text>
                     </svg>
                 </svg>
             </svg>
