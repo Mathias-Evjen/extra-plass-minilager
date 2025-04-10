@@ -330,17 +330,11 @@ function printMap(etasje){
     })
 
     function visIKart(){
-        viewBox.x = 0;
-        viewBox.y = 0;
-        viewBox.width = MAP_WIDTH;
-        viewBox.height = MAP_HEIGHT;
-        console.log(viewBox.width, viewBox.height)
-        isZoomedOut = true;
-        kart = document.getElementById("kart-oppe")
-        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${2016} ${1328}`)
-        kart = document.getElementById("kart-nede")
-        kart.setAttribute("viewBox", `${viewBox.x} ${viewBox.y} ${2592} ${1440}`)
         lukkPopup();
+
+        //Kaller på zoom-reset knapp for kart oppe og nede
+        document.getElementById("reset-zoom-knapp-nede").click();
+        document.getElementById("reset-zoom-knapp-oppe").click();
     }
     window.visIKart = visIKart;
 }
