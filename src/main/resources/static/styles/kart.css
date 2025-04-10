@@ -63,6 +63,10 @@
         font-size: 2rem;
     }
 
+    .container-oppe text {
+        font-size: 1.2rem;
+    }
+
     .container-oppe #trapp-ikon {
         transform: translateY(-7%);
     }
