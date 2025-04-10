@@ -11,8 +11,6 @@ function printKlasser(klasser) {
     for(let i = 0; i < klasser.length; i++){
         utvid = ``;
         antallLedigeBoder = klasser[i].antallBoder - klasser[i].antallOpptatt;
-        console.log(klasser[i].antallBoder)
-        console.log(klasser[i].antallOpptatt)
         let nybod = document.createElement("tr"); //Lager en rad for en klasse
         let bodIKat = document.createElement("tr"); //Lager en rad hvor de ledige bodene skal bli vist, men denne vil være blank så lenge klasse raden ikke er trykket på
         nybod.classList.add("klasse-rad");
