@@ -56,6 +56,9 @@ public class KlasseRepository {
             }
 
             klasse.settOpptatt(erOpptatt);    // Går gjennom alle Bod-objektene til klassen og oppdaterer om de er opptatt eller ikke
+
+//            System.out.println("Antall boder i klasse " + klasse.getNr() + ": " + klasse.getAntallBoder());
+//            System.out.println("Antall opptatt i klasse " + klasse.getNr() + ": " + klasse.getAntallOpptatt());
         }
 
         return klasser;

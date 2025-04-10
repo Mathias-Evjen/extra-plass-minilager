@@ -5,16 +5,17 @@
 package com.example.extraplassminilager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Klasse {
     private int nr, antallBoder, antallOpptatt, pris;
-    private double areal, volum;
+    private float areal, volum;
     private List<Bod> boder = new ArrayList<>();
 
     public Klasse() {}
 
-    public Klasse(int nr, double areal, double volum, int pris) {
+    public Klasse(int nr, float areal, float volum, int pris) {
         this.nr = nr;
         this.areal = areal;
         this.volum = volum;
@@ -49,11 +50,11 @@ public class Klasse {
         this.antallOpptatt = antallOpptatt;
     }
 
-    public void incAntallOpptatt() {
+    public void inkrementerAntallBoderOpptatt() {
         this.antallOpptatt++;
     }
 
-    public double getAreal() {
+    public float getAreal() {
         return areal;
     }
 
@@ -61,7 +62,7 @@ public class Klasse {
         this.areal = areal;
     }
 
-    public double getVolum() {
+    public float getVolum() {
         return volum;
     }
 
@@ -85,12 +86,13 @@ public class Klasse {
         this.boder.add(bod);
     }
 
-    public void settOpptatt(List<Integer> opptatt) {
-        for (int tatt : opptatt) {
-            for (Bod bod : getBoder()) {
-                if (bod.getNr() == tatt) {
+    public void settOpptatt(List<Integer> opptatteBoderListe) {
+        for (Bod bod : getBoder()) {
+            for (int opptattBodNr : opptatteBoderListe) {
+                if (bod.getNr() == opptattBodNr) {
                     bod.settOpptatt();
-                    incAntallOpptatt();
+                    inkrementerAntallBoderOpptatt();
+                    break;
                 }
             }
         }
