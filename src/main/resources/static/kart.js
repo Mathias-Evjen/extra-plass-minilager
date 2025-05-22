@@ -459,7 +459,7 @@ function popup(bod, etasjeVar){
     //HTML koden for popup-boks
     popupBox = `
                 <div class="popup-container">
-                    <h1>Bod ${bod}</h1>
+                    <h1>Bod ${bod}, Klasse ${klasseObjekt.nr}</h1>
                     <p>Areal: ${klasseObjekt.areal}m²</p>
                     <p>Volum: ${klasseObjekt.volum}m³</p>
                     <p>Pris: ${klasseObjekt.pris}kr</p>
